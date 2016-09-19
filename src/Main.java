@@ -1,6 +1,8 @@
-/** Polina, Falk, Anders, Jonas, Marc
+/** Polina, Falk, Anders, Jonas
  * Created by tomas on 9/19/16. Falk
  */
 public class Main {
-   String HEJ;
+	public static void main(String[] args) {
+		System.out.println("TEST");
+	}
 }
