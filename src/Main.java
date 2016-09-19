@@ -1,13 +1,27 @@
-/** Polina, Falk, Anders, Jonas og Dennis und Marc
- * Created by tomas on 9/19/16.
- */
-public class Main {
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+
 	public static void main(String[] args) {
-		System.out.println("laver lige noget andet imens");
-		System.out.println("Jonas, Falk, Anders, hej med dig, jo tak");
-		System.out.println("Tomas var her");
-		System.out.println("Også Dennis The scum of doom");
-		System.out.println("kjbfdrgæo");
+		launch(args);
+	}
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+
+		BorderPane root = new BorderPane();
+		Scene scene = new Scene(root);
+
+
+
+		primaryStage.setMaximized(true);
+		//scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
 
 	}
 }
