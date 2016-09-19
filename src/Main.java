@@ -1,4 +1,4 @@
-/** Polina, Falk, Anders, Jonas og Dennis
+/** Polina, Falk, Anders, Jonas og Dennis und Marc
  * Created by tomas on 9/19/16.
  */
 public class Main {
