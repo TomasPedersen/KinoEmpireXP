@@ -6,6 +6,6 @@ public class Main {
 		System.out.println("laver lige noget andet imens");
 		System.out.println("Jonas, Falk, Anders, hej med dig, jo tak");
 		System.out.println("Tomas var her");
-		System.out.println("Også Dennis");
+		System.out.println("Også Dennis The scram master of doom");
 	}
 }
