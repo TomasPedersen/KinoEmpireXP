@@ -8,5 +8,6 @@ public class Main {
 		System.out.println("Tomas var her");
 		System.out.println("Også Dennis The scram master of doom");
 		System.out.println("kjbfdrgæo");
+
 	}
 }
