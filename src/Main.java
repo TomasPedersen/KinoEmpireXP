@@ -5,6 +5,7 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("laver lige noget andet imens");
 		System.out.println("Jonas, Falk, Anders, hej med dig, jo tak");
-		System.out.println("Polina er her");
+		System.out.println("Tomas var her");
+		System.out.println("Også Dennis");
 	}
 }
