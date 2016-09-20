@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.sql.DriverManager;
 
 public class DBHelper {
 
@@ -15,13 +16,14 @@ Password: zvlNm6q1zG
 Port number: 3306
  */
         try{
-            String url = "jdbc:mysql://slq7.freesqlhosting.net:3306";
+            String url = "jdbc:mysql://db4free.net:3306/kinoempire";
 
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
 
-            Connection connection = DriverManager.getConnection(url, "sql736625", "zvlNm6q1zG");
+            Connection connection = DriverManager.getConnection(url, "kino123", "kinoempire");
 
             System.out.println(connection);
+            connection.close();
         } catch(Exception e){
             e.printStackTrace();
         }
