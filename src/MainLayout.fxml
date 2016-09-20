@@ -12,7 +12,7 @@
          <children>
             <ImageView fitHeight="107.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@seat%20(red).png" />
+                  <Image url="@Logo.png" />
                </image>
             </ImageView>
             <HBox prefHeight="57.0" prefWidth="525.0">
