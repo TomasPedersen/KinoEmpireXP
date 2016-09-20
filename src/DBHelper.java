@@ -7,7 +7,13 @@ public class DBHelper {
     String sqlString;
 
     public static void connect(){
-
+/*
+Server: sql7.freemysqlhosting.net
+Name: sql7136625
+Username: sql7136625
+Password: zvlNm6q1zG
+Port number: 3306
+ */
         try{
             String url = "jdbc:mysql://slq7.freesqlhosting.net:3306";
 
