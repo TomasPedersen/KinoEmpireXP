@@ -8,7 +8,7 @@ import java.io.IOException;
 public class Controller {
 
     private Main main;
-    private BorderPane rootBorderPane = (BorderPane) Main.root;
+
 
     /**
      * What happenes when the menu item Film Oversigt is clicked
@@ -19,6 +19,7 @@ public class Controller {
 
         try {
             Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("view/FilmOversigt.fxml"));
+            BorderPane rootBorderPane = (BorderPane) Main.root;
             rootBorderPane.setCenter(filmOversigtNode);
         } catch (IOException e) {
             e.printStackTrace();
@@ -35,6 +36,7 @@ public class Controller {
     public void selectingKontakt() {
         try {
             Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("view/Kontakt.fxml"));
+            BorderPane rootBorderPane = (BorderPane) Main.root;
             rootBorderPane.setCenter(filmOversigtNode);
         } catch (IOException e) {
             e.printStackTrace();
