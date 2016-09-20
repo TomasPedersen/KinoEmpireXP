@@ -1,3 +1,5 @@
+package model;
+
 import java.sql.*;
 import java.sql.DriverManager;
 
@@ -9,14 +11,14 @@ public class DBHelper {
 
     public static void connect(){
 /*
-Server: sql7.freemysqlhosting.net
-Name: sql7136625
-Username: sql7136625
-Password: zvlNm6q1zG
+Server: db4free.net
+DatabaseName: kinoempire
+Username: kino123
+Password: kinoempire
 Port number: 3306
  */
         try{
-            String url = "jdbc:mysql://db4free.net:3306/kinoempire";
+            String url = "jdbc:mysql://db4free.net:3306/kinoempire?useSSL=false";
 
             Class.forName("com.mysql.jdbc.Driver").newInstance();
 
