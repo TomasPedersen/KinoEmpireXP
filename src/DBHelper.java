@@ -14,6 +14,7 @@ Name: sql7136625
 Username: sql7136625
 Password: zvlNm6q1zG
 Port number: 3306
+asd
  */
         try{
             String url = "jdbc:mysql://db4free.net:3306/kinoempire";
