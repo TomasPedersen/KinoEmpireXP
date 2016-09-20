@@ -4,6 +4,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
 public class Main extends Application{
 
 	public static void main(String[] args) {
@@ -16,9 +17,9 @@ public class Main extends Application{
 		Parent root = FXMLLoader.load(getClass().getResource("MainLayout.fxml"));
 		primaryStage.setTitle("Kino EmpireXP");
 		primaryStage.setScene(new Scene(root));
-		//primaryStage.setMaximized(true);
-		primaryStage.show();
+		primaryStage.setMaximized(true);
+		//primaryStage.show();
+		DBHelper.connect();
 	}
-
 
 }

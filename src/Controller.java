@@ -9,9 +9,7 @@ public class Controller {
     }
 
     @FXML
-    public void selectingKontakt () {
+    public void selectingKontakt() {
 
     }
-
-
 }
