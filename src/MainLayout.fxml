@@ -10,15 +10,15 @@
    <top>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="107.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="101.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Logo.png" />
                </image>
             </ImageView>
             <HBox prefHeight="57.0" prefWidth="525.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#selectingFilmOversigt" prefHeight="53.0" prefWidth="263.0" text="Film oversigt" />
-                  <Button mnemonicParsing="false" onAction="#selectingKontakt" prefHeight="53.0" prefWidth="292.0" text="Kontakt" />
+                  <Button mnemonicParsing="false" onAction="#selectingFilmOversigt" prefHeight="53.0" prefWidth="263.0" text="Film oversigt" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#selectingKontakt" prefHeight="53.0" prefWidth="292.0" text="Kontakt" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
          </children>

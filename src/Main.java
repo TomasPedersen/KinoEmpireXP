@@ -16,7 +16,7 @@ public class Main extends Application{
 		Parent root = FXMLLoader.load(getClass().getResource("MainLayout.fxml"));
 		primaryStage.setTitle("Kino EmpireXP");
 		primaryStage.setScene(new Scene(root));
-		primaryStage.setMaximized(true);
+		//primaryStage.setMaximized(true);
 		primaryStage.show();
 	}
 
