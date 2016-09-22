@@ -1,6 +1,7 @@
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.layout.BorderPane;
 
 
 import java.io.IOException;
@@ -17,9 +18,11 @@ public class Controller{
     public void selectingFilmOversigt() {
 
         try {
-            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("FilmOversigt.fxml"));
-/*            BorderPane rootBorderPane = (BorderPane) Main.root;
-            rootBorderPane.setCenter(filmOversigtNode);*/
+            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("LilleSal.fxml"));
+
+
+              BorderPane rootBorderPane = (BorderPane) Main.root;
+            rootBorderPane.setCenter(filmOversigtNode);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -47,6 +50,7 @@ public class Controller{
     @FXML
     public void thisIsTheMethod() {
         System.out.println("hello");
+
     }
 
 
