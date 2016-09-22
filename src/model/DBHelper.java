@@ -33,9 +33,45 @@ Port number: 3306
     }
 
 
-    public void updateMoviesInt(String title, String column, int number) {
+    public void updateMovies(String title, String column, Object newCell) {
         try {
-            sqlString = "UPDATE Movies SET '" + column + "' = '" + number + "' WHERE Title = '" + title + "'";
+            if(newCell instanceof String){
+                String newString = (String) newCell;
+                sqlString = "UPDATE Movies SET '" + column + "' = '" + newString + "' WHERE Title = '" + title + "'";
+                statement = connection.createStatement();
+                statement.executeUpdate(sqlString);
+            }else {
+                int newInt = (int) newCell;
+                sqlString = "UPDATE Movies SET '" + column + "' = '" + newInt + "' WHERE Title = '" + title + "'";
+                statement = connection.createStatement();
+                statement.executeUpdate(sqlString);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void updateShows(int showId, String column, Object newCell){
+        try {
+            if(newCell instanceof String){
+                String newString = (String) newCell;
+                sqlString = "UPDATE Shows SET '" + column + "' = '" + newString + "' WHERE Title = '" + showId + "'";
+                statement = connection.createStatement();
+                statement.executeUpdate(sqlString);
+            }else {
+                int newInt = (int) newCell;
+                sqlString = "UPDATE Shows SET '" + column + "' = '" + newInt + "' WHERE Title = '" + showId + "'";
+                statement = connection.createStatement();
+                statement.executeUpdate(sqlString);
+            }
+           }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void updateCustomers(String email, String column, String newCell){
+        try {
+            sqlString = "UPDATE Customers SET '" + column + "' = '" + newCell + "' WHERE Title = '" + email + "'";
             statement = connection.createStatement();
             statement.executeUpdate(sqlString);
         }catch(Exception e){
@@ -43,32 +79,20 @@ Port number: 3306
         }
     }
 
-    public void updateShowsInt(int showId, String column, int number){
+    public void updateSales(int SalesId, String column, Object newCell){
         try {
-            sqlString = "UPDATE Shows SET '" + column + "' = '" + number + "' WHERE Title = '" + showId + "'";
-            statement = connection.createStatement();
-            statement.executeUpdate(sqlString);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    public void updateCustomersInt(String email, String column, int number){
-        try {
-            sqlString = "UPDATE Customers SET '" + column + "' = '" + number + "' WHERE Title = '" + email + "'";
-            statement = connection.createStatement();
-            statement.executeUpdate(sqlString);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    public void updateLogInt(int SalesId, String column, int number){
-        try {
-            sqlString = "UPDATE Log SET '" + column + "' = '" + number + "' WHERE Title = '" + SalesId + "'";
-            statement = connection.createStatement();
-            statement.executeUpdate(sqlString);
-        }catch(Exception e){
+            if(newCell instanceof String){
+                String newString = (String) newCell;
+                sqlString = "UPDATE Log SET '" + column + "' = '" + newString + "' WHERE Title = '" + SalesId + "'";
+                statement = connection.createStatement();
+                statement.executeUpdate(sqlString);
+            }else {
+                int newInt = (int) newCell;
+                sqlString = "UPDATE Log SET '" + column + "' = '" + newInt + "' WHERE Title = '" + SalesId + "'";
+                statement = connection.createStatement();
+                statement.executeUpdate(sqlString);
+            }
+        }catch(Exception e) {
             e.printStackTrace();
         }
     }
@@ -123,7 +147,7 @@ Port number: 3306
 
     public void insertSale(Sale sale){
         try {
-            sqlString = "INSERT INTO Customers VALUES '"
+            sqlString = "INSERT INTO Sales VALUES '"
                     + sale.getShow()
                     + "','" + sale.getCustomer()
                     + "','" + sale.getSeatIndex()
