@@ -19,6 +19,8 @@ public class Controller {
 
         try {
             Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("view/FilmOversigt.fxml"));
+            //Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("view/LilleSal.fxml"));
+
             BorderPane rootBorderPane = (BorderPane) Main.root;
             rootBorderPane.setCenter(filmOversigtNode);
         } catch (IOException e) {

@@ -5,10 +5,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import model.Film;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class FilmNodesToFilmOversigt {
@@ -35,4 +35,11 @@ public class FilmNodesToFilmOversigt {
         }
         return listOfNodes;
     }
+
+    public void positionNodesInGridPane(ArrayList<Node> nodeList, GridPane gridPane){
+
+
+    }
+
+
 }
