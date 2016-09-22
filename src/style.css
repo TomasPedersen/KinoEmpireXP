@@ -19,12 +19,13 @@ http://www.flaticon.com/free-icon/seat_126893#term=cinema%20chair&page=1&positio
 
 
 #menu_button{
-    -fx-background-color: #ff9e80;
-    -fx-text-fill: black;
+    -fx-background-color: linear-gradient(#ff3c3a, #be1d05);
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
     -fx-font-size: 1.6em;
-
 }
 
 #menu_button:hover{
-    -fx-background-color: #ff3331;
+    -fx-background-color: linear-gradient(#be1d05, #ff3c3a);
 }
