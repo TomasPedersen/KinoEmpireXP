@@ -26,9 +26,9 @@
             <Font size="12.0" />
           </font>
         </Label>
-        <Label fx:id="messageLabel" prefHeight="49.0" prefWidth="344.0" text="Husk At Spørge Om Alder" textAlignment="LEFT" wrapText="true">
+        <Label fx:id="messageLabel" prefHeight="49.0" prefWidth="354.0" text="Husk At Spørge Om Alder" textAlignment="LEFT" wrapText="true">
           <font>
-            <Font name="Comic Sans MS Bold" size="25.0" />
+            <Font name="Comic Sans MS Bold" size="27.0" />
           </font>
         </Label>
       </children>
