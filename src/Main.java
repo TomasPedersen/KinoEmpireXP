@@ -18,6 +18,8 @@ public class Main extends Application{
 		// test if the connection works
 		//DBHelper.connect();
 
+
+
 		root = FXMLLoader.load(getClass().getResource("view/MainLayout.fxml"));
 		primaryStage.setTitle("Kino EmpireXP");
 		primaryStage.setScene(new Scene(root));
