@@ -50,7 +50,7 @@ public class Controller {
     }
 
 
-/*    @FXML
+    @FXML
     public void toggleUpdate(MouseEvent event) {
 
         //ToggleButton toggleButton = (ToggleButton) event.getSource();
@@ -60,7 +60,7 @@ public class Controller {
 
         event.consume();
 
-    }*/
+    }
 
 
 

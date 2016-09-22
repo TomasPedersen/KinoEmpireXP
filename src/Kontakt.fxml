@@ -8,6 +8,6 @@
    <children>
       <RadioButton mnemonicParsing="false" text="RadioButton" />
       <RadioButton mnemonicParsing="false" text="RadioButton" />
-      <Button mnemonicParsing="false" onAction="#thisIsTheMethod" text="Button" />
+      <Button mnemonicParsing="false" text="Button" />
    </children>
 </FlowPane>

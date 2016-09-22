@@ -53,7 +53,7 @@
         </rowConstraints>
          <children>
             <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.rowIndex="1" />
-            <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggleUpdate2" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.columnIndex="1" />
+            <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.columnIndex="1" />
             <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.rowIndex="2" />
             <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -324,7 +324,7 @@
             <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.columnIndex="12" GridPane.rowIndex="6" />
             <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.columnIndex="11" GridPane.rowIndex="5" />
             <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.columnIndex="11" GridPane.rowIndex="6" />
-            <ToggleButton fx:id="s1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggleUpdate" onMouseClicked="#toggleUpdate" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" />
+            <ToggleButton fx:id="s1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#toggleUpdate" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" />
          </children>
       </GridPane>
    </center>
