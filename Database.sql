@@ -22,19 +22,16 @@ USE `kinoempire` ;
 DROP TABLE IF EXISTS `kinoempire`.`Movies` ;
 
 CREATE TABLE IF NOT EXISTS `kinoempire`.`Movies` (
-  `Title` VARCHAR(45) NOT NULL,
-  `Genre` VARCHAR(45) NULL,
-  `Length` INT NULL,
-  `Description` VARCHAR(45) NULL,
-  `Release Date` DATE NULL,
-  `Numbers Sold` INT NULL,
-  `Price 1` INT NULL,
-  `Price 2` INT NULL,
-  `Director` VARCHAR(45) NULL,
-  `Copyright` VARCHAR(45) NULL,
+  `Danish Title` VARCHAR(45) NOT NULL,
   `Original Title` VARCHAR(45) NULL,
-  `Versions` VARCHAR(45) NULL,
+  `Genre` VARCHAR(45) NULL,
+  `Filmlength` INT NULL,
+  `Filmdescription` VARCHAR(45) NULL,
+  `Release Date` DATE NULL,
+  `Price` INT NULL,
+  `Director` VARCHAR(45) NULL,
   `Age Restriction` INT NULL,
+  `Versions` VARCHAR(45),
   PRIMARY KEY (`Title`));
 
 
@@ -76,14 +73,14 @@ CREATE TABLE IF NOT EXISTS `kinoempire`.`Customers` (
 -- Table `KinoXP`.`Log`
 -- -----------------------------------------------------
 
-DROP TABLE IF EXISTS `kinoempire`.`Log` ;
+DROP TABLE IF EXISTS `kinoempire`.`Sales` ;
 
-CREATE TABLE IF NOT EXISTS `kinoempire`.`Log` (
+CREATE TABLE IF NOT EXISTS `kinoempire`.`Sales` (
   `sales_id` INT NOT NULL AUTO_INCREMENT,
   `Show` INT NULL,
   `Customer` VARCHAR(45) NULL,
-  `Seat` INT NULL,
-  `Time` INT NULL,
+  `SeatIndex` INT NULL,
+  `TimeOfSale` DATETIME NULL,
   `Status` VARCHAR(45) NULL,
   PRIMARY KEY (`sales_id`),
   INDEX `fk_show_idx` (`Show` ASC),
