@@ -3,7 +3,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.DBHelper;
 
 public class Main extends Application{
 
@@ -15,10 +14,7 @@ public class Main extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		// test if the connection works
-		DBHelper.connect();
-
-		root = FXMLLoader.load(getClass().getResource("view/MainLayout.fxml"));
+		root = FXMLLoader.load(getClass().getResource("MainLayout.fxml"));
 		primaryStage.setTitle("Kino EmpireXP");
 		primaryStage.setScene(new Scene(root));
 		primaryStage.show();

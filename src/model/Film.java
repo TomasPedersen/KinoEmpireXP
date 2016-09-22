@@ -1,24 +1,28 @@
 package model;
 
+import java.time.LocalDate;
+
 public class Film {
 
-    private String originalTitle;
     private String danishTitle;
+    private String originalTitle;
     private String Genre;
     private double filmLength;
     private String filmDescription;
-    private double price1;
+    private LocalDate releaseDate;
+    private double price;
     private String director;
     private int ageRestriction;
-    private String versions; // language, subtitles, 3d
+    private String versions; // language, subtitles and 3d
 
-    public Film(String originalTitle, String danishTitle, String genre, double filmLength, String filmDescription, double price1, String director, int ageRestriction, String versions) {
+    public Film(String originalTitle, String danishTitle, String genre, double filmLength, String filmDescription, LocalDate releaseDate, double price, String director, int ageRestriction, String versions) {
         this.originalTitle = originalTitle;
         this.danishTitle = danishTitle;
-        Genre = genre;
+        this.Genre = genre;
         this.filmLength = filmLength;
         this.filmDescription = filmDescription;
-        this.price1 = price1;
+        this.releaseDate = releaseDate;
+        this.price = price;
         this.director = director;
         this.ageRestriction = ageRestriction;
         this.versions = versions;
@@ -64,12 +68,12 @@ public class Film {
         this.filmDescription = filmDescription;
     }
 
-    public double getPrice1() {
-        return price1;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPrice1(double price1) {
-        this.price1 = price1;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public String getDirector() {
@@ -95,4 +99,14 @@ public class Film {
     public void setVersions(String versions) {
         this.versions = versions;
     }
+
+    public LocalDate getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(LocalDate releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
 }
+

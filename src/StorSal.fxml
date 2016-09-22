@@ -16,6 +16,6 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ToggleButton mnemonicParsing="false" prefHeight="24.0" prefWidth="0.0" stylesheets="@../style.css" GridPane.rowIndex="1" />
+      <ToggleButton mnemonicParsing="false" prefHeight="24.0" prefWidth="0.0" stylesheets="@style.css" GridPane.rowIndex="1" />
    </children>
 </GridPane>
