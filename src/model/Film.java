@@ -7,18 +7,18 @@ public class Film {
     private String Genre;
     private double filmLength;
     private String filmDescription;
-    private double price1;
+    private double price;
     private String director;
     private int ageRestriction;
     private String versions; // language, subtitles, 3d
 
-    public Film(String originalTitle, String danishTitle, String genre, double filmLength, String filmDescription, double price1, String director, int ageRestriction, String versions) {
+    public Film(String originalTitle, String danishTitle, String genre, double filmLength, String filmDescription, double price, String director, int ageRestriction, String versions) {
         this.originalTitle = originalTitle;
         this.danishTitle = danishTitle;
-        Genre = genre;
+        this.Genre = genre;
         this.filmLength = filmLength;
         this.filmDescription = filmDescription;
-        this.price1 = price1;
+        this.price = price;
         this.director = director;
         this.ageRestriction = ageRestriction;
         this.versions = versions;
@@ -64,12 +64,12 @@ public class Film {
         this.filmDescription = filmDescription;
     }
 
-    public double getPrice1() {
-        return price1;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPrice1(double price1) {
-        this.price1 = price1;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public String getDirector() {
