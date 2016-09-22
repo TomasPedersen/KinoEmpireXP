@@ -17,7 +17,7 @@ public class Main extends Application{
 		root = FXMLLoader.load(getClass().getResource("MainLayout.fxml"));
 		primaryStage.setTitle("Kino EmpireXP");
 		Scene scene = new Scene(root);
-		/*scene.getStylesheets().setAll(getClass().getResource("stylesheet.css").toExternalForm());*/
+		root.getStylesheets().add(getClass().getResource("style.css").toString());
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}

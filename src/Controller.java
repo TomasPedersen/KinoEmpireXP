@@ -53,10 +53,10 @@ public class Controller {
     @FXML
     public void toggleUpdate(MouseEvent event) {
 
-        //ToggleButton toggleButton = (ToggleButton) event.getSource();
-        //toggleButton.getId();
-        //System.out.println(toggleButton);
-        //System.out.println(toggleButton.getId());
+        ToggleButton toggleButton = (ToggleButton) event.getSource();
+        toggleButton.getId();
+        System.out.println(toggleButton);
+        System.out.println(toggleButton.getId());
 
         event.consume();
 
