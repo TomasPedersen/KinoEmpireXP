@@ -89,7 +89,6 @@ CREATE TABLE IF NOT EXISTS `kinoempire`.`Movies` (
   `Age Restriction` INT NULL,
   PRIMARY KEY (`Title`));
 
-
 -- -----------------------------------------------------
 -- Table `KinoXP`.`Shows`
 -- -----------------------------------------------------
