@@ -73,21 +73,69 @@ Port number: 3306
         }
     }
 
-//    public void insertMovie(Movie movie) {
-//
-//    }
-//
-//    public void insertShow(Show show){
-//
-//    }
-//
-//    public void insertCustomer(Customer customer){
-//
-//    }
-//
-//    public void insertLog(Log log){
-//
-//    }
+    public void insertMovie(Film movie) {
+        try {
+            sqlString = "INSERT INTO Movies VALUES '"
+                    + movie.getDanishTitle()
+                    + "','" + movie.getOriginalTitle()
+                    + "','" + movie.getGenre()
+                    + "','" + movie.getFilmLength()
+                    + "','" + movie.getFilmDescription()
+                    + "','" + movie.getPrice1()
+                    + "','" + movie.getDirector()
+                    + "','" + movie.getAgeRestriction()
+                    + "','" + movie.getVersions() + "'";
+            statement = connection.createStatement();
+            statement.executeUpdate(sqlString);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
+    public void insertShow(Show show){
+        try {
+            sqlString = "INSERT INTO Shows VALUES '"
+                    + show.getFilm()
+                    + "','" + show.getDate()
+                    + "','" + show.getLilleSalSeatList()
+                    + "','" + show.getStorSalSeatList() + "'";
+            statement = connection.createStatement();
+            statement.executeUpdate(sqlString);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void insertCustomer(Customer customer){
+        try {
+            sqlString = "INSERT INTO Customers VALUES '"
+                    + customer.getEmail()
+                    + "','" + customer.getName()
+                    + "','" + customer.getPhoneNumber()
+                    + "'";
+            statement = connection.createStatement();
+            statement.executeUpdate(sqlString);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void insertSale(Sale sale){
+        try {
+            sqlString = "INSERT INTO Customers VALUES '"
+                    + sale.getShow()
+                    + "','" + sale.getCustomer()
+                    + "','" + sale.getSeatIndex()
+                    + "','" + sale.getTimeOfSale()
+                    + "','" + sale.getStatus()
+                    + "'";
+            statement = connection.createStatement();
+            statement.executeUpdate(sqlString);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 
     public void select() {
 
