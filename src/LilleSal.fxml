@@ -6,11 +6,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="804.0" prefWidth="1278.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="804.0" prefWidth="1278.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LilleSalController">
    <center>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="639.0" prefWidth="669.0" translateX="-100.0" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -53,7 +55,7 @@
         </rowConstraints>
          <children>
             <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.rowIndex="1" />
-            <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.columnIndex="1" />
+            <ToggleButton fx:id="s1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#toggleUpdate" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.columnIndex="1" />
             <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.rowIndex="2" />
             <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -324,7 +326,7 @@
             <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.columnIndex="12" GridPane.rowIndex="6" />
             <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.columnIndex="11" GridPane.rowIndex="5" />
             <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.columnIndex="11" GridPane.rowIndex="6" />
-            <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" />
+            <ToggleButton fx:id="s0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#toggleUpdate" prefHeight="28.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" />
          </children>
       </GridPane>
    </center>
@@ -332,16 +334,29 @@
       <Pane prefHeight="87.0" prefWidth="1278.0" BorderPane.alignment="CENTER">
          <children>
             <Line endX="400.0" layoutX="438.0" layoutY="73.0" scaleX="2.0" />
-            <Label layoutX="271.0" layoutY="4.0" text="Vælg placering" />
+            <Label layoutX="271.0" layoutY="4.0" text="Vælg placering">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
          </children>
       </Pane>
    </top>
    <left>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="44.0" layoutY="618.0" mnemonicParsing="false" text="Godkend valg" />
-            <Label layoutX="52.0" layoutY="76.0" text="Valgte sæder: " />
-            <Label layoutX="82.0" layoutY="126.0" text="Pris:" />
+            <Button layoutX="44.0" layoutY="618.0" mnemonicParsing="false" onMouseClicked="#godkendBetaling" text="Godkend valg" />
+            <HBox layoutX="27.0" prefHeight="100.0" prefWidth="173.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="114.0" text="Antal valgte sæder: " />
+                  <Label fx:id="valgte_saeder" prefHeight="17.0" prefWidth="9.0" text="0" />
+               </children>
+            </HBox>
+            <HBox layoutX="29.0" layoutY="100.0" prefHeight="91.0" prefWidth="171.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="42.0" text="Pris:" />
+                  <Label fx:id="total_pris" text="0" />
+               </children>
+            </HBox>
          </children></Pane>
    </left>
 </BorderPane>
