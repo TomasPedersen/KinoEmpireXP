@@ -73,9 +73,9 @@ CREATE TABLE IF NOT EXISTS `kinoempire`.`Customers` (
 -- -----------------------------------------------------
 -- Table `KinoXP`.`Log`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `kinoempire`.`Log` ;
+DROP TABLE IF EXISTS `kinoempire`.`Sale` ;
 
-CREATE TABLE IF NOT EXISTS `kinoempire`.`Log` (
+CREATE TABLE IF NOT EXISTS `kinoempire`.`Sale` (
   `sales_id` INT NOT NULL,
   `Show` INT NULL,
   `Customer` VARCHAR(45) NULL,
