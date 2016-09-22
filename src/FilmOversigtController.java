@@ -1,5 +1,3 @@
-package view;
-
 import javafx.fxml.FXML;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
