@@ -13,7 +13,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 DROP SCHEMA IF EXISTS `kinoempire`;
 CREATE SCHEMA IF NOT EXISTS `kinoempire` DEFAULT CHARACTER SET utf8 ;
-USE `kinoempire` ;
+USE `kinoempire`;
 
 -- -----------------------------------------------------
 -- Table `KinoXP`.`Movies`
