@@ -6,7 +6,6 @@ import java.sql.DriverManager;
 public class DBHelper {
 
     Statement statement;
-    PreparedStatement prepStatement;
     ResultSet resultSet;
     String sqlString;
     Connection connection;
@@ -27,13 +26,11 @@ Port number: 3306
             connection = DriverManager.getConnection(url, "kino123", "kinoempire");
 
             System.out.println(connection);
-            //connection.close();
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-    //Husk at tage højde for at parametrene kan bestå af flere ord!!
 
 
     public void updateMovies(String title, String column, Object newCell) {
@@ -108,7 +105,6 @@ Port number: 3306
                     + "','" + movie.getGenre()
                     + "','" + movie.getFilmLength()
                     + "','" + movie.getFilmDescription()
-                    + "','" + movie.getReleaseDate()
                     + "','" + movie.getPrice()
                     + "','" + movie.getDirector()
                     + "','" + movie.getAgeRestriction()
@@ -137,10 +133,11 @@ Port number: 3306
 
     public void insertCustomer(Customer customer) {
         try {
-            sqlString = "INSERT INTO Customers VALUES "
+            sqlString = "INSERT INTO Customers VALUES '"
                     + customer.getEmail()
-                    + "," + customer.getName()
-                    + "," + customer.getPhoneNumber() + "";
+                    + "','" + customer.getName()
+                    + "','" + customer.getPhoneNumber()
+                    + "'";
             statement = connection.createStatement();
             statement.executeUpdate(sqlString);
         } catch (Exception e) {
@@ -167,12 +164,12 @@ Port number: 3306
     public ResultSet selectFromMovies(String title, String column) {
         try {
             statement = connection.createStatement();
-            if (title == null) {
-                sqlString = "select " + column + " from Movies";
+            if (title.equals(null)) {
+                sqlString = "select " + column + "from Movies";
                 resultSet = statement.executeQuery(sqlString);
 
             } else {
-                sqlString = "select " + column + " from Movies where 'Danish Title' = '" + title + "'";
+                sqlString = "select " + column + " from Movies where Title =" + title;
                 resultSet = statement.executeQuery(sqlString);
             }
         } catch (Exception e) {
@@ -184,7 +181,7 @@ Port number: 3306
     public ResultSet selectFromShows(int show_id, String column) {
         try {
             statement = connection.createStatement();
-            sqlString = "select " + column + " from Shows where Show_id = " + show_id + "";
+            sqlString = "select " + column + "from Shows where Show_id = " + show_id;
             resultSet = statement.executeQuery(sqlString);
 
         } catch (Exception e) {
@@ -197,7 +194,7 @@ Port number: 3306
     public ResultSet selectColumnFromShows(String column) {
         try {
             statement = connection.createStatement();
-            sqlString = "select " + column + " from Shows";
+            sqlString = "select" + column + "from Shows";
             resultSet = statement.executeQuery(sqlString);
         } catch (Exception e) {
             e.printStackTrace();
@@ -208,11 +205,11 @@ Port number: 3306
     public ResultSet selectFromCustomers(String email, String column) {
         try {
             statement = connection.createStatement();
-            if (email == null) {
+            if (email.equals(null)) {
                 sqlString = "select " + column + " from Customers";
                 resultSet = statement.executeQuery(sqlString);
             } else {
-                sqlString = "select " + column + " from Customers where E-mail = " + email + "";
+                sqlString = "select " + column + " from Customers where email = " + email;
                 resultSet = statement.executeQuery(sqlString);
             }
         } catch (Exception e) {
@@ -224,7 +221,7 @@ Port number: 3306
     public ResultSet selectFromSales(int sales_id, String column) {
         try {
             statement = connection.createStatement();
-            sqlString = "select " + column + " from Sales where sales_id =" + sales_id + "";
+            sqlString = "select " + column + " from Sales where sales_id =" + sales_id;
             resultSet = statement.executeQuery(sqlString);
         } catch (Exception e) {
             e.printStackTrace();
@@ -249,7 +246,7 @@ Port number: 3306
             sqlString = "delete from " + table + " where (SELECT `COLUMN_NAME`" +
                     "FROM `information_schema`.`COLUMNS`" +
                     "WHERE (`TABLE_NAME` = " + table +
-                    "  AND (`COLUMN_KEY` = 'PRI') = " + primaryKey + "";
+                    " AND (`COLUMN_KEY` = 'PRI') = " + primaryKey;
             statement = connection.createStatement();
             statement.executeUpdate(sqlString);
         } catch (Exception e) {

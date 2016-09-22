@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Line?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="804.0" prefWidth="1278.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#toggleUpdate" onMouseDragged="#selectingFilmOversigt" prefHeight="804.0" prefWidth="1278.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <center>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="639.0" prefWidth="669.0" translateX="-100.0" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -324,7 +324,7 @@
             <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.columnIndex="12" GridPane.rowIndex="6" />
             <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.columnIndex="11" GridPane.rowIndex="5" />
             <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" GridPane.columnIndex="11" GridPane.rowIndex="6" />
-            <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" />
+            <ToggleButton fx:id="s1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#toggleUpdate" prefHeight="27.0" prefWidth="36.0" stylesheets="@../Documents/GitHub/KinoEmpireXP/src/style.css" />
          </children>
       </GridPane>
    </center>
