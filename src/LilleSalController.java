@@ -38,7 +38,6 @@ public class LilleSalController {
         ToggleButton toggleButton = (ToggleButton) event.getSource();
         String idString = toggleButton.getId();
         int id = Integer.parseInt(idString.substring(1,idString.length()));
-        System.out.println("The ID is: " + id);
 
         for (int reservedId: reservedSeatList) {
             if (id == reservedId) {
@@ -64,8 +63,10 @@ public class LilleSalController {
 
         } else {
 
-            if(choosenSeats != null && choosenSeats.size() <= id) {
-                choosenSeats.remove(id);
+            for(int i = 0; i <= choosenSeats.size(); i++) {
+                if(choosenSeats.get(i) == id) {
+                    choosenSeats.remove(i);
+                }
             }
 
 
