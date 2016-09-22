@@ -161,14 +161,83 @@ Port number: 3306
         }
     }
 
-    public void select() {
+    public ResultSet selectFromMovies(String title, String column) {
+        try {
+            if (title.equals(null)) {
+                sqlString = "select " + column + "from Movies";
+                resultSet = statement.executeQuery(sqlString);
+            }else{
+                sqlString = "select " + column + " from Movies where Title =" + title;
+                    resultSet = statement.executeQuery(sqlString);
 
+                }
+            } catch(Exception e){
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+    public ResultSet selectFromShows(int show_id, String column) {
+        try {
+                sqlString = "select " + column + "from Shows where Show_id = " + show_id;
+                resultSet = statement.executeQuery(sqlString);
+
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        return resultSet;
+
+    }
+
+    public ResultSet selectColumnFromShows(String column){
+        try {
+            sqlString = "select" + column + "from Shows";
+            resultSet = statement.executeQuery(sqlString);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public ResultSet selectFromCustomers(String email, String column) {
+        try {
+            if(email.equals(null)){
+            sqlString = "select " + column +"from Customers";
+                resultSet = statement.executeQuery(sqlString);
+        } else{
+                sqlString = "select " + column +" from Customers where email = " + email;
+                resultSet = statement.executeQuery(sqlString);
+        } }catch(Exception e){
+        e.printStackTrace();
+    }
+        return resultSet;
+    }
+    public ResultSet selectFromSales(int sales_id, String column) {
+        try {
+            sqlString = "select " + column + " from Sales where sales_id =" + sales_id;
+            resultSet = statement.executeQuery(sqlString);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public ResultSet selectColumnFromSales(String column){
+        try{
+           sqlString = "select "+ column + " from Sales";
+            resultSet = statement.executeQuery(sqlString);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        return resultSet;
     }
 
 
 
-    public void delete() {
+    public ResultSet delete(Object primaryKey, String table) {
+        sqlString = "delete from "+ table +" where"+ primaryKey;
 
+
+        return resultSet;
     }
 
 }
