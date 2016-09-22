@@ -8,12 +8,9 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema KinoXP
+-- Schema kinoempire
 -- -----------------------------------------------------
 
--- -----------------------------------------------------
--- Schema KinoXP
--- -----------------------------------------------------
 DROP SCHEMA IF EXISTS `kinoempire`;
 CREATE SCHEMA IF NOT EXISTS `kinoempire` DEFAULT CHARACTER SET utf8 ;
 USE `kinoempire` ;
@@ -21,6 +18,7 @@ USE `kinoempire` ;
 -- -----------------------------------------------------
 -- Table `KinoXP`.`Movies`
 -- -----------------------------------------------------
+
 DROP TABLE IF EXISTS `kinoempire`.`Movies` ;
 
 CREATE TABLE IF NOT EXISTS `kinoempire`.`Movies` (
@@ -28,6 +26,7 @@ CREATE TABLE IF NOT EXISTS `kinoempire`.`Movies` (
   `Genre` VARCHAR(45) NULL,
   `Length` INT NULL,
   `Description` VARCHAR(45) NULL,
+  `Release Date` DATE NULL,
   `Numbers Sold` INT NULL,
   `Price 1` INT NULL,
   `Price 2` INT NULL,
@@ -38,9 +37,11 @@ CREATE TABLE IF NOT EXISTS `kinoempire`.`Movies` (
   `Age Restriction` INT NULL,
   PRIMARY KEY (`Title`));
 
+
 -- -----------------------------------------------------
 -- Table `KinoXP`.`Shows`
 -- -----------------------------------------------------
+
 DROP TABLE IF EXISTS `kinoempire`.`Shows` ;
 
 CREATE TABLE IF NOT EXISTS `kinoempire`.`Shows` (
@@ -52,8 +53,8 @@ CREATE TABLE IF NOT EXISTS `kinoempire`.`Shows` (
   PRIMARY KEY (`show_id`),
   INDEX `fk_movies_idx` (`Title` ASC),
   CONSTRAINT `fk_movies`
-    FOREIGN KEY (`Title`)
-    REFERENCES `kinoempire`.`Movies` (`Title`)
+  FOREIGN KEY (`Title`)
+  REFERENCES `kinoempire`.`Movies` (`Title`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -61,6 +62,7 @@ CREATE TABLE IF NOT EXISTS `kinoempire`.`Shows` (
 -- -----------------------------------------------------
 -- Table `KinoXP`.`Customers`
 -- -----------------------------------------------------
+
 DROP TABLE IF EXISTS `kinoempire`.`Customers` ;
 
 CREATE TABLE IF NOT EXISTS `kinoempire`.`Customers` (
@@ -73,26 +75,27 @@ CREATE TABLE IF NOT EXISTS `kinoempire`.`Customers` (
 -- -----------------------------------------------------
 -- Table `KinoXP`.`Log`
 -- -----------------------------------------------------
+
 DROP TABLE IF EXISTS `kinoempire`.`Log` ;
 
 CREATE TABLE IF NOT EXISTS `kinoempire`.`Log` (
   `sales_id` INT NOT NULL,
   `Show` INT NULL,
   `Customer` VARCHAR(45) NULL,
-  `Seat` VARCHAR(45) NULL,
+  `Seat` INT NULL,
   `Time` INT NULL,
   `Status` VARCHAR(45) NULL,
   PRIMARY KEY (`sales_id`),
   INDEX `fk_show_idx` (`Show` ASC),
   INDEX `fk_customer_idx` (`Customer` ASC),
   CONSTRAINT `fk_show`
-    FOREIGN KEY (`Show`)
-    REFERENCES `kinoempire`.`Shows` (`show_id`)
+  FOREIGN KEY (`Show`)
+  REFERENCES `kinoempire`.`Shows` (`show_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_customer`
-    FOREIGN KEY (`Customer`)
-    REFERENCES `kinoempire`.`Customers` (`E-mail`)
+  FOREIGN KEY (`Customer`)
+  REFERENCES `kinoempire`.`Customers` (`E-mail`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
