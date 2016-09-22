@@ -8,13 +8,16 @@ http://4vector.com/free-vector/2-beautiful-curtain-vector-5750 */
 image by by Freepik
 http://www.flaticon.com/free-icon/seat_126893#term=cinema%20chair&page=1&position=23 */
 .toggle-button{
-    -fx-graphic: url('Images/seat%20(black).png');
+    -fx-graphic: url('images/seat%20(black).png');
 }
 
 .toggle-button:selected{
-    -fx-graphic: url('Images/seat%20(blue).png');
+    -fx-graphic: url('images/seat%20(blue).png');
 }
 
+#reserved_seats{
+    -fx-graphic: url('images/seat%20(red).png');
+}
 
 
 

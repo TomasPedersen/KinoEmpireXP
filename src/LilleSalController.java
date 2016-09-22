@@ -11,12 +11,23 @@ public class LilleSalController {
 
     // get The film object
     // get the show object
-    // get the seating arrangement
+    ArrayList<Integer> reservedSeatList = new ArrayList<>(); // get the seating arrangement
     ArrayList<Integer> choosenSeats = new ArrayList<>();
 
     private int amountOfSeatsChoosen = 0;
     private int price = 0;
 
+
+    @FXML
+    public void instantiate() {
+        BorderPane root = (BorderPane) Main.root;
+        int id = 0;
+        String idString = "#s" + id;
+        ToggleButton toggleButton = (ToggleButton) root.lookup(idString);
+        toggleButton.setId("reserved_seats");
+        toggleButton.setSelected(true);
+
+    }
 
 
     @FXML
@@ -25,6 +36,13 @@ public class LilleSalController {
         ToggleButton toggleButton = (ToggleButton) event.getSource();
         String idString = toggleButton.getId();
         int id = Integer.parseInt(idString.substring(1,idString.length()));
+
+        for (int reservedId: reservedSeatList) {
+            if (id == reservedId) {
+                return;
+            }
+        }
+
         // remove the s
         // account for 0 index
 
@@ -32,12 +50,7 @@ public class LilleSalController {
         if(toggleButton.isSelected()) {
 
 
-/*            Seat seat = seatList.get(id);
-            seat.setReserved(true);
-            seatList.set(id, seat);*/
-
-
-
+            choosenSeats.add(id);
 
             BorderPane root = (BorderPane) Main.root;
             amountOfSeatsChoosen++;
@@ -50,8 +63,12 @@ public class LilleSalController {
         } else {
 
 
+            for(int seatIndex: choosenSeats) {
+                if (seatIndex == id) {
+                    choosenSeats.remove(seatIndex);
+                }
+            }
 
-            choosenSeats.add(id);
 
             BorderPane root = (BorderPane) Main.root;
             amountOfSeatsChoosen--;
@@ -65,12 +82,15 @@ public class LilleSalController {
     }
 
 
-
+    @FXML
     public void godkendBetaling() {
 
-        // this is for when the button is clicked
-        // next fxml node
-        // if the payment has been processed, then save choosenSeats in the database
+        // todo remove this from here.. for testing purposes
+        instantiate();
+
+        // this is for when the godkend button is clicked
+        // next fxml node will be called here and put on root.setCenter();
+        // pass choosenSeats and save them in the db only AFTER the payment has been processed
 
     }
 
