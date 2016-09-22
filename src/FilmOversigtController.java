@@ -14,7 +14,7 @@ public class FilmOversigtController {
         GridPane gridPane = (GridPane) root.lookup("#GRIDPANEID");  // please change the ID accordingly
         gridPane = filmNodes.gridPaneOfFilmNodes();  // remember that this method will take localdate as parameter
         // create a combobox or datepicker from which you can get the date
-
+//
         }
 
 
