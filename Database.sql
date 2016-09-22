@@ -28,8 +28,7 @@ CREATE TABLE IF NOT EXISTS `kinoempire`.`Movies` (
   `Description` VARCHAR(45) NULL,
   `Release Date` DATE NULL,
   `Numbers Sold` INT NULL,
-  `Price 1` INT NULL,
-  `Price 2` INT NULL,
+  `Price` INT NULL,
   `Director` VARCHAR(45) NULL,
   `Copyright` VARCHAR(45) NULL,
   `Original Title` VARCHAR(45) NULL,
@@ -55,8 +54,8 @@ CREATE TABLE IF NOT EXISTS `kinoempire`.`Shows` (
   CONSTRAINT `fk_movies`
   FOREIGN KEY (`Title`)
   REFERENCES `kinoempire`.`Movies` (`Title`)
-    ON DELETE SET NULL
-    ON UPDATE CASCADE);
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -68,7 +67,7 @@ DROP TABLE IF EXISTS `kinoempire`.`Customers` ;
 CREATE TABLE IF NOT EXISTS `kinoempire`.`Customers` (
   `E-mail` VARCHAR(45) NOT NULL,
   `Name` VARCHAR(45) NULL,
-  `Phone Number` VARCHAR(11) NULL,
+  `Phone Number` INT NULL,
   PRIMARY KEY (`E-mail`));
 
 
@@ -91,13 +90,13 @@ CREATE TABLE IF NOT EXISTS `kinoempire`.`Log` (
   CONSTRAINT `fk_show`
   FOREIGN KEY (`Show`)
   REFERENCES `kinoempire`.`Shows` (`show_id`)
-    ON DELETE SET NULL
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_customer`
   FOREIGN KEY (`Customer`)
   REFERENCES `kinoempire`.`Customers` (`E-mail`)
-    ON DELETE SET NULL
-    ON UPDATE CASCADE);
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

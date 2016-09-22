@@ -28,8 +28,7 @@ CREATE TABLE IF NOT EXISTS `kinoempire`.`Movies` (
   `Description` VARCHAR(45) NULL,
   `Release Date` DATE NULL,
   `Numbers Sold` INT NULL,
-  `Price 1` INT NULL,
-  `Price 2` INT NULL,
+  `Price` INT NULL,
   `Director` VARCHAR(45) NULL,
   `Copyright` VARCHAR(45) NULL,
   `Original Title` VARCHAR(45) NULL,
@@ -114,11 +113,11 @@ INSERT INTO `kinoempire`.`Customers` (`E-mail`, `Name`, `Phone Number`) VALUES
 ('Kurt@email.com', 'Kurt Kurtsen', '00110011'), 
 ('Bo@email.com', 'Bo Bosen', '34343434');
 
-INSERT INTO `kinoempire`.`Movies` (`Title`, `Genre`, `Length`, `Description`, `Release Date`, `Numbers Sold`, `Price 1`, `Price 2`, `Director`, `Copyright`, `Original Title`, `Versions`, `Age Restriction`) VALUES 
-('En Mand Der Hedder Ove', 'Drama, Romantik', '116', 'x', '2016-05-26', '4', '80', '80', 'Hannes Holm', 'Nordisk Film', 'En Mand Som Heter Ove', '2D', '11'), 
-('Warcraft', 'Adventure', '123', 'x', '2016-05-26', '4', '80', '90', 'Duncan Jones', 'Universal Pictures', 'Warcraft', '3D, 2D, IMAX 3D', '11'), 
-('Mig Før Dig', 'Drama, Romantik', '110', 'x', '2016-06-02', '4', '80', '80', 'Thea Sharrock', 'SF FILM', 'Me Before You', '2D', '0'), 
-('Money Monster', 'Thriller, Drama', '98', 'x', '2016-06-02', '4', '80', '80', 'Jodie Foster', 'UIP', 'Money Monster', '2D', '11');
+INSERT INTO `kinoempire`.`Movies` (`Title`, `Genre`, `Length`, `Description`, `Release Date`, `Numbers Sold`, `Price`, `Director`, `Copyright`, `Original Title`, `Versions`, `Age Restriction`) VALUES 
+('En Mand Der Hedder Ove', 'Drama, Romantik', '116', 'x', '2016-05-26', '4', '80', 'Hannes Holm', 'Nordisk Film', 'En Mand Som Heter Ove', '2D', '11'), 
+('Warcraft', 'Adventure', '123', 'x', '2016-05-26', '4', '80', 'Duncan Jones', 'Universal Pictures', 'Warcraft', '3D, 2D, IMAX 3D', '11'), 
+('Mig Før Dig', 'Drama, Romantik', '110', 'x', '2016-06-02', '4', '80', 'Thea Sharrock', 'SF FILM', 'Me Before You', '2D', '0'), 
+('Money Monster', 'Thriller, Drama', '98', 'x', '2016-06-02', '4', '80', 'Jodie Foster', 'UIP', 'Money Monster', '2D', '11');
 
 INSERT INTO `kinoempire`.`Shows` (`Title`, `Date`, `Time`, `Theater`) VALUES 
 ('En Mand Der Hedder Ove', '26.05.2016', '1200', '1'), 
