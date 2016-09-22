@@ -81,7 +81,7 @@ Port number: 3306
                     + "','" + movie.getGenre()
                     + "','" + movie.getFilmLength()
                     + "','" + movie.getFilmDescription()
-                    + "','" + movie.getPrice1()
+                    + "','" + movie.getPrice()
                     + "','" + movie.getDirector()
                     + "','" + movie.getAgeRestriction()
                     + "','" + movie.getVersions() + "'";
