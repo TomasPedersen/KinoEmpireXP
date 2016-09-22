@@ -16,7 +16,9 @@ public class Main extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		root = FXMLLoader.load(getClass().getResource("MainLayout.fxml"));
 		primaryStage.setTitle("Kino EmpireXP");
-		primaryStage.setScene(new Scene(root));
+		Scene scene = new Scene(root);
+		scene.getStylesheets().setAll(getClass().getResource("stylesheet.css").toExternalForm());
+		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
 
