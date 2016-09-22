@@ -18,7 +18,7 @@ public class Controller{
     public void selectingFilmOversigt() {
 
         try {
-            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("LilleSal2.fxml"));
+            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("LilleSal.fxml"));
 
 
               BorderPane rootBorderPane = (BorderPane) Main.root;
@@ -50,6 +50,7 @@ public class Controller{
     @FXML
     public void thisIsTheMethod() {
         System.out.println("hello");
+
     }
 
 

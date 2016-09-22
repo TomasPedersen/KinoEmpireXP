@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class Reservation {
 
+// remember to turn reserved seats red 'Images/seat%20(red).png'
 
     public ArrayList<Seat> createShowLilleSal(Film film, LocalDate date) {
 
