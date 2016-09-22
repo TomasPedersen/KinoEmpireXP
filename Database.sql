@@ -68,7 +68,7 @@ DROP TABLE IF EXISTS `kinoempire`.`Customers` ;
 CREATE TABLE IF NOT EXISTS `kinoempire`.`Customers` (
   `E-mail` VARCHAR(45) NOT NULL,
   `Name` VARCHAR(45) NULL,
-  `Phone Number` INT NULL,
+  `Phone Number` VARCHAR(11) NULL,
   PRIMARY KEY (`E-mail`));
 
 
