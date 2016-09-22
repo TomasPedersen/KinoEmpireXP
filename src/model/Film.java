@@ -10,7 +10,7 @@ public class Film {
     private double price;
     private String director;
     private int ageRestriction;
-    private String versions; // language, subtitles, 3d
+    private String versions; // language, subtitles and 3d
 
     public Film(String originalTitle, String danishTitle, String genre, double filmLength, String filmDescription, double price, String director, int ageRestriction, String versions) {
         this.originalTitle = originalTitle;
