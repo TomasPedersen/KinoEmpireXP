@@ -87,8 +87,7 @@ CREATE TABLE IF NOT EXISTS `KinoXP`.`Movies` (
   `Original Title` VARCHAR(45) NULL,
   `Versions` VARCHAR(45) NULL,
   `Age Restriction` INT NULL,
-  PRIMARY KEY (`Title`))
-ENGINE = InnoDB;
+  PRIMARY KEY (`Title`));
 
 
 -- -----------------------------------------------------
@@ -108,8 +107,7 @@ CREATE TABLE IF NOT EXISTS `KinoXP`.`Shows` (
     FOREIGN KEY (`Title`)
     REFERENCES `KinoXP`.`Movies` (`Title`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -121,8 +119,7 @@ CREATE TABLE IF NOT EXISTS `KinoXP`.`Customers` (
   `E-mail` VARCHAR(45) NOT NULL,
   `Name` VARCHAR(45) NULL,
   `Phone Number` INT NULL,
-  PRIMARY KEY (`E-mail`))
-ENGINE = InnoDB;
+  PRIMARY KEY (`E-mail`));
 
 
 -- -----------------------------------------------------
@@ -149,8 +146,7 @@ CREATE TABLE IF NOT EXISTS `KinoXP`.`Log` (
     FOREIGN KEY (`Customer`)
     REFERENCES `KinoXP`.`Customers` (`E-mail`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
