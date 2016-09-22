@@ -206,7 +206,7 @@ Port number: 3306
         try {
             statement = connection.createStatement();
             if (email.equals(null)) {
-                sqlString = "select " + column + "from Customers";
+                sqlString = "select " + column + " from Customers";
                 resultSet = statement.executeQuery(sqlString);
             } else {
                 sqlString = "select " + column + " from Customers where email = " + email;
@@ -246,7 +246,7 @@ Port number: 3306
             sqlString = "delete from " + table + " where (SELECT `COLUMN_NAME`" +
                     "FROM `information_schema`.`COLUMNS`" +
                     "WHERE (`TABLE_NAME` = " + table +
-                    "  AND (`COLUMN_KEY` = 'PRI') = " + primaryKey;
+                    " AND (`COLUMN_KEY` = 'PRI') = " + primaryKey;
             statement = connection.createStatement();
             statement.executeUpdate(sqlString);
         } catch (Exception e) {
