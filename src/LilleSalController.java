@@ -12,7 +12,7 @@ public class LilleSalController {
     // get The film object
     // get the show object
     // get the seating arrangement
-    ArrayList<Seat> seatList = new ArrayList<>();
+    ArrayList<Integer> choosenSeats = new ArrayList<>();
 
     private int amountOfSeatsChoosen = 0;
     private int price = 0;
@@ -28,9 +28,9 @@ public class LilleSalController {
         // remove the s
         // account for 0 index
 
+
         if(toggleButton.isSelected()) {
 
-            System.out.println("is selected");
 
 /*            Seat seat = seatList.get(id);
             seat.setReserved(true);
@@ -49,11 +49,9 @@ public class LilleSalController {
 
         } else {
 
-            System.out.println("is NOT selected");
 
-/*            Seat seat = seatList.get(id);
-            seat.setReserved(false);
-            seatList.set(id, seat);*/
+
+            choosenSeats.add(id);
 
             BorderPane root = (BorderPane) Main.root;
             amountOfSeatsChoosen--;
@@ -64,12 +62,17 @@ public class LilleSalController {
             labelPriceTotal.setText(Integer.toString(price));
         }
         event.consume();
-
-
-
     }
 
 
+
+    public void godkendBetaling() {
+
+        // this is for when the button is clicked
+        // next fxml node
+        // if the payment has been processed, then save choosenSeats in the database
+
+    }
 
 
 

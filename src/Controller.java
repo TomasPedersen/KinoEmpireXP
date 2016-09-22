@@ -14,7 +14,7 @@ public class Controller {
 
 
     /**
-     * What happens when the menu item Film Oversigt is clicked
+     * when the menu item Film Oversigt is clicked
      * We load the content from the file and set it as center of our root layout (BorderPane)
      */
     @FXML
@@ -34,10 +34,34 @@ public class Controller {
     }
 
 
-    /**
-     * What happens when the menu item Kontakt is clicked
-     * We load the content from the file and set it as center of our root layout (BorderPane)
-     */
+
+    @FXML
+    public void selectingAdmin() {
+        try {
+            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("Admin.fxml"));
+            BorderPane rootBorderPane = (BorderPane) Main.root;
+            rootBorderPane.setCenter(filmOversigtNode);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+    @FXML
+    public void selectingStatistik() {
+        try {
+            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("Statistik.fxml"));
+            BorderPane rootBorderPane = (BorderPane) Main.root;
+            rootBorderPane.setCenter(filmOversigtNode);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
     @FXML
     public void selectingKontakt() {
         try {
