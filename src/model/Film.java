@@ -2,8 +2,8 @@ package model;
 
 public class Film {
 
-    private String originalTitle;
     private String danishTitle;
+    private String originalTitle;
     private String Genre;
     private double filmLength;
     private String filmDescription;

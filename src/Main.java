@@ -16,7 +16,7 @@ public class Main extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// test if the connection works
-		DBHelper.connect();
+		//DBHelper.connect();
 
 		root = FXMLLoader.load(getClass().getResource("view/MainLayout.fxml"));
 		primaryStage.setTitle("Kino EmpireXP");

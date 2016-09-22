@@ -11,7 +11,7 @@ public class Controller {
 
 
     /**
-     * What happenes when the menu item Film Oversigt is clicked
+     * What happen when the menu item Film Oversigt is clicked
      * We load the content from the file and set it as center of our root layout (BorderPane)
      */
     @FXML
