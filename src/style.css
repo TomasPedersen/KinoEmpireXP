@@ -15,10 +15,6 @@ http://www.flaticon.com/free-icon/seat_126893#term=cinema%20chair&page=1&positio
     -fx-graphic: url('images/seat%20(blue).png');
 }
 
-#reserved_seats{
-    -fx-graphic: url('images/seat%20(red).png');
-}
-
 
 
 #menu_button{

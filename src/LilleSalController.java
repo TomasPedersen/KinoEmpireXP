@@ -22,10 +22,12 @@ public class LilleSalController {
     public void instantiate() {
         BorderPane root = (BorderPane) Main.root;
         int id = 0;
+        reservedSeatList.add(id);
         String idString = "#s" + id;
         ToggleButton toggleButton = (ToggleButton) root.lookup(idString);
-        toggleButton.setId("reserved_seats");
+        toggleButton.setStyle("-fx-graphic: url('images/seat%20(red).png');");
         toggleButton.setSelected(true);
+        toggleButton.setDisable(true);
 
     }
 
@@ -36,6 +38,7 @@ public class LilleSalController {
         ToggleButton toggleButton = (ToggleButton) event.getSource();
         String idString = toggleButton.getId();
         int id = Integer.parseInt(idString.substring(1,idString.length()));
+        System.out.println("The ID is: " + id);
 
         for (int reservedId: reservedSeatList) {
             if (id == reservedId) {
@@ -43,12 +46,11 @@ public class LilleSalController {
             }
         }
 
-        // remove the s
+
         // account for 0 index
 
 
         if(toggleButton.isSelected()) {
-
 
             choosenSeats.add(id);
 
@@ -62,11 +64,8 @@ public class LilleSalController {
 
         } else {
 
-
-            for(int seatIndex: choosenSeats) {
-                if (seatIndex == id) {
-                    choosenSeats.remove(seatIndex);
-                }
+            if(choosenSeats != null && choosenSeats.size() <= id) {
+                choosenSeats.remove(id);
             }
 
 
