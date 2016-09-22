@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="688.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="688.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <top>
       <HBox prefHeight="61.0" prefWidth="688.0" BorderPane.alignment="TOP_CENTER">
          <children>
             <ImageView fitHeight="54.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                <image>
-                  <Image url="@../Images/Logo.png" />
+                  <Image url="@images/Logo.png" />
                </image>
             </ImageView>
             <HBox minWidth="-Infinity" prefHeight="65.0" prefWidth="611.0" style="-fx-pref-width: 100%;" HBox.hgrow="ALWAYS">

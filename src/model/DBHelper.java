@@ -163,13 +163,14 @@ Port number: 3306
 
     public ResultSet selectFromMovies(String title, String column) {
         try {
+            statement = connection.createStatement();
             if (title.equals(null)) {
                 sqlString = "select " + column + "from Movies";
                 resultSet = statement.executeQuery(sqlString);
+
             }else{
                 sqlString = "select " + column + " from Movies where Title =" + title;
-                resultSet = statement.executeQuery(sqlString);
-
+                    resultSet = statement.executeQuery(sqlString);
                 }
             } catch(Exception e){
             e.printStackTrace();
@@ -178,6 +179,7 @@ Port number: 3306
     }
     public ResultSet selectFromShows(int show_id, String column) {
         try {
+                statement = connection.createStatement();
                 sqlString = "select " + column + "from Shows where Show_id = " + show_id;
                 resultSet = statement.executeQuery(sqlString);
 
@@ -190,6 +192,7 @@ Port number: 3306
 
     public ResultSet selectColumnFromShows(String column){
         try {
+            statement = connection.createStatement();
             sqlString = "select" + column + "from Shows";
             resultSet = statement.executeQuery(sqlString);
         }catch(Exception e){
@@ -200,6 +203,7 @@ Port number: 3306
 
     public ResultSet selectFromCustomers(String email, String column) {
         try {
+            statement = connection.createStatement();
             if(email.equals(null)){
             sqlString = "select " + column +"from Customers";
                 resultSet = statement.executeQuery(sqlString);
@@ -213,6 +217,7 @@ Port number: 3306
     }
     public ResultSet selectFromSales(int sales_id, String column) {
         try {
+            statement = connection.createStatement();
             sqlString = "select " + column + " from Sales where sales_id =" + sales_id;
             resultSet = statement.executeQuery(sqlString);
         }catch(Exception e){
@@ -223,7 +228,8 @@ Port number: 3306
 
     public ResultSet selectColumnFromSales(String column){
         try{
-            sqlString = "select "+ column + " from Sales";
+            statement = connection.createStatement();
+           sqlString = "select "+ column + " from Sales";
             resultSet = statement.executeQuery(sqlString);
         } catch(Exception e){
             e.printStackTrace();
@@ -231,17 +237,13 @@ Port number: 3306
         return resultSet;
     }
 
-    public void deleteRow(Object primaryKey, String table) {
-        try {
-            sqlString = "delete from " + table + " where (SELECT `COLUMN_NAME`" +
-                    "FROM `information_schema`.`COLUMNS`" +
-                    "WHERE (`TABLE_NAME` = " + table + ")" +
-                    "AND (`COLUMN_KEY` = 'PRI')) = " + primaryKey;
-            statement = connection.createStatement();
-            statement.executeUpdate(sqlString);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+
+
+    public void delete(Object primaryKey, String table) {
+        sqlString = "delete from "+ table +" where"+ primaryKey ;
+
+
+
     }
 
 }
