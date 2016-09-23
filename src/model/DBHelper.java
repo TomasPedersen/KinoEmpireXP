@@ -101,7 +101,7 @@ Port number: 3306
         }
     }
 
-    public void insertMovie(Film movie) {
+    public void insertMovie(Movie movie) {
         try {
             sqlString = "INSERT INTO Movies VALUES '"
                     + movie.getDanishTitle()
@@ -124,7 +124,7 @@ Port number: 3306
     public void insertShow(Show show) {
         try {
             sqlString = "INSERT INTO Shows VALUES '"
-                    + show.getFilm()
+                    + show.getMovie()
                     + "','" + show.getDate()
                     + "','" + show.getLilleSalSeatList()
                     + "','" + show.getStorSalSeatList() + "'";

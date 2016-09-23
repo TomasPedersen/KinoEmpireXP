@@ -9,9 +9,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import model.DBHelper;
-import model.Film;
+import model.Movie;
 
-import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -47,18 +46,18 @@ public class FilmNodesToFilmOversigt {
     public ArrayList<Node> createListOfFilmNodes(LocalDate date){
 
 
-        ArrayList<Film> films = new ArrayList<>();
+        ArrayList<Movie> movies = new ArrayList<>();
         DBHelper db = new DBHelper();
-        // if only I could do this : db.selectFromMovies(null, null)  and get an arraylist of films
+        // if only I could do this : db.selectFromMovies(null, null)  and get an arraylist of movies
         // this method does not work for dates
 
         ArrayList<Node> listOfNodes = new ArrayList<>();
 
-        for(int i = 0; i< films.size(); i++ ){
+        for(int i = 0; i< movies.size(); i++ ){
             //vbox holds the rest of the nodes
             VBox vbox = new VBox();
             //Nodes for vbox
-            TextField titleTF = new TextField(films.get(i).getDanishTitle());
+            TextField titleTF = new TextField(movies.get(i).getDanishTitle());
             ImageView noPosterIW = new ImageView();
             Image noPosterImage = new Image("NoPosterAvailable.png");
 
@@ -68,7 +67,7 @@ public class FilmNodesToFilmOversigt {
 
             listOfNodes.add(vbox);
 
-            if(films == null){
+            if(movies == null){
                 //lav et vindue der siger ingen film at vise
                 Label noMoviesToday = new Label("There are no movies to show on this date");
                 noMoviesToday.setScaleX(3);
