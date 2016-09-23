@@ -17,9 +17,12 @@ public class Reservation {
     }
 
 
-
-// remember to turn reserved seats red 'Images/seat%20(red).png'
-
+    /**
+     *  insert and return a list of all the seats
+     *  this list returns informatation on whether the seat is reserved or not
+     * @param show
+     * @return
+     */
     public ArrayList<Seat> seatArrangementLilleSal(Show show) {
 
         DBHelper dbHelper = new DBHelper();

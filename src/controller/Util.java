@@ -17,6 +17,11 @@ public class Util {
         return SQLDate.toLocalDate();
     }
 
+    /**
+     *
+     * @param resultSet
+     * @return
+     */
     public static ArrayList<Object> readResultsetToArrayList(ResultSet resultSet) {
 
         ArrayList<Object> listToReturn = new ArrayList<>();

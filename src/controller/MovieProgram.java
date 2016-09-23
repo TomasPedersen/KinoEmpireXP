@@ -9,7 +9,8 @@ import java.time.format.DateTimeFormatter;
 
 public class MovieProgram {
 
-
+    /** This method creates and adds movies/shows in the db for the next three months
+    */
     public static void createProgramForTheNextThreeMonths() {
 
         LocalDate date = LocalDate.now();

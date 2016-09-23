@@ -5,6 +5,9 @@ import org.junit.Assert;
 
 public class RobotTest {
 
+
+    /** We are trying to detect if the multiple robots have reserved seats where they conflict on each other
+     * i.e. same seat on same show (same date, same time) simultaneously) */
 //    @Test
     public void checkIfNoSeatsHaveBeenReservedTwice(){
 

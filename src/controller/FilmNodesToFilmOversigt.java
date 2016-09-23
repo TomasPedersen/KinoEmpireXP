@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class FilmNodesToFilmOversigt {
 
 
-
+    /** This is the method that when called with a date returns a gridpane */
     public static GridPane gridPaneOfFilmNodes(LocalDate date, GridPane gridPane) {
 //        GridPane gridPane = new GridPane();
         ArrayList<Node> nodesToAdd = createListOfFilmNodes(date);
@@ -47,7 +47,8 @@ public class FilmNodesToFilmOversigt {
 
 
 
-
+    /** of all movies in the database in a certain date we return an array of nodes
+     * these nodes show the film and and additional information in filmoversigt */
     public static ArrayList<Node> createListOfFilmNodes(LocalDate date){
 
         ArrayList<Node> listOfNodes = new ArrayList<>(); // we will fill it with node where each node will take up one space in
