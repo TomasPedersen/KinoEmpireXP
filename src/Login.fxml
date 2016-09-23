@@ -17,5 +17,6 @@
       </ImageView>
       <PasswordField layoutX="326.0" layoutY="344.0" promptText="Brugenavn " />
       <Button layoutX="446.0" layoutY="459.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="99.0" text="Login" />
+      <Button layoutX="320.0" layoutY="459.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="99.0" text="Opret" />
    </children>
 </Pane>
