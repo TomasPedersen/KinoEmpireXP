@@ -1,3 +1,4 @@
+import controller.MovieProgram;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,13 +21,14 @@ public class Main extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		root = FXMLLoader.load(getClass().getResource("MainLayout.fxml"));
+		MovieProgram.createProgramForTheNextThreeMonths();
+/*		root = FXMLLoader.load(getClass().getResource("MainLayout.fxml"));
 		primaryStage.setTitle("Kino EmpireXP");
 		Scene scene = new Scene(root);
 		primaryStage.getIcons().add(new Image("images/Logo.png"));
 		primaryStage.setScene(scene);
 		primaryStage.setMaximized(true);
-		primaryStage.show();
+		primaryStage.show();*/
 	}
 
 }

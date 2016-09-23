@@ -1,5 +1,7 @@
 package controller;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -15,11 +17,20 @@ public class Util {
         return SQLDate.toLocalDate();
     }
 
-    public ArrayList<Object> readResultsetToArrayList() {
+    public static ArrayList<Object> readResultsetToArrayList(ResultSet resultSet) {
 
-        /*ArrayList<Object>*/
+        ArrayList<Object> listToReturn = new ArrayList<>();
 
+        try {
+            while (resultSet.next()) {
+                listToReturn.add(resultSet);
+            }
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listToReturn;
     }
 
 

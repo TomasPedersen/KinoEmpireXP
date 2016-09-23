@@ -42,40 +42,40 @@ public class FilmNodesToFilmOversigt {
 
     public static ArrayList<Node> createListOfFilmNodes(LocalDate date){
 
-
+        ArrayList<Node> listOfNodes = new ArrayList<>(); // we will fill it with node where each node will take up one space in
+        ArrayList<Movie> movies = new ArrayList<>(); // have to instantiate it here
         DBHelper db = new DBHelper();
         try {
-            ArrayList<String> movieTitles = db.moviesFromDatePicked(date);
-            ArrayList<Movie> movies = ;
+            movies = db.moviesFromDatePicked(date);
         } catch(Exception e) {
             e.printStackTrace();
         }
 
 
-        ArrayList<Node> listOfNodes = new ArrayList<>(); // we will fill it with node where each node will take up one space in
 
-        for(int i = 0; i< movies.size(); i++ ){
-            //vbox holds the rest of the nodes
-            VBox vbox = new VBox();
-            //Nodes for vbox
-            TextField titleTF = new TextField(movies.get(i).getDanishTitle());
-            ImageView noPosterIW = new ImageView();
-            Image noPosterImage = new Image("NoPosterAvailable.png");
+        if(movies.size() == 0){
+            //lav et vindue der siger ingen film at vise
+            Label noMoviesToday = new Label("There are no movies to show on this date");
+            noMoviesToday.setScaleX(3);
+            listOfNodes.add(noMoviesToday);
+        } else {
 
-            Button description = new Button("Beskrivelse");
-            description.setId("filmoversigt_beskrivelse");
-            Button reserverFilm = new Button("Reserver");
-            reserverFilm.setId("filmoversigt_reserver");
+            for(int i = 0; i< movies.size(); i++ ){
+                //vbox holds the rest of the nodes
+                VBox vbox = new VBox();
+                //Nodes for vbox
+                TextField titleTF = new TextField(movies.get(i).getDanishTitle());
+                ImageView noPosterIW = new ImageView();
+                Image noPosterImage = new Image("NoPosterAvailable.png");
 
-            vbox.getChildren().addAll(titleTF, noPosterIW, reserverFilm);
+                Button description = new Button("Beskrivelse");
+                description.setId("filmoversigt_beskrivelse");
+                Button reserverFilm = new Button("Reservér");
+                reserverFilm.setId("filmoversigt_reserver");
 
-            listOfNodes.add(vbox);
+                vbox.getChildren().addAll(titleTF, noPosterIW, reserverFilm);
 
-            if(movies == null){
-                //lav et vindue der siger ingen film at vise
-                Label noMoviesToday = new Label("There are no movies to show on this date");
-                noMoviesToday.setScaleX(3);
-
+                listOfNodes.add(vbox);
             }
 
         }

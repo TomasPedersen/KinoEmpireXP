@@ -131,7 +131,7 @@ Port number: 3306
                     + show.getMovie().getDanishTitle()
                     + "','" + show.getDate()
                     + "','" + show.getTime()
-                    + "','" + show.getTheater() + "'";
+                    + "','" + show.getTheater() + "';";
             statement = connection.createStatement();
             statement.executeUpdate(sqlString);
         } catch (Exception e) {
@@ -277,17 +277,19 @@ Port number: 3306
         }
     }
 
-    public ArrayList<String> moviesFromDatePicked(LocalDate lD) throws SQLException {
-        ArrayList<String> dateMovies = new ArrayList<>();
-        String danishTitle = "danishTitle";
-        Util util = new Util();
+    public ArrayList<Movie> moviesFromDatePicked(LocalDate lD) throws SQLException {
+        ArrayList<Movie> dateMovies = new ArrayList<>();
         try {
             String shows = "`Shows`";
-            sqlString = "SELECT DISTINCT " + danishTitle + " FROM " + shows + " WHERE Date=" + Util.convertLocalDateToSQLDate(lD) + "";
+            sqlString = "SELECT * FROM " + shows + " WHERE Date=" + Util.convertLocalDateToSQLDate(lD) + ";";
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sqlString);
             while (resultSet.next()) {
-                dateMovies.add(resultSet.getString(1));
+                Movie movie = new Movie(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3), resultSet.getDouble(4), resultSet.getString(5), null,
+                        resultSet.getDouble(6), resultSet.getString(7), resultSet.getInt(8), resultSet.getString(9));
+                CharSequence releaseDate = resultSet.getString(5);
+                movie.setReleaseDate(LocalDate.parse(releaseDate));
+
             }
         } catch (SQLException e) {
             connection.rollback(savepoint);
@@ -304,7 +306,7 @@ Port number: 3306
             sI = "SeatIndex";
             String sales = "Sales";
             sho2 = "`Show` = 2";
-            sqlString = "SELECT " +sI+" FROM "+sales+" Where "+ sho2 +" ";
+            sqlString = "SELECT " +sI+" FROM "+sales+" Where "+ sho2 +";";
             resultSet = statement.executeQuery(sqlString);
 
         }catch (SQLException e){
