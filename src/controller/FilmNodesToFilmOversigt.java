@@ -2,6 +2,7 @@ package controller;
 
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -44,7 +45,6 @@ public class FilmNodesToFilmOversigt {
 
 
     public ArrayList<Node> createListOfFilmNodes(LocalDate date){
-        //Create if statement so that if there are no movies to show then create message.
 
 
         ArrayList<Film> films = new ArrayList<>();
@@ -68,7 +68,10 @@ public class FilmNodesToFilmOversigt {
 
             listOfNodes.add(vbox);
 
-            if(listOfNodes == null){
+            if(films == null){
+                //lav et vindue der siger ingen film at vise
+                Label noMoviesToday = new Label("There are no movies to show on this date");
+                noMoviesToday.setScaleX(3);
 
             }
 
