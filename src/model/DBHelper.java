@@ -112,6 +112,7 @@ Port number: 3306
                     + "','" + movie.getGenre()
                     + "','" + movie.getFilmLength()
                     + "','" + movie.getFilmDescription()
+                    + "','" + movie.getReleaseDate()
                     + "','" + movie.getPrice()
                     + "','" + movie.getDirector()
                     + "','" + movie.getAgeRestriction()
@@ -127,10 +128,10 @@ Port number: 3306
     public void insertShow(Show show) {
         try {
             sqlString = "INSERT INTO Shows VALUES '"
-                    + show.getMovie()
+                    + show.getMovie().getDanishTitle()
                     + "','" + show.getDate()
-                    + "','" + show.getLilleSalSeatList()
-                    + "','" + show.getStorSalSeatList() + "'";
+                    + "','" + show.getTime()
+                    + "','" + show.getTheater() + "'";
             statement = connection.createStatement();
             statement.executeUpdate(sqlString);
         } catch (Exception e) {
@@ -155,7 +156,8 @@ Port number: 3306
     public void insertSale(Sale sale) {
         try {
             sqlString = "INSERT INTO Sales VALUES '"
-                    + sale.getShow()
+                    + findShowId(sale.getShow().getMovie().getDanishTitle(), sale.getShow().getDate(),
+                    sale.getShow().getTime(), sale.getShow().getTheater())
                     + "','" + sale.getCustomer()
                     + "','" + sale.getSeatIndex()
                     + "','" + sale.getTimeOfSale()
@@ -247,6 +249,20 @@ Port number: 3306
         return resultSet;
     }
 
+    public int findShowId(String title, LocalDate localDate, int time, int theater){
+        Date date = Date.valueOf(localDate);
+        int result = 0;
+        try {
+            sqlString = "select show_id from Shows where Danish_Title = " + title
+                    + " and Date = " + date + " and Time = " + time + "; ";
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sqlString);
+            result = resultSet.getInt(1);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return result;
+    }
 
     public void delete(Object primaryKey, String table) {
         try {
