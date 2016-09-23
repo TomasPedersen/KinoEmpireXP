@@ -4,15 +4,15 @@ import java.sql.*;
 import java.sql.DriverManager;
 import java.util.ArrayList;
 
+
 public class DBHelper {
 
     Statement statement;
     ResultSet resultSet;
     String sqlString;
     Connection connection;
-    Savepoint savepoint;
 
-    public void connect()throws SQLException{
+    public void connect() {
 /*
 Server: db4free.net
 DatabaseName: kinoempire
@@ -32,7 +32,6 @@ Port number: 3306
             connection.close();
         } catch (Exception e) {
             e.printStackTrace();
-            connection.rollback(savepoint);
         }
     }
 
