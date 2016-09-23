@@ -16,14 +16,14 @@
          <children>
             <ImageView fitHeight="401.0" fitWidth="394.0" layoutX="11.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Untitled.png" />
+                  <Image url="@Images/Untitled.png" />
                </image>
             </ImageView>
             <Text layoutX="146.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find vej" textAlignment="CENTER" wrappingWidth="124.0498046875" />
             <Text layoutX="748.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontakt " />
             <ImageView fitHeight="400.0" fitWidth="433.0" layoutX="624.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Untitled.png" />
+                  <Image url="@Images/Untitled.png" />
                </image>
             </ImageView>
          </children>
