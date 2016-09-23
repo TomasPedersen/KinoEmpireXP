@@ -9,8 +9,9 @@ public class DBHelper {
     ResultSet resultSet;
     String sqlString;
     Connection connection;
+    Savepoint savepoint;
 
-    public void connect() {
+    public void connect()throws SQLException{
 /*
 Server: db4free.net
 DatabaseName: kinoempire
@@ -24,11 +25,13 @@ Port number: 3306
             Class.forName("com.mysql.jdbc.Driver").newInstance();
 
             connection = DriverManager.getConnection(url, "kino123", "kinoempire");
-
+            savepoint = connection.setSavepoint();
+            connection.setAutoCommit(false);
             System.out.println(connection);
             connection.close();
         } catch (Exception e) {
             e.printStackTrace();
+            connection.rollback(savepoint);
         }
     }
 
@@ -251,6 +254,18 @@ Port number: 3306
             statement.executeUpdate(sqlString);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void datePicked( String danishTitle, String kE, String aDate) throws SQLException {
+        try {
+            kE = "`Shows`";
+            aDate = "`2016-05-26`";
+            sqlString = "SELECT DISTINCT " + danishTitle + " FROM " + kE + " WHERE Date="+aDate+"";
+            statement = connection.createStatement();
+            statement.execute(sqlString);
+        } catch (SQLException e) {
+            connection.rollback(savepoint);
         }
     }
 
