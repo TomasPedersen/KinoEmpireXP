@@ -1,7 +1,7 @@
 package controller;
 
 import model.DBHelper;
-import model.Film;
+import model.Movie;
 import model.Seat;
 import model.Show;
 
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Reservation {
 
-    public void createShow(Film film, LocalDate date) {
+    public void createShow(Movie movie, LocalDate date) {
         //        Show show = dbHelper.selectFromMovies(date);
 
 
@@ -38,7 +38,7 @@ public class Reservation {
     }
 
 
-    public ArrayList<Seat> seatArrangementStoreSal(Film film, LocalDate date) {
+    public ArrayList<Seat> seatArrangementStoreSal(Movie movie, LocalDate date) {
 
 // SAME AS ABOVE EXCEPT i < 400 in for loop
         return null;
