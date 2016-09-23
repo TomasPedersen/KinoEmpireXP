@@ -257,11 +257,11 @@ Port number: 3306
         }
     }
 
-    public void datePicked( String danishTitle, String kE, String aDate) throws SQLException {
+    public void moviesFromdatePicked(String title, String kE, String aDate) throws SQLException {
         try {
             kE = "`Shows`";
             aDate = "`2016-05-26`";
-            sqlString = "SELECT DISTINCT " + danishTitle + " FROM " + kE + " WHERE Date="+aDate+"";
+            sqlString = "SELECT DISTINCT " + title + " FROM " + kE + " WHERE Date="+aDate+"";
             statement = connection.createStatement();
             statement.execute(sqlString);
         } catch (SQLException e) {
