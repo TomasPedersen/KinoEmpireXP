@@ -279,21 +279,30 @@ Port number: 3306
         return dateMovies;
     }
 
-    public ArrayList<Seat> seatFromDate(String sI, String sssss, String sho2) throws SQLException {
+    public ArrayList<Seat> seatFromDate(String sI, String sho2) throws SQLException {
         ArrayList<Seat> showSeats = new ArrayList<>();
+        ArrayList<Integer> i = new ArrayList<>();
+        int x = 0;
         try{
             statement = connection.createStatement();
             sI = "SeatIndex";
-            sssss = "Sales";
+            String sales = "Sales";
             sho2 = "`Show` = 2";
-            sqlString = "SELECT " +sI+" FROM "+sssss+" Where "+ sho2 +" ";
+            sqlString = "SELECT " +sI+" FROM "+sales+" Where "+ sho2 +" ";
             resultSet = statement.executeQuery(sqlString);
-            while (resultSet.next()) {
-                //showSeats.add(resultSet.getInt(1));
-            }
+
         }catch (SQLException e){
             connection.rollback(savepoint);
         }
+        while (resultSet.next()) {
+            i.add(resultSet.getInt(1));
+        }
+        do {
+            //if (resultSet_
+            showSeats.add(x, new Seat());
+            x ++;
+        }while (x < 300);
+
         return showSeats;
     }
 
