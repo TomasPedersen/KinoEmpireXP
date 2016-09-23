@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1175.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <Pane prefHeight="436.0" prefWidth="972.0" BorderPane.alignment="CENTER">
@@ -21,9 +20,9 @@
             </ImageView>
             <Text layoutX="146.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find vej" textAlignment="CENTER" wrappingWidth="124.0498046875" />
             <Text layoutX="748.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontakt " />
-            <ImageView fitHeight="400.0" fitWidth="433.0" layoutX="624.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="258.0" fitWidth="283.0" layoutX="665.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Images/Untitled.png" />
+                  <Image url="@Images/Logo.png" />
                </image>
             </ImageView>
          </children>
