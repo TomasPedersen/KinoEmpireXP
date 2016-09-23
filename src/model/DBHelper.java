@@ -2,6 +2,7 @@ package model;
 
 import java.sql.*;
 import java.sql.DriverManager;
+import java.util.ArrayList;
 
 public class DBHelper {
 
@@ -257,16 +258,31 @@ Port number: 3306
         }
     }
 
-    public void moviesFromdatePicked(String title, String kE, String aDate) throws SQLException {
+    public void datePicked(String danishTitle, String kE, String aDate) throws SQLException {
         try {
             kE = "`Shows`";
             aDate = "`2016-05-26`";
-            sqlString = "SELECT DISTINCT " + title + " FROM " + kE + " WHERE Date="+aDate+"";
+            sqlString = "SELECT DISTINCT " + danishTitle + " FROM " + kE + " WHERE Date="+aDate+"";
             statement = connection.createStatement();
-            statement.execute(sqlString);
+            resultSet = statement.executeQuery(sqlString);
         } catch (SQLException e) {
             connection.rollback(savepoint);
         }
+    }
+
+    public ArrayList<Seat> seatFromDate(String sI, String sssss, String sho2) throws SQLException {
+        ArrayList<Seat> showSeats = new ArrayList();
+        try{
+            statement = connection.createStatement();
+            sI = "SeatIndex";
+            sssss = "Sales";
+            sho2 = "`Show` = 2";
+            sqlString = "SELECT " +sI+" FROM "+sssss+" Where "+ sho2 +" ";
+            resultSet = statement.executeQuery(sqlString);
+        }catch (SQLException e){
+            connection.rollback(savepoint);
+        }
+        return showSeats;
     }
 
 }
