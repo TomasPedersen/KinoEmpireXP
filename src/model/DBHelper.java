@@ -258,20 +258,25 @@ Port number: 3306
         }
     }
 
-    public void datePicked(String danishTitle, String kE, String aDate) throws SQLException {
+    public ArrayList<String> moviesFromDatePicked(String danishTitle) throws SQLException {
+        ArrayList<String> dateMovies = new ArrayList<>();
         try {
-            kE = "`Shows`";
-            aDate = "`2016-05-26`";
-            sqlString = "SELECT DISTINCT " + danishTitle + " FROM " + kE + " WHERE Date="+aDate+"";
+            String shows = "`Shows`";
+            String aDate = "`2016-05-26`";
+            sqlString = "SELECT DISTINCT " + danishTitle + " FROM " + shows + " WHERE Date=" + aDate + "";
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sqlString);
+            while (resultSet.next()) {
+                dateMovies.add(resultSet.getString(1));
+            }
         } catch (SQLException e) {
             connection.rollback(savepoint);
         }
+        return dateMovies;
     }
 
     public ArrayList<Seat> seatFromDate(String sI, String sssss, String sho2) throws SQLException {
-        ArrayList<Seat> showSeats = new ArrayList();
+        ArrayList<Seat> showSeats = new ArrayList<>();
         try{
             statement = connection.createStatement();
             sI = "SeatIndex";
@@ -279,6 +284,9 @@ Port number: 3306
             sho2 = "`Show` = 2";
             sqlString = "SELECT " +sI+" FROM "+sssss+" Where "+ sho2 +" ";
             resultSet = statement.executeQuery(sqlString);
+            while (resultSet.next()) {
+                //showSeats.add(resultSet.getInt(1));
+            }
         }catch (SQLException e){
             connection.rollback(savepoint);
         }
