@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -9,19 +8,18 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="626.0" prefWidth="994.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="626.0" prefWidth="994.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FilmOversigtController">
    <left>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ComboBox layoutX="25.0" layoutY="232.0" prefWidth="150.0" promptText="Vælg film" />
-            <DatePicker layoutX="14.0" layoutY="163.0" />
+            <DatePicker layoutX="14.0" layoutY="163.0" onAction="#getDateFromFilmOversigt" />
          </children>
       </Pane>
    </left>
    <center>
       <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="488.0" prefWidth="690.0" BorderPane.alignment="CENTER">
          <content>
-            <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="482.0" prefWidth="682.0">
+            <GridPane id="grid_pane" fx:id="filmoversigt_gridpane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="482.0" prefWidth="682.0" stylesheets="@style.css">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

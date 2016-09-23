@@ -2,7 +2,7 @@ package model;
 
 import java.time.LocalDate;
 
-public class Film {
+public class Movie {
 
     private String danishTitle;
     private String originalTitle;
@@ -15,7 +15,7 @@ public class Film {
     private int ageRestriction;
     private String versions; // language, subtitles and 3d
 
-    public Film(String originalTitle, String danishTitle, String genre, double filmLength, String filmDescription, LocalDate releaseDate, double price, String director, int ageRestriction, String versions) {
+    public Movie(String originalTitle, String danishTitle, String genre, double filmLength, String filmDescription, LocalDate releaseDate, double price, String director, int ageRestriction, String versions) {
         this.originalTitle = originalTitle;
         this.danishTitle = danishTitle;
         this.Genre = genre;

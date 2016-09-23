@@ -5,16 +5,16 @@ import java.util.ArrayList;
 
 public class Show {
 
-    private Film film;
+    private Movie movie;
     private LocalDate date;
     private int time;
-    private int theater;
+    private int theater;  // 0 is lille sal   1 is stor sal
     private ArrayList<Seat> lilleSalSeatList; // amountOfSeats smallest theater = 240
     private ArrayList<Seat> storSalSeatList; // amountOfSeats smallest theater = 400
 
 
-    public Show(Film film, LocalDate date, int time, int theater) {
-        this.film = film;
+    public Show(Movie movie, LocalDate date, int time, int theater) {
+        this.movie = movie;
         this.date = date;
         this.time = time;
         this.theater = theater;
@@ -22,12 +22,12 @@ public class Show {
         ArrayList<Seat> storSalSeatList = new ArrayList<Seat>();
     }
 
-    public Film getFilm() {
-        return film;
+    public Movie getMovie() {
+        return movie;
     }
 
-    public void setFilm(Film film) {
-        this.film = film;
+    public void setMovie(Movie movie) {
+        this.movie = movie;
     }
 
     public ArrayList<Seat> getLilleSalSeatList() {
