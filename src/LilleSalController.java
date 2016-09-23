@@ -1,10 +1,13 @@
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import model.Seat;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class LilleSalController {
@@ -85,8 +88,14 @@ public class LilleSalController {
     @FXML
     public void godkendBetaling() {
 
-        // todo remove this from here.. for testing purposes
-        instantiate();
+
+        try {
+            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("ProcessPayment.fxml"));
+            BorderPane rootBorderPane = (BorderPane) Main.root;
+            rootBorderPane.setCenter(filmOversigtNode);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         // this is for when the godkend button is clicked
         // next fxml node will be called here and put on root.setCenter();
@@ -97,12 +106,7 @@ public class LilleSalController {
 
 
 
-    /* How to get the node based on index
-    *
-    *   BorderPane root = (BorderPane) Main.root;
-        root.lookup("#s1");
-    *
-    * */
+
 
 
 
