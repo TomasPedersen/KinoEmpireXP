@@ -347,7 +347,7 @@
             <Button layoutX="44.0" layoutY="618.0" mnemonicParsing="false" onMouseClicked="#godkendBetaling" text="Godkend valg" />
             <HBox layoutX="27.0" prefHeight="100.0" prefWidth="173.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="114.0" text="Antal valgte sæder: " />
+                  <Label prefHeight="21.0" prefWidth="143.0" text="Antal valgte sæder: " />
                   <Label fx:id="valgte_saeder" prefHeight="17.0" prefWidth="9.0" text="0" />
                </children>
             </HBox>
