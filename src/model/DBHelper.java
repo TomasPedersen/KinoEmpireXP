@@ -1,7 +1,10 @@
 package model;
 
+import controller.Util;
+
 import java.sql.*;
 import java.sql.DriverManager;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 
@@ -258,12 +261,13 @@ Port number: 3306
         }
     }
 
-    public ArrayList<String> moviesFromDatePicked(String danishTitle) throws SQLException {
+    public ArrayList<String> moviesFromDatePicked(LocalDate lD) throws SQLException {
         ArrayList<String> dateMovies = new ArrayList<>();
+        String danishTitle = "danishTitle";
+        Util util = new Util();
         try {
             String shows = "`Shows`";
-            String aDate = "`2016-05-26`";
-            sqlString = "SELECT DISTINCT " + danishTitle + " FROM " + shows + " WHERE Date=" + aDate + "";
+            sqlString = "SELECT DISTINCT " + danishTitle + " FROM " + shows + " WHERE Date=" + Util.convertLocalDateToSQLDate(lD) + "";
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sqlString);
             while (resultSet.next()) {
