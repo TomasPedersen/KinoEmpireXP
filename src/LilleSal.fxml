@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="804.0" prefWidth="1278.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LilleSalController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="804.0" prefWidth="1278.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LilleSalController">
    <center>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="639.0" prefWidth="669.0" translateX="-100.0" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -357,6 +357,7 @@
                   <Label fx:id="total_pris" text="0" />
                </children>
             </HBox>
+            <Label fx:id="accept_payment_seat_message" layoutX="2.0" layoutY="572.0" prefHeight="17.0" prefWidth="197.0" />
          </children></Pane>
    </left>
 </BorderPane>

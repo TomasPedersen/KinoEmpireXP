@@ -88,14 +88,20 @@ public class LilleSalController {
     @FXML
     public void godkendBetaling() {
 
-
-        try {
-            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("ProcessPayment.fxml"));
-            BorderPane rootBorderPane = (BorderPane) Main.root;
-            rootBorderPane.setCenter(filmOversigtNode);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (amountOfSeatsChoosen > 0) {
+            try {
+                Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("ProcessPayment.fxml"));
+                BorderPane rootBorderPane = (BorderPane) Main.root;
+                rootBorderPane.setCenter(filmOversigtNode);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            BorderPane root = (BorderPane) Main.root;
+            Label messageLabel = (Label) root.lookup("#accept_payment_seat_message");
+            messageLabel.setText("You've not selected any seats.");
         }
+
 
         // this is for when the godkend button is clicked
         // next fxml node will be called here and put on root.setCenter();
