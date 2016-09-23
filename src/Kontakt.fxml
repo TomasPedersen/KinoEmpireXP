@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1175.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1175.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <Pane prefHeight="436.0" prefWidth="972.0" BorderPane.alignment="CENTER">
          <children>
@@ -33,13 +33,13 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="182.0" prefWidth="600.0">
                <children>
-                  <Label layoutX="30.0" layoutY="27.0" prefHeight="103.0" prefWidth="476.0" text="For at finde vores biograf, skal du stå af på Djamil Holme station, derefter skal du tage bussen 402 og kører 5 stop. Du skal stå af på Krydsvej og går 200 meter til venstre. Der ankommer du til destinationen. " wrapText="true" />
+                  <Label layoutX="30.0" layoutY="27.0" prefHeight="103.0" prefWidth="476.0" text="For at finde vores biograf, skal du stå af på Djamil Holme station, derefter skal du tage bussen 402 og køre 5 stop. Du skal stå af på Krydsvej og går 200 meter til venstre. Så ankommer du til destinationen. " wrapText="true" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="152.0" prefWidth="431.0">
                <children>
                   <Text layoutX="22.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Addresse:" wrappingWidth="88.6708984375" />
-                  <Label layoutX="22.0" layoutY="37.0" prefHeight="109.0" prefWidth="340.0" text="Krydsevej 20 Djamil Holme 2010 info.KinoEmperieXp@Xp.dk             Billedebestilinger: 5789304" wrapText="true" />
+                  <Label layoutX="22.0" layoutY="37.0" prefHeight="109.0" prefWidth="340.0" text="Krydsevej 20 Djamil Holme 2010 info.KinoEmperieXp@Xp.dk             Billedebestilinger: 57893045" wrapText="true" />
                </children>
             </AnchorPane>
         </items>
