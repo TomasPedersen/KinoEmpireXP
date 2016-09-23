@@ -11,6 +11,7 @@ public class DBHelper {
     ResultSet resultSet;
     String sqlString;
     Connection connection;
+    Savepoint savepoint;
 
     public void connect() {
 /*
