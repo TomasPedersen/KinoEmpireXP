@@ -1,11 +1,11 @@
 package robot;
 
 import org.junit.Assert;
-import org.junit.Test;
+// import org.junit.Test;
 
 public class RobotTest {
 
-    @Test
+//    @Test
     public void checkIfNoSeatsHaveBeenReservedTwice(){
 
         /*
