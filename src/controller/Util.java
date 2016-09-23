@@ -1,6 +1,7 @@
 package controller;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 
 public class Util {
@@ -13,4 +14,13 @@ public class Util {
     public LocalDate convertSQLDateToLocalDate(java.sql.Date SQLDate){
         return SQLDate.toLocalDate();
     }
+
+    public ArrayList<Object> readResultsetToArrayList() {
+
+        ArrayList<Object>
+
+
+    }
+
+
 }
