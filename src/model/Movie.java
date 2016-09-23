@@ -15,9 +15,9 @@ public class Movie {
     private int ageRestriction;
     private String versions; // language, subtitles and 3d
 
-    public Movie(String originalTitle, String danishTitle, String genre, double filmLength, String filmDescription, LocalDate releaseDate, double price, String director, int ageRestriction, String versions) {
-        this.originalTitle = originalTitle;
+    public Movie(String danishTitle, String originalTitle, String genre, double filmLength, String filmDescription, LocalDate releaseDate, double price, String director, int ageRestriction, String versions) {
         this.danishTitle = danishTitle;
+        this.originalTitle = originalTitle;
         this.Genre = genre;
         this.filmLength = filmLength;
         this.filmDescription = filmDescription;

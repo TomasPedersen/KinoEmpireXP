@@ -1,8 +1,12 @@
 package model;
 
+import controller.Util;
+
 import java.sql.*;
 import java.sql.DriverManager;
+import java.time.LocalDate;
 import java.util.ArrayList;
+
 
 public class DBHelper {
 
@@ -12,7 +16,7 @@ public class DBHelper {
     Connection connection;
     Savepoint savepoint;
 
-    public void connect()throws SQLException{
+    public void connect() {
 /*
 Server: db4free.net
 DatabaseName: kinoempire
@@ -32,7 +36,6 @@ Port number: 3306
             connection.close();
         } catch (Exception e) {
             e.printStackTrace();
-            connection.rollback(savepoint);
         }
     }
 
@@ -258,20 +261,26 @@ Port number: 3306
         }
     }
 
-    public void datePicked(String danishTitle, String kE, String aDate) throws SQLException {
+    public ArrayList<String> moviesFromDatePicked(LocalDate lD) throws SQLException {
+        ArrayList<String> dateMovies = new ArrayList<>();
+        String danishTitle = "danishTitle";
+        Util util = new Util();
         try {
-            kE = "`Shows`";
-            aDate = "`2016-05-26`";
-            sqlString = "SELECT DISTINCT " + danishTitle + " FROM " + kE + " WHERE Date="+aDate+"";
+            String shows = "`Shows`";
+            sqlString = "SELECT DISTINCT " + danishTitle + " FROM " + shows + " WHERE Date=" + Util.convertLocalDateToSQLDate(lD) + "";
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sqlString);
+            while (resultSet.next()) {
+                dateMovies.add(resultSet.getString(1));
+            }
         } catch (SQLException e) {
             connection.rollback(savepoint);
         }
+        return dateMovies;
     }
 
     public ArrayList<Seat> seatFromDate(String sI, String sssss, String sho2) throws SQLException {
-        ArrayList<Seat> showSeats = new ArrayList();
+        ArrayList<Seat> showSeats = new ArrayList<>();
         try{
             statement = connection.createStatement();
             sI = "SeatIndex";
@@ -279,6 +288,9 @@ Port number: 3306
             sho2 = "`Show` = 2";
             sqlString = "SELECT " +sI+" FROM "+sssss+" Where "+ sho2 +" ";
             resultSet = statement.executeQuery(sqlString);
+            while (resultSet.next()) {
+                //showSeats.add(resultSet.getInt(1));
+            }
         }catch (SQLException e){
             connection.rollback(savepoint);
         }

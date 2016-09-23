@@ -22,17 +22,17 @@ USE `kinoempire` ;
 DROP TABLE IF EXISTS `kinoempire`.`Movies` ;
 
 CREATE TABLE IF NOT EXISTS `kinoempire`.`Movies` (
-  `Danish Title` VARCHAR(45) NOT NULL,
-  `Original Title` VARCHAR(45) NULL,
+  `Danish_Title` VARCHAR(45) NOT NULL,
+  `Original_Title` VARCHAR(45) NULL,
   `Genre` VARCHAR(45) NULL,
   `Filmlength` INT NULL,
   `Filmdescription` VARCHAR(45) NULL,
-  `Release Date` DATE NULL,
+  `Release_Date` DATE NULL,
   `Price` INT NULL,
   `Director` VARCHAR(45) NULL,
-  `Age Restriction` INT NULL,
+  `Age_Restriction` INT NULL,
   `Versions` VARCHAR(45),
-  PRIMARY KEY (`Title`));
+  PRIMARY KEY (`Danish_Title`));
 
 
 -- -----------------------------------------------------
@@ -48,10 +48,10 @@ CREATE TABLE IF NOT EXISTS `kinoempire`.`Shows` (
   `Time` INT NULL,
   `Theater` INT NULL,
   PRIMARY KEY (`show_id`),
-  INDEX `fk_movies_idx` (`Title` ASC),
+  INDEX `fk_movies_idx` (`Danish_Title` ASC),
   CONSTRAINT `fk_movies`
-  FOREIGN KEY (`Title`)
-  REFERENCES `kinoempire`.`Movies` (`Title`)
+  FOREIGN KEY (`Danish_Title`)
+  REFERENCES `kinoempire`.`Movies` (`Danish_Title`)
     ON DELETE SET NULL
     ON UPDATE CASCADE);
 
@@ -63,11 +63,10 @@ CREATE TABLE IF NOT EXISTS `kinoempire`.`Shows` (
 DROP TABLE IF EXISTS `kinoempire`.`Customers` ;
 
 CREATE TABLE IF NOT EXISTS `kinoempire`.`Customers` (
-  `E-mail` VARCHAR(45) NOT NULL,
-  `Password` VARCHAR(45) NOT NULL,
+  `Email` VARCHAR(45) NOT NULL,
   `Name` VARCHAR(45) NULL,
-  `Phone Number` VARCHAR(11) NULL,
-  PRIMARY KEY (`E-mail`));
+  `Phone_Number` VARCHAR(11) NULL,
+  PRIMARY KEY (`Email`));
 
 
 -- -----------------------------------------------------
@@ -93,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `kinoempire`.`Sales` (
     ON UPDATE CASCADE,
   CONSTRAINT `fk_customer`
   FOREIGN KEY (`Customer`)
-  REFERENCES `kinoempire`.`Customers` (`E-mail`)
+  REFERENCES `kinoempire`.`Customers` (`Email`)
     ON DELETE SET NULL
     ON UPDATE CASCADE);
 
