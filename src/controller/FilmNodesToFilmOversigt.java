@@ -18,11 +18,8 @@ public class FilmNodesToFilmOversigt {
 
 
 
-    public GridPane gridPaneOfFilmNodes() {
+    public static GridPane gridPaneOfFilmNodes(LocalDate date) {
         GridPane gridPane = new GridPane();
-
-        // Localdate from combobox or datepicker
-        LocalDate date = LocalDate.now();  // change this and give this method a parameter
 
         int columnIndex = 0;
         int rowIndex = 0;
@@ -43,15 +40,19 @@ public class FilmNodesToFilmOversigt {
 
 
 
-    public ArrayList<Node> createListOfFilmNodes(LocalDate date){
+    public static ArrayList<Node> createListOfFilmNodes(LocalDate date){
 
 
-        ArrayList<Movie> movies = new ArrayList<>();
         DBHelper db = new DBHelper();
-        // if only I could do this : db.selectFromMovies(null, null)  and get an arraylist of movies
-        // this method does not work for dates
+        try {
+            ArrayList<String> movieTitles = db.moviesFromDatePicked(date);
+            ArrayList<Movie> movies = ;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
 
-        ArrayList<Node> listOfNodes = new ArrayList<>();
+
+        ArrayList<Node> listOfNodes = new ArrayList<>(); // we will fill it with node where each node will take up one space in
 
         for(int i = 0; i< movies.size(); i++ ){
             //vbox holds the rest of the nodes
@@ -61,7 +62,10 @@ public class FilmNodesToFilmOversigt {
             ImageView noPosterIW = new ImageView();
             Image noPosterImage = new Image("NoPosterAvailable.png");
 
+            Button description = new Button("Beskrivelse");
+            description.setId("filmoversigt_beskrivelse");
             Button reserverFilm = new Button("Reserver");
+            reserverFilm.setId("filmoversigt_reserver");
 
             vbox.getChildren().addAll(titleTF, noPosterIW, reserverFilm);
 

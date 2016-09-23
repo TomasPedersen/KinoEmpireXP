@@ -12,14 +12,14 @@
    <left>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <DatePicker layoutX="14.0" layoutY="163.0" onAction="#getDateFromFilmOversigt" />
+            <DatePicker fx:id="filmoversigt_date" layoutX="14.0" layoutY="163.0" onAction="#getDateFromFilmOversigt" />
          </children>
       </Pane>
    </left>
    <center>
       <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="488.0" prefWidth="690.0" BorderPane.alignment="CENTER">
          <content>
-            <GridPane id="grid_pane" fx:id="filmoversigt_gridpane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="482.0" prefWidth="682.0" stylesheets="@style.css">
+            <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="482.0" prefWidth="682.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

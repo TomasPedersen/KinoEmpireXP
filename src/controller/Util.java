@@ -17,7 +17,7 @@ public class Util {
 
     public ArrayList<Object> readResultsetToArrayList() {
 
-        ArrayList<Object>
+        /*ArrayList<Object>*/
 
 
     }
