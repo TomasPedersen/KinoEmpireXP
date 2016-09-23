@@ -3,11 +3,13 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
+import java.time.LocalDate;
+
 public class FilmOversigtController {
 
 
     @FXML
-    public void addMoviesToTheGridpane() {
+    public void addMoviesToTheGridpane(LocalDate date) {
 
         FilmNodesToFilmOversigt filmNodes = new FilmNodesToFilmOversigt();
         BorderPane root = (BorderPane) Main.root;
