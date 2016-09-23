@@ -21,14 +21,13 @@ public class Main extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		MovieProgram.createProgramForTheNextThreeMonths();
-/*		root = FXMLLoader.load(getClass().getResource("MainLayout.fxml"));
+		root = FXMLLoader.load(getClass().getResource("MainLayout.fxml"));
 		primaryStage.setTitle("Kino EmpireXP");
 		Scene scene = new Scene(root);
 		primaryStage.getIcons().add(new Image("images/Logo.png"));
 		primaryStage.setScene(scene);
 		primaryStage.setMaximized(true);
-		primaryStage.show();*/
+		primaryStage.show();
 	}
 
 }

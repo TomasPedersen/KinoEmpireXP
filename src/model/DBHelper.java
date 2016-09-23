@@ -16,7 +16,7 @@ public class DBHelper {
     Connection connection;
     Savepoint savepoint;
 
-    public void connect() {
+    public Connection connect() {
 /*
 Server: db4free.net
 DatabaseName: kinoempire
@@ -32,11 +32,10 @@ Port number: 3306
             connection = DriverManager.getConnection(url, "kino123", "kinoempire");
             savepoint = connection.setSavepoint();
             connection.setAutoCommit(false);
-            System.out.println(connection);
-            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return connection;
     }
 
 
@@ -106,6 +105,7 @@ Port number: 3306
 
     public void insertMovie(Movie movie) {
         try {
+            connection = connect();
             sqlString = "INSERT INTO Movies VALUES '"
                     + movie.getDanishTitle()
                     + "','" + movie.getOriginalTitle()
@@ -116,9 +116,10 @@ Port number: 3306
                     + "','" + movie.getPrice()
                     + "','" + movie.getDirector()
                     + "','" + movie.getAgeRestriction()
-                    + "','" + movie.getVersions() + "'";
+                    + "','" + movie.getVersions() + "';";
             statement = connection.createStatement();
             statement.executeUpdate(sqlString);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -127,6 +128,7 @@ Port number: 3306
 
     public void insertShow(Show show) {
         try {
+            connection = connect();
             sqlString = "INSERT INTO Shows VALUES '"
                     + show.getMovie().getDanishTitle()
                     + "','" + show.getDate()
@@ -172,6 +174,7 @@ Port number: 3306
 
     public ResultSet selectFromMovies(String title, String column) {
         try {
+            connection = connect();
             statement = connection.createStatement();
             if (title.equals(null)) {
                 sqlString = "select " + column + "from Movies";
@@ -280,6 +283,8 @@ Port number: 3306
     public ArrayList<Movie> moviesFromDatePicked(LocalDate lD) throws SQLException {
         ArrayList<Movie> dateMovies = new ArrayList<>();
         try {
+            connection = connect();
+
             String shows = "`Shows`";
             sqlString = "SELECT * FROM " + shows + " WHERE Date=" + Util.convertLocalDateToSQLDate(lD) + ";";
             statement = connection.createStatement();

@@ -18,12 +18,20 @@ public class FilmNodesToFilmOversigt {
 
 
 
-    public static GridPane gridPaneOfFilmNodes(LocalDate date) {
-        GridPane gridPane = new GridPane();
+    public static GridPane gridPaneOfFilmNodes(LocalDate date, GridPane gridPane) {
+//        GridPane gridPane = new GridPane();
+        ArrayList<Node> nodesToAdd = createListOfFilmNodes(date);
 
         int columnIndex = 0;
         int rowIndex = 0;
-        for (Node filmNode : createListOfFilmNodes(date)) {
+
+        if (nodesToAdd.size() == 0) {
+            //lav et vindue der siger ingen film at vise
+            Label noMoviesToday = new Label("There are no movies to show on this date");
+            gridPane.add(noMoviesToday, columnIndex, rowIndex);
+        }
+
+        for (Node filmNode : nodesToAdd) {
 
             if(columnIndex == 2) {
                 columnIndex = 0;
@@ -51,34 +59,24 @@ public class FilmNodesToFilmOversigt {
             e.printStackTrace();
         }
 
+        for(int i = 0; i< movies.size(); i++ ){
+            //vbox holds the rest of the nodes
+            VBox vbox = new VBox();
+            //Nodes for vbox
+            TextField titleTF = new TextField(movies.get(i).getDanishTitle());
+            ImageView noPosterIW = new ImageView();
+            Image noPosterImage = new Image("NoPosterAvailable.png");
 
+            Button description = new Button("Beskrivelse");
+            description.setId("filmoversigt_beskrivelse");
+            Button reserverFilm = new Button("Reservér");
+            reserverFilm.setId("filmoversigt_reserver");
 
-        if(movies.size() == 0){
-            //lav et vindue der siger ingen film at vise
-            Label noMoviesToday = new Label("There are no movies to show on this date");
-            noMoviesToday.setScaleX(3);
-            listOfNodes.add(noMoviesToday);
-        } else {
+            vbox.getChildren().addAll(titleTF, noPosterIW, reserverFilm);
 
-            for(int i = 0; i< movies.size(); i++ ){
-                //vbox holds the rest of the nodes
-                VBox vbox = new VBox();
-                //Nodes for vbox
-                TextField titleTF = new TextField(movies.get(i).getDanishTitle());
-                ImageView noPosterIW = new ImageView();
-                Image noPosterImage = new Image("NoPosterAvailable.png");
-
-                Button description = new Button("Beskrivelse");
-                description.setId("filmoversigt_beskrivelse");
-                Button reserverFilm = new Button("Reservér");
-                reserverFilm.setId("filmoversigt_reserver");
-
-                vbox.getChildren().addAll(titleTF, noPosterIW, reserverFilm);
-
-                listOfNodes.add(vbox);
-            }
-
+            listOfNodes.add(vbox);
         }
+
         return listOfNodes;
     }
 

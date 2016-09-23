@@ -1,6 +1,7 @@
 import controller.FilmNodesToFilmOversigt;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import model.DBHelper;
@@ -12,7 +13,8 @@ public class FilmOversigtController {
     @FXML
     public void getDateFromFilmOversigt(){
         BorderPane root = (BorderPane) Main.root;
-        DatePicker datePicker = (DatePicker) root.lookup("#filmoversigt_date");
+        DatePicker date = (DatePicker) root.lookup("#filmoversigt_date");
+        addMoviesToTheGridpane(date.getValue());
 
     }
 
@@ -20,12 +22,10 @@ public class FilmOversigtController {
 
         FilmNodesToFilmOversigt filmNodes = new FilmNodesToFilmOversigt();
         BorderPane root = (BorderPane) Main.root;
+
         GridPane gridPane = (GridPane) root.lookup("#filmoversigt_gridpane");  // please change the ID accordingly
-        gridPane.getStyleClass().add("grid");
-        gridPane = filmNodes.gridPaneOfFilmNodes(date);
+        filmNodes.gridPaneOfFilmNodes(date, gridPane);
 
-
-        FilmNodesToFilmOversigt.createListOfFilmNodes(date);
     }
 
 

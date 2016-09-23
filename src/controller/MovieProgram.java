@@ -40,8 +40,10 @@ public class MovieProgram {
 
 
 
+            db.insertMovie(movie1);
+//            db.insertShow(show1);
 
-            db.insertShow(show1);
+
 /*            db.insertShow(show2);
             db.insertShow(show3);
             db.insertShow(show4);
