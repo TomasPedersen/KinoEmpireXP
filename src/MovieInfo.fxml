@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.web.WebView?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="838.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <WebView layoutX="81.0" layoutY="66.0" prefHeight="335.0" prefWidth="449.0" />
+      <TextArea layoutX="58.0" layoutY="419.0" prefHeight="365.0" prefWidth="1199.0" text="&#10;&#10;I animationsfilmen 'Find Dory' har den glemsomme fisk, Dory, fundet sig en ny familie hos Nemo og hans far Marlin. Men hvor er hendes rigtige familie egentlig?&#10;&#10;Dory begynder pludseligt at drømme om sine forældre, og derfor begiver hun sig ud på en mission for at finde svar.&#10;&#10;Missionen bringer Dory gennem det store ocean og helt til Californiens Marine Life Institute, hvor hun bl.a. møder blæksprutten Hank, den nærsynede hvalhaj Hope og en hvidhval, &#10;der mener, at dens ekkolokalisering er i stykker.&#10;&#10;'Find Dory' følger efter Pixar-filmen Find Nemo og byder på et gensyn med vores fiskevenner fra etteren, men der er også mange nye karakterer fra både havet og landjorden.&#10;&#10;Eventyret har slået rekorden som den bedst sælgende animationsfilm i sin første weekend, og på verdensplan har filmen indspillet 916 mio. dollars.&#10;&#10;'Find Dory' vises i versioner med dansk tale (af bl.a. Mette Lisby, Troels Lyby, Hans Henrik Clemensen og Karoline Munksnæs) eller engelsk tale med danske undertekster. &#10;" />
+      <Label layoutX="614.0" layoutY="391.0" prefHeight="21.0" prefWidth="88.0" text="Description" textAlignment="CENTER" />
+      <Label layoutX="91.0" layoutY="39.0" text="Trailer" />
+      <Label layoutX="595.0" layoutY="81.0" text="Originaltitel:" />
+      <Label layoutX="593.0" layoutY="123.0" text="Genre:" />
+      <Label layoutX="593.0" layoutY="102.0" text="Premiere:" />
+      <Label layoutX="594.0" layoutY="144.0" text="Spilltetid:" />
+   </children>
+</Pane>
