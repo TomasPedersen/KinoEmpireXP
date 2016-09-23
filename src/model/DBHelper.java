@@ -264,7 +264,7 @@ Port number: 3306
             aDate = "`2016-05-26`";
             sqlString = "SELECT DISTINCT " + danishTitle + " FROM " + kE + " WHERE Date="+aDate+"";
             statement = connection.createStatement();
-            statement.executeQuery(sqlString);
+            resultSet = statement.executeQuery(sqlString);
         } catch (SQLException e) {
             connection.rollback(savepoint);
         }
