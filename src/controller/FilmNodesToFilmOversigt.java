@@ -44,6 +44,8 @@ public class FilmNodesToFilmOversigt {
 
 
     public ArrayList<Node> createListOfFilmNodes(LocalDate date){
+        //Create if statement so that if there are no movies to show then create message.
+
         ArrayList<Film> films = new ArrayList<>();
         DBHelper db = new DBHelper();
         // if only I could do this : db.selectFromMovies(null, null)  and get an arraylist of films
