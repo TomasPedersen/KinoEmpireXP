@@ -11,7 +11,8 @@ import java.util.Random;
 public class Robot implements Runnable{
 
 
-    /* Adding sales, buying or reserving tickets*/
+    /** This method creates a new thread that adds sales and either buys or reserves tickets
+     * It takes random customers from the database and random shows and tries to purchase a seat */
     @Override
     public void run() {
         ArrayList<Show> shows = new ArrayList<>(); // get all shows
@@ -25,6 +26,15 @@ public class Robot implements Runnable{
             LocalDateTime timeOfSale = LocalDateTime.now();
             Sale sale = new Sale(shows.get(ranNum(0, shows.size())), customers.get(ranNum(0, customers.size())),
                     ranNum(0, amountOfSeats-1), timeOfSale, status.get(ranNum(0, status.size())) );
+            // if sale doesn't already exits... there should be a db method
+            // then sale.insertIntoDB();
+
+            try {
+                Thread.sleep(ranNum(0, 15000));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 
