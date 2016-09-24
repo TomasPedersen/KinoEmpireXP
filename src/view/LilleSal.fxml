@@ -344,7 +344,7 @@
    <left>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="red_button" layoutX="44.0" layoutY="618.0" mnemonicParsing="false" onMouseClicked="#godkendBetaling" stylesheets="@../style.css" text="Godkend valg" />
+            <Button id="red_button" layoutX="44.0" layoutY="618.0" mnemonicParsing="false" onMouseClicked="#godkendBetaling" stylesheets="@../style.css" text="godkend_valg" />
             <HBox layoutX="27.0" prefHeight="100.0" prefWidth="173.0">
                <children>
                   <Label prefHeight="21.0" prefWidth="143.0" text="Antal valgte sæder: " />

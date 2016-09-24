@@ -1,5 +1,3 @@
-package view;
-
 import controller.FilmNodesToFilmOversigt;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,10 +17,13 @@ import java.time.LocalDate;
 public class FilmOversigtController {
 
     @FXML
-    public void getDateFromFilmOversigt(MouseEvent event){
-        BorderPane root = (BorderPane) event.getSource();
-        DatePicker date = (DatePicker) root.lookup("#filmoversigt_date");
-        addMoviesToTheGridpane(date.getValue(), root);
+    public void getDateFromFilmOversigt(){
+
+        BorderPane root = (BorderPane) Main.root;
+        DatePicker datePicker = (DatePicker) root.lookup("#filmoversigt_date");
+        if(datePicker.getValue() != null) {   // this check is necessary cause on action is also called when you open datepicker before even choosing a date
+            addMoviesToTheGridpane(datePicker.getValue(), root);
+        }
 
     }
 
@@ -30,7 +31,7 @@ public class FilmOversigtController {
 
         FilmNodesToFilmOversigt filmNodes = new FilmNodesToFilmOversigt();
 
-        GridPane gridPane = (GridPane) root.lookup("#filmoversigt_gridpane");  // please change the ID accordingly
+        GridPane gridPane = (GridPane) root.lookup("#filmoversigt_gridpane");
         filmNodes.gridPaneOfFilmNodes(date, gridPane);
 
     }
