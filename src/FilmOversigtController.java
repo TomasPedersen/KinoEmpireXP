@@ -37,18 +37,6 @@ public class FilmOversigtController {
     }
 
 
-/*    @FXML
-    public void instantiate() {
-        BorderPane root = (BorderPane) Main.root;
-        int id = 0;
-        reservedSeatList.add(id);
-        String idString = "#s" + id;
-        ToggleButton toggleButton = (ToggleButton) root.lookup(idString);
-        toggleButton.setStyle("-fx-graphic: url('../images/seat%20(red).png');");
-        toggleButton.setSelected(true);
-        toggleButton.setDisable(true);
-
-    }*/
 
 
 }

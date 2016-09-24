@@ -18,7 +18,7 @@ public class Controller {
 
         // http://stackoverflow.com/questions/34863425/javafx-scene-builder-how-switch-scene
 
-        Parent loginRoot = Main.root;
+              Parent loginRoot = Main.root;
         TextField username = (TextField) loginRoot.lookup("#login_username_field");
         PasswordField password = (PasswordField) loginRoot.lookup("#login_password_field");
 
