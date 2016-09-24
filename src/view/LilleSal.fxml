@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="804.0" prefWidth="1278.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LilleSalController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="804.0" prefWidth="1278.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LilleSalController">
    <center>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="639.0" prefWidth="669.0" translateX="-100.0" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -344,7 +344,7 @@
    <left>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="red_button" layoutX="44.0" layoutY="618.0" mnemonicParsing="false" onMouseClicked="#godkendBetaling" stylesheets="@style.css" text="Godkend valg" />
+            <Button id="red_button" layoutX="44.0" layoutY="618.0" mnemonicParsing="false" onMouseClicked="#godkendBetaling" stylesheets="@../style.css" text="Godkend valg" />
             <HBox layoutX="27.0" prefHeight="100.0" prefWidth="173.0">
                <children>
                   <Label prefHeight="21.0" prefWidth="143.0" text="Antal valgte sæder: " />

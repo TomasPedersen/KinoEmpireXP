@@ -98,7 +98,7 @@ public class FilmNodesToFilmOversigt {
 
     public void descriptionCalled(Button description) {
         try {
-            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("MovieInfo.fxml"));
+            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("view/MovieInfo.fxml"));
             BorderPane rootBorderPane = (BorderPane) description.getScene().getRoot();
             rootBorderPane.setCenter(filmOversigtNode);
         } catch (IOException e) {
@@ -109,7 +109,7 @@ public class FilmNodesToFilmOversigt {
 
     public void reserveSelected(Button reserve) {
         try {
-            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("LilleSal.fxml"));
+            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("view/LilleSal.fxml"));
             BorderPane rootBorderPane = (BorderPane) reserve.getScene().getRoot();
             rootBorderPane.setCenter(filmOversigtNode);
         } catch (IOException e) {

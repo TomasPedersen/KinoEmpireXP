@@ -1,11 +1,13 @@
+package view;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import model.Seat;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,19 +22,9 @@ public class LilleSalController {
     private int amountOfSeatsChoosen = 0;
     private int price = 0;
 
+    private BorderPane root;  // can this be deleted?
 
-    @FXML
-    public void instantiate() {
-        BorderPane root = (BorderPane) Main.root;
-        int id = 0;
-        reservedSeatList.add(id);
-        String idString = "#s" + id;
-        ToggleButton toggleButton = (ToggleButton) root.lookup(idString);
-        toggleButton.setStyle("-fx-graphic: url('images/seat%20(red).png');");
-        toggleButton.setSelected(true);
-        toggleButton.setDisable(true);
 
-    }
 
 
     @FXML
@@ -56,7 +48,7 @@ public class LilleSalController {
 
             choosenSeats.add(id);
 
-            BorderPane root = (BorderPane) Main.root;
+            root = (BorderPane) toggleButton.getScene().getRoot();
             amountOfSeatsChoosen++;
             Label labelSeatAmount = (Label) root.lookup("#valgte_saeder");
             labelSeatAmount.setText(Integer.toString(amountOfSeatsChoosen));
@@ -73,7 +65,7 @@ public class LilleSalController {
             }
 
 
-            BorderPane root = (BorderPane) Main.root;
+            root = (BorderPane) toggleButton.getScene().getRoot();
             amountOfSeatsChoosen--;
             Label labelSeatAmount = (Label) root.lookup("#valgte_saeder");
             labelSeatAmount.setText(Integer.toString(amountOfSeatsChoosen));
@@ -86,18 +78,20 @@ public class LilleSalController {
 
 
     @FXML
-    public void godkendBetaling() {
+    public void godkendBetaling(MouseEvent event) {
+
+        Button godkendBetalingButton = (Button) event.getSource();
+        root = (BorderPane) godkendBetalingButton.getScene().getRoot();
 
         if (amountOfSeatsChoosen > 0) {
             try {
                 Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("ProcessPayment.fxml"));
-                BorderPane rootBorderPane = (BorderPane) Main.root;
-                rootBorderPane.setCenter(filmOversigtNode);
+                root.setCenter(filmOversigtNode);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else {
-            BorderPane root = (BorderPane) Main.root;
+
             Label messageLabel = (Label) root.lookup("#accept_payment_seat_message");
             messageLabel.setText("You've not selected any seats.");
         }

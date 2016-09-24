@@ -1,18 +1,9 @@
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import javafx.stage.Window;
 
 
 import java.io.IOException;
@@ -39,7 +30,7 @@ public class Controller {
 
         try {
 
-            Parent newRoot = FXMLLoader.load(getClass().getResource("MainLayout.fxml"));
+            Parent newRoot = FXMLLoader.load(getClass().getResource("view/MainLayout.fxml"));
             loginRoot.getScene().setRoot(newRoot);
             Main.root = newRoot;
 
@@ -60,7 +51,7 @@ public class Controller {
     public void selectingFilmOversigt() {
 
         try {
-            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("FilmOversigt.fxml"));
+            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("view/FilmOversigt.fxml"));
 
             BorderPane rootBorderPane = (BorderPane) Main.root;
             rootBorderPane.setCenter(filmOversigtNode);
@@ -77,7 +68,7 @@ public class Controller {
     public void selectingAdmin() {
         try {
             //Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("Admin.fxml"));
-            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("LilleSal.fxml"));
+            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("view/LilleSal.fxml"));
             BorderPane rootBorderPane = (BorderPane) Main.root;
             rootBorderPane.setCenter(filmOversigtNode);
         } catch (IOException e) {
@@ -91,7 +82,7 @@ public class Controller {
     @FXML
     public void selectingStatistik() {
         try {
-            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("Statistik.fxml"));
+            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("view/Statistik.fxml"));
             BorderPane rootBorderPane = (BorderPane) Main.root;
             rootBorderPane.setCenter(filmOversigtNode);
         } catch (IOException e) {
@@ -104,7 +95,7 @@ public class Controller {
     @FXML
     public void selectingKontakt() {
         try {
-            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("Kontakt.fxml"));
+            Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("view/Kontakt.fxml"));
             BorderPane rootBorderPane = (BorderPane) Main.root;
             rootBorderPane.setCenter(filmOversigtNode);
         } catch (IOException e) {
