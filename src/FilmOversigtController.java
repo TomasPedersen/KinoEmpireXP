@@ -1,11 +1,14 @@
 import controller.FilmNodesToFilmOversigt;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import model.DBHelper;
 
+import java.io.IOException;
 import java.time.LocalDate;
 
 public class FilmOversigtController {
@@ -27,6 +30,9 @@ public class FilmOversigtController {
         filmNodes.gridPaneOfFilmNodes(date, gridPane);
 
     }
+
+
+
 
 
 }

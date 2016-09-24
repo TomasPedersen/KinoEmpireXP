@@ -20,9 +20,11 @@ public class Main extends Application{
 	}
 
 	public static Parent root;
+	public static Stage primaryStage;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+//		root = FXMLLoader.load(getClass().getResource("Login.fxml"));   // for debug purposes this is commented out but it should start from here
 		root = FXMLLoader.load(getClass().getResource("MainLayout.fxml"));
 		primaryStage.setTitle("Kino EmpireXP");
 		Scene scene = new Scene(root);

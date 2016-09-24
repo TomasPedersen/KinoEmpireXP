@@ -2,14 +2,53 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
 
 import java.io.IOException;
 
 public class Controller {
+
+    /**
+     * This is what happens when the user tries to log in
+     * */
+    @FXML
+    public void logIn() {
+
+        // http://stackoverflow.com/questions/34863425/javafx-scene-builder-how-switch-scene
+
+        Parent loginRoot = Main.root;
+        TextField username = (TextField) loginRoot.lookup("#login_username_field");
+        PasswordField password = (PasswordField) loginRoot.lookup("#login_password_field");
+
+        String usernameAsString = username.getText();
+        String passwordAsString = password.getText();
+
+        // todo make a check to see if the user exists in the database and create the user object
+        // remember to sanitize the data
+
+        try {
+
+            Parent newRoot = FXMLLoader.load(getClass().getResource("MainLayout.fxml"));
+            loginRoot.getScene().setRoot(newRoot);
+            Main.root = newRoot;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
 
 
