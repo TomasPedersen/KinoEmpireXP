@@ -21,10 +21,6 @@ public class Main extends Application{
 	public void start(Stage primaryStage) throws Exception {
 //		root = FXMLLoader.load(getClass().getResource("view/Login.fxml"));   // for debug purposes this is commented out but it should start from here
 		root = FXMLLoader.load(getClass().getResource("view/MainLayout.fxml"));
-		Pane center = FXMLLoader.load(getClass().getResource("view/MovieDescription.fxml"));
-		BorderPane borderPane = (BorderPane) root;
-		borderPane.setCenter(center);
-
 		primaryStage.setTitle("Kino EmpireXP");
 		Scene scene = new Scene(root);
 		primaryStage.getIcons().add(new Image("images/Logo.png"));
