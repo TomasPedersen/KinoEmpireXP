@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.web.WebView;
 import model.DBHelper;
 
 import java.io.IOException;
@@ -35,6 +36,7 @@ public class FilmOversigtController {
         filmNodes.gridPaneOfFilmNodes(date, gridPane);
 
     }
+
 
 
 

@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.web.WebView;
 import model.DBHelper;
 import model.Movie;
 import model.Seat;
@@ -111,6 +112,12 @@ public class FilmNodesToFilmOversigt {
 
             Parent newRoot = FXMLLoader.load(getClass().getResource("../view/Description.fxml")); // later on check if the link is correct
             root.setCenter(newRoot);
+
+            WebView webView = (WebView) root.lookup("#description_webview");
+            webView.getEngine().load(
+                    "http://www.dailymotion.com/video/x2n5grg_batman-v-superman-dawn-of-justice-full-movies-official-teaser-trailer-hd_shortfilms"  //this will not work in recent javafx because format is not defined .. perhaps non-html5 video formatting is the reason
+
+            );
 
         } catch (IOException e) {
             e.printStackTrace();

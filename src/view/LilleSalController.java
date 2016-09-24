@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.web.WebView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -102,8 +103,6 @@ public class LilleSalController {
         // pass choosenSeats and save them in the db only AFTER the payment has been processed
 
     }
-
-
 
 
 

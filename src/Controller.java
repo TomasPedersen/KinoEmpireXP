@@ -4,6 +4,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.web.WebView;
 
 
 import java.io.IOException;
