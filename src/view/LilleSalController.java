@@ -42,9 +42,6 @@ public class LilleSalController {
         }
 
 
-        // account for 0 index
-
-
         if(toggleButton.isSelected()) {
 
             choosenSeats.add(id);
@@ -59,7 +56,7 @@ public class LilleSalController {
 
         } else {
 
-            for(int i = 0; i <= choosenSeats.size(); i++) {
+            for(int i = 0; i < choosenSeats.size(); i++) {
                 if(choosenSeats.get(i) == id) {
                     choosenSeats.remove(i);
                 }
