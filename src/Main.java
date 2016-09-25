@@ -22,7 +22,7 @@ public class Main extends Application{
 		root = FXMLLoader.load(getClass().getResource("view/MainLayout.fxml"));
 		primaryStage.setTitle("Kino EmpireXP");
 		Scene scene = new Scene(root);
-		primaryStage.getIcons().add(new Image("images/Logo.png"));
+		primaryStage.getIcons().add(new Image("Images/Logo.png"));
 		primaryStage.setScene(scene);
 		primaryStage.setMaximized(true);
 		primaryStage.show();
