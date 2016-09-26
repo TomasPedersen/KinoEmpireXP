@@ -8,8 +8,6 @@ public class Seat {
         this.isReserved = isReserved;
     }
 
-    public Seat() {}
-
     public boolean isReserved() {
         return isReserved;
     }
