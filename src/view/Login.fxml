@@ -16,11 +16,11 @@
          <children>
             <ImageView fitHeight="131.0" fitWidth="254.0" layoutX="167.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Images/NoPosterAvailable.png" />
+                  <Image url="@../images/NoPosterAvailable.png" />
                </image>
             </ImageView>
             <Button id="red_button" fx:id="login_login_button" layoutX="311.0" layoutY="397.0" mnemonicParsing="false" onMouseClicked="#logIn" prefHeight="31.0" prefWidth="150.0" stylesheets="@../style.css" text="Login" />
-            <Button id="red_button" layoutX="133.0" layoutY="397.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="150.0" stylesheets="@../style.css" text="Opret" />
+            <Button id="blue_button" layoutX="133.0" layoutY="397.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="150.0" stylesheets="@../style.css" text="Opret" />
             <Text layoutX="133.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" textAlignment="CENTER" wrappingWidth="287.6708984375">
                <font>
                   <Font name="Century" size="45.0" />
