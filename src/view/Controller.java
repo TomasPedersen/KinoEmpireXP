@@ -1,9 +1,14 @@
 package view;
 
+import controller.Statistics;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Border;
@@ -139,6 +144,14 @@ public class Controller {
             TabPane statistikTabPane = statistikLoader.load();
 
             mainLayout.setCenter(statistikTabPane);
+
+            PieChart pieChart = (PieChart) mainLayout.lookup("#statistik_piechart");
+            Statistics.fillPieChartWithData(pieChart);
+
+
+            BarChart barChart = (BarChart) mainLayout.lookup("#statistik_barchart");
+            Statistics.fillBarChartWithData(barChart);
+
 
         } catch (IOException e) {
             e.printStackTrace();

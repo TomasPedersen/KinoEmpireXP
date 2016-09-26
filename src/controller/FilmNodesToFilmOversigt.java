@@ -2,6 +2,7 @@ package controller;
 
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -12,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
 import model.DBHelper;
@@ -44,7 +46,7 @@ public class FilmNodesToFilmOversigt {
 
         for (Node filmNode : nodesToAdd) {
 
-            if(columnIndex == 2) {
+            if(columnIndex == 4) {
                 columnIndex = 0;
                 rowIndex++;
             }
@@ -80,60 +82,77 @@ public class FilmNodesToFilmOversigt {
             VBox vbox = new VBox();
             //Nodes for vbox
             Label titleLabel = new Label(movies.get(i).getDanishTitle());
+            titleLabel.setPrefWidth(Double.MAX_VALUE);
             titleLabel.setId("filmoversigt_title");
+            titleLabel.setAlignment(Pos.CENTER);
 
             Image noPosterImage = new Image("/images/NoPosterAvailable.png");
             ImageView noPosterIW = new ImageView(noPosterImage);
-            noPosterIW.setPreserveRatio(false);
-            noPosterIW.fitWidthProperty().setValue(50);
-            noPosterIW.fitHeightProperty().setValue(100);
+            noPosterIW.setPreserveRatio(true);
+            noPosterIW.fitHeightProperty().setValue(120);
+
+            StackPane stackPane = new StackPane();
+            stackPane.getChildren().add(noPosterIW);
 
             Label showTime = new Label("I can't access the show time");
             showTime.setId("filmoversigt_show_time");
 
 
             Button description = new Button("Beskrivelse");
+            description.setPrefWidth(Double.MAX_VALUE);
             description.setId("filmoversigt_beskrivelse");
+            description.setId("glass-red");
             description.setOnAction( e -> filmOversigtController.selectingDescription(e));
-
+            description.getStyleClass().add("red_button");
 
             Button reserverFilm = new Button("Reservér");
+            reserverFilm.setPrefWidth(Double.MAX_VALUE);
             reserverFilm.setId("filmoversigt_reserver");
+            reserverFilm.setId("glass-red");
             reserverFilm.setOnAction( e -> filmOversigtController.selectingReserveSeats(e));
+            reserverFilm.getStyleClass().add("red_button");
 
-
-            vbox.getChildren().addAll(titleLabel, noPosterIW, description, reserverFilm);
+            vbox.getChildren().addAll(titleLabel, stackPane, description, reserverFilm);
 
             listOfNodes.add(vbox);
         }
 
 
-        if(true){
+        if(true){  // this will run once and will be overwritten if there is something to show
             VBox vbox = new VBox();
             //Nodes for vbox
             Label titleTF = new Label("Find Dory");
+            titleTF.setPrefWidth(Double.MAX_VALUE);
             titleTF.setId("filmoversigt_title");
+            titleTF.setAlignment(Pos.CENTER);
+
             Image noPosterImage = new Image("images/NoPosterAvailable.png");
             ImageView noPosterIW = new ImageView(noPosterImage);
-
             noPosterIW.setPreserveRatio(true);
-//            noPosterIW.fitWidthProperty().setValue(120);
-            noPosterIW.fitHeightProperty().setValue(160);
+            noPosterIW.fitHeightProperty().setValue(120);
+
+            StackPane stackPane = new StackPane();
+            stackPane.getChildren().add(noPosterIW);
+
 
             Label showTime = new Label("I can't access the show time");
             showTime.setId("filmoversigt_show_time");
 
             Button description = new Button("Beskrivelse");
+            description.setPrefWidth(Double.MAX_VALUE);
             description.setId("filmoversigt_beskrivelse");
+            description.setId("glass-red");
             description.setOnAction( e -> filmOversigtController.selectingDescription(e));
 
 
             Button reserverFilm = new Button("Reservér");
+            reserverFilm.setPrefWidth(Double.MAX_VALUE);
             reserverFilm.setId("filmoversigt_reserver");
+            reserverFilm.setId("glass-red");
             reserverFilm.setOnAction( e -> filmOversigtController.selectingReserveSeats(e));
 
 
-            vbox.getChildren().addAll(titleTF, noPosterIW, description, reserverFilm);
+            vbox.getChildren().addAll(titleTF, stackPane, description, reserverFilm);
 
             listOfNodes.add(vbox);
         }

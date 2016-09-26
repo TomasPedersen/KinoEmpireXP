@@ -78,5 +78,17 @@ radial-gradient(center 50% 50%, radius 100%, #4fa2d8, #2950c5);
     -fx-border: 0;
 }
 
+/* Two below from http://cssdeck.com/labs/purely-css */
+#glass-red {
+    -fx-background-color: #e43f3a;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3) , 3,0,0,1);
+    -fx-color: #FFF;
+}
+
+
+#glass-red:hover {
+    -fx-background-color: #da6057;
+    -fx-border-color: rgba(0,0,0,0.5);
+}
 
 
