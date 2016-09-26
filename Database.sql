@@ -66,6 +66,7 @@ CREATE TABLE IF NOT EXISTS `kinoempire`.`Customers` (
   `Email` VARCHAR(45) NOT NULL,
   `Name` VARCHAR(45) NULL,
   `Phone_Number` VARCHAR(11) NULL,
+  `Password` VARCHAR(30) NOT NULL
   PRIMARY KEY (`Email`));
 
 
