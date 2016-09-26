@@ -16,23 +16,23 @@ INSERT INTO `kinoempire`.`Movies` (`Danish_Title`, `Original_Title`, `Genre`, `F
 ('Money Monster', 'Money Monster', 'Thriller, Drama', '98', 'x', '2016-06-02', '4',  'Jodie Foster', '12',  '2D');
 
 INSERT INTO `kinoempire`.`Shows` (`Title`, `Date`, `Time`, `Theater`) VALUES 
-('En Mand Der Hedder Ove', '26.05.2016', '1200', '1'), 
-('Warcraft', '26.05.2016', '1200', '2'), 
-('En Mand Der Hedder Ove', '26.05.2016', '1800', '1'), 
-('Warcraft', '26.05.2016', '1800', '2'), 
-('En Mand Der Hedder Ove', '27.05.2016', '1200', '2'), 
-('Warcraft', '27.05.2016', '1200', '1'), 
-('En Mand Der Hedder Ove', '27.05.2016', '1800', '2'), 
-('Warcraft', '27.05.2016', '1800', '1'),
+('En Mand Der Hedder Ove', '2016.05.26', '1200', '1'),
+('Warcraft', '2016.05.26', '1200', '2'),
+('En Mand Der Hedder Ove', '2016.05.26', '1800', '1'),
+('Warcraft', '2016.05.26', '1800', '2'),
+('En Mand Der Hedder Ove', '2016.05.27', '1200', '2'),
+('Warcraft', '2016.05.27', '1200', '1'),
+('En Mand Der Hedder Ove', '2016.05.27', '1800', '2'),
+('Warcraft', '2016.05.27', '1800', '1'),
 
-('Mig Før Dig', '28.05.2016', '1200', '1'),
-('Money Monster', '28.05.2016', '1200', '2'),
-('Mig Før Dig', '28.05.2016', '1800', '1'),
-('Money Monster', '28.05.2016', '1800', '2'),
-('Mig Før Dig', '29.05.2016', '1200', '2'),
-('Money Monster', '29.05.2016', '1200', '1'),
-('Mig Før Dig', '29.05.2016', '1800', '2'),
-('Money Monster', '29.05.2016', '1800', '1');
+('Mig Før Dig', '2016.05.28', '1200', '1'),
+('Money Monster', '2016.05.28', '1200', '2'),
+('Mig Før Dig', '2016.05.28', '1800', '1'),
+('Money Monster', '2016.05.28', '1800', '2'),
+('Mig Før Dig', '2016.05.29', '1200', '2'),
+('Money Monster', '2016.05.29', '1200', '1'),
+('Mig Før Dig', '2016.05.29', '1800', '2'),
+('Money Monster', '2016.05.29', '1800', '1');
 
 INSERT INTO `kinoempire`.`Sales` (`Show`, `Customer`, `SeatIndex`, `TimeOfSale`, `Status`) VALUES
   ('1', 'Hans@email.com', '1', now(), 'Sale'),
