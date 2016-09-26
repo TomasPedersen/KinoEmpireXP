@@ -284,9 +284,7 @@ Port number: 3306
         ArrayList<Movie> dateMovies = new ArrayList<>();
         try {
             connection = connect();
-
-            String shows = "`Shows`";
-            sqlString = "SELECT * FROM " + shows + " WHERE Date=" + Util.convertLocalDateToSQLDate(lD) + ";";
+            sqlString = "SELECT * FROM " + "Shows" + " WHERE Date=" + Util.convertLocalDateToSQLDate(lD) + ";";
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sqlString);
             while (resultSet.next()) {
@@ -302,31 +300,28 @@ Port number: 3306
         return dateMovies;
     }
 
-    public ArrayList<Seat> seatFromDate(String sI, String sho2) throws SQLException {
-        ArrayList<Seat> showSeats = new ArrayList<>();
-        ArrayList<Integer> i = new ArrayList<>();
-        int x = 0;
+    public Seat[] seatFromDate() throws SQLException {
+        Seat[] seats = new Seat[240];
+        ArrayList<Integer> reserved = new ArrayList<>();
         try{
+            connection = connect();
+            connection.setSavepoint();
             statement = connection.createStatement();
-            sI = "SeatIndex";
-            String sales = "Sales";
-            sho2 = "`Show` = 2";
-            sqlString = "SELECT " +sI+" FROM "+sales+" Where "+ sho2 +";";
+            sqlString = "SELECT " +"SeatIndex"+" FROM "+ "Sales" +" Where "+ "`Show` = 2" +";";
             resultSet = statement.executeQuery(sqlString);
-
         }catch (SQLException e){
             connection.rollback(savepoint);
         }
         while (resultSet.next()) {
-            i.add(resultSet.getInt(1));
+            reserved.add(resultSet.getInt(1));
         }
-        do {
-            //if (resultSet_
-            showSeats.add(x, new Seat());
-            x ++;
-        }while (x < 300);
-
-        return showSeats;
+        for (int i = 0; i <= 240; i++){
+            seats[i] = new Seat(false);
+        }
+        for (int a: reserved) {
+                    seats[a].setReserved(true);
+        }
+        return seats;
     }
 
 }
