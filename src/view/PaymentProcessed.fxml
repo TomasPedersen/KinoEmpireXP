@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Label prefHeight="122.0" prefWidth="386.0" text="Tak fordi du bruger Kino EmpireXP" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <Label prefHeight="63.0" prefWidth="500.0" text="Eventuel betaling foregår hos vores eksterne betalingsservice." BorderPane.alignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </center>
+</BorderPane>

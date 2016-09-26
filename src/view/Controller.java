@@ -8,6 +8,8 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import model.Customer;
@@ -41,18 +43,21 @@ public class Controller {
         String usernameAsString = username.getText();
         String passwordAsString = password.getText();
 
-        // if (usernameAsString.equals("AdminRoot") && passwordAsString.equals("root")) { // todo make a check to see if the user exists in the database and create the user object
+         if (usernameAsString.equals("AdminRoot") && passwordAsString.equals("root") ||
+                 usernameAsString.equals("") && passwordAsString.equals("")) { // todo make a check to see if the user exists in the database and create the user object
 
-            String email = username + "@gmail.com";
+            String email = usernameAsString + "@gmail.com";
+
             Customer customer = new Customer(email, "Admin Root", "80818103", passwordAsString);
             session.put("username", usernameAsString);
             session.put("password", passwordAsString);
             session.put("customer_object", customer);
 
+            session.put("root_loader", loader);
+
             FXMLLoader mainLayoutLoader = new FXMLLoader(getClass().getResource("MainLayout.fxml"));
             mainLayoutLoader.setController(this);
-            session.put("root_loader", loader);
-            session.put("customer_object", customer);
+
 
             try {
                 BorderPane mainParent = mainLayoutLoader.load();
@@ -62,10 +67,10 @@ public class Controller {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-/*        } else {
+        } else {
             Label loginErrorLabel = (Label) loginRoot.lookup("#login_warning_label");
             loginErrorLabel.setText("Username or password not recognized.");
-        }*/
+        }
 
     }
 
@@ -108,17 +113,11 @@ public class Controller {
             Button menuButtonClicked = (Button) event.getSource();
             BorderPane mainLayout = (BorderPane) menuButtonClicked.getScene().getRoot();
 
-/*            FXMLLoader adminLoader = new FXMLLoader(getClass().getResource("Admin.fxml"));
-            Controller controller = new Controller(session);  // Controller will act as a placeholder cause it needs to set a controller
-            adminLoader.setController(controller);
-            BorderPane adminBorderPane = adminLoader.load();*/
+            FXMLLoader adminLoader = new FXMLLoader(getClass().getResource("Admin.fxml"));
+            adminLoader.setController(this);
+            FlowPane adminFlowPane = adminLoader.load();
 
-            FXMLLoader adminLoader = new FXMLLoader(getClass().getResource("LilleSal.fxml"));
-            LilleSalController lilleSalController = new LilleSalController(session);
-            adminLoader.setController(lilleSalController);
-            BorderPane adminBorderPane = adminLoader.load();
-
-            mainLayout.setCenter(adminBorderPane);
+            mainLayout.setCenter(adminFlowPane);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -131,7 +130,6 @@ public class Controller {
     @FXML
     public void selectingStatistik(MouseEvent event) {
         try {
-
             Button menuButtonClicked = (Button) event.getSource();
             BorderPane mainLayout = (BorderPane) menuButtonClicked.getScene().getRoot();
 
@@ -191,6 +189,30 @@ public class Controller {
         }
     }
 
+    /**
+     * This is thank you for the purchase massage when the reserver or godkend betaling button has been pressed in the process payment window
+     * @param event
+     */
+    @FXML
+    public void seatReserved(MouseEvent event) {
+        try {
+
+            Button menuButtonClicked = (Button) event.getSource();
+            BorderPane mainLayout = (BorderPane) menuButtonClicked.getScene().getRoot();
+
+            FXMLLoader paymentDoneLoader = new FXMLLoader(getClass().getResource("PaymentProcessed.fxml"));
+            Controller controller = new Controller(session);  // Controller will act as a placeholder cause it needs to set a controller
+            paymentDoneLoader.setController(controller);
+            BorderPane paymentDoneBorderPane = paymentDoneLoader.load();
+
+            mainLayout.setCenter(paymentDoneBorderPane);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 
 
 

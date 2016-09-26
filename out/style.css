@@ -1,0 +1,82 @@
+
+/* Logo
+http://4vector.com/free-vector/2-beautiful-curtain-vector-5750 */
+
+/* XP-logo
+http://www.flaticon.com/free-icon/parkour-sport-silhouette_37805#term=extreme&page=1&position=14
+http://www.flaticon.com/free-icon/keyboard_159602#term=keyboard&page=1&position=25
+*/
+
+
+/* Creative Commons BY 3.0
+image by by Freepik
+http://www.flaticon.com/free-icon/seat_126893#term=cinema%20chair&page=1&position=23 */
+.toggle-button{
+    -fx-graphic: url('images/seat%20(black).png');
+}
+
+.toggle-button:selected{
+    -fx-graphic: url('images/seat%20(blue).png');
+}
+
+
+
+#menu_button{
+    -fx-background-color: linear-gradient(#ff3c3a, #be1d05);
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+    -fx-font-size: 1.2em;
+}
+
+#menu_button:hover{
+    -fx-background-color: linear-gradient(#be1d05, #ff3c3a);
+}
+
+
+
+/* Red button http://fxexperience.com/2011/12/styling-fx-buttons-with-css/ */
+#red_button{
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),
+            #9d4024,
+            #d86e3a,
+            radial-gradient(center 50% 50%, radius 100%, #d86e3a, #c54e2c);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#red_button:hover{
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+#blue_button{
+-fx-padding: 8 15 15 15;
+-fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+-fx-background-radius: 8;
+-fx-background-color:
+linear-gradient(from 0% 93% to 0% 100%, #4481a3 0%, #120a90 100%),
+#2e409d,
+#5e91d8,
+radial-gradient(center 50% 50%, radius 100%, #4fa2d8, #2950c5);
+-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+-fx-font-weight: bold;
+-fx-font-size: 1.1em;
+}
+
+#blue_button:hover{
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+#grid_pane{
+    -fx-border: 0;
+}
+
+
+

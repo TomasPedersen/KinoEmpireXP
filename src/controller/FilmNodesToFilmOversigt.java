@@ -17,6 +17,7 @@ import javafx.scene.web.WebView;
 import model.DBHelper;
 import model.Movie;
 import model.Seat;
+import view.FilmOversigtController;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -72,100 +73,76 @@ public class FilmNodesToFilmOversigt {
             e.printStackTrace();
         }
 
+        FilmOversigtController filmOversigtController = new FilmOversigtController();
+
         for(int i = 0; i< movies.size(); i++ ){
             //vbox holds the rest of the nodes
             VBox vbox = new VBox();
             //Nodes for vbox
-            TextField titleTF = new TextField(movies.get(i).getDanishTitle());
-            titleTF.setId("filmoversigt_title");
-            ImageView noPosterIW = new ImageView();
-            Image noPosterImage = new Image("../images/NoPosterAvailable.png");
+            Label titleLabel = new Label(movies.get(i).getDanishTitle());
+            titleLabel.setId("filmoversigt_title");
+
+            Image noPosterImage = new Image("/images/NoPosterAvailable.png");
+            ImageView noPosterIW = new ImageView(noPosterImage);
+            noPosterIW.setPreserveRatio(false);
+            noPosterIW.fitWidthProperty().setValue(50);
+            noPosterIW.fitHeightProperty().setValue(100);
+
+            Label showTime = new Label("I can't access the show time");
+            showTime.setId("filmoversigt_show_time");
+
 
             Button description = new Button("Beskrivelse");
             description.setId("filmoversigt_beskrivelse");
-            description.setOnAction( e -> selectingDescription(e));
+            description.setOnAction( e -> filmOversigtController.selectingDescription(e));
 
 
             Button reserverFilm = new Button("Reservér");
             reserverFilm.setId("filmoversigt_reserver");
-            reserverFilm.setOnAction( e -> selectingReserveSeats(e));
+            reserverFilm.setOnAction( e -> filmOversigtController.selectingReserveSeats(e));
 
 
-            vbox.getChildren().addAll(titleTF, noPosterIW, reserverFilm);
+            vbox.getChildren().addAll(titleLabel, noPosterIW, description, reserverFilm);
 
             listOfNodes.add(vbox);
         }
 
+
+        if(true){
+            VBox vbox = new VBox();
+            //Nodes for vbox
+            Label titleTF = new Label("Find Dory");
+            titleTF.setId("filmoversigt_title");
+            Image noPosterImage = new Image("images/NoPosterAvailable.png");
+            ImageView noPosterIW = new ImageView(noPosterImage);
+
+            noPosterIW.setPreserveRatio(true);
+//            noPosterIW.fitWidthProperty().setValue(120);
+            noPosterIW.fitHeightProperty().setValue(160);
+
+            Label showTime = new Label("I can't access the show time");
+            showTime.setId("filmoversigt_show_time");
+
+            Button description = new Button("Beskrivelse");
+            description.setId("filmoversigt_beskrivelse");
+            description.setOnAction( e -> filmOversigtController.selectingDescription(e));
+
+
+            Button reserverFilm = new Button("Reservér");
+            reserverFilm.setId("filmoversigt_reserver");
+            reserverFilm.setOnAction( e -> filmOversigtController.selectingReserveSeats(e));
+
+
+            vbox.getChildren().addAll(titleTF, noPosterIW, description, reserverFilm);
+
+            listOfNodes.add(vbox);
+        }
+
+
         return listOfNodes;
     }
 
-// todo .. test the two methods below
-    /**
-     * For each film node.. if the description button is clicked
-    *
-    * */
-    public void selectingDescription(Event event) {
-        Button descriptionButton = (Button) event.getSource();
-        BorderPane root = (BorderPane) descriptionButton.getScene().getRoot();
 
-        try {
-
-            Parent newRoot = FXMLLoader.load(getClass().getResource("../view/Description.fxml")); // later on check if the link is correct
-            root.setCenter(newRoot);
-
-            WebView webView = (WebView) root.lookup("#description_webview");
-            webView.getEngine().load(
-                    "http://www.dailymotion.com/video/x2n5grg_batman-v-superman-dawn-of-justice-full-movies-official-teaser-trailer-hd_shortfilms"  //this will not work in recent javafx because format is not defined .. perhaps non-html5 video formatting is the reason
-
-            );
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * First show the lillesal seat arrangment screen when reserve button is clicked on the film node in the film oversigt
-     * Then for each film node.. if a seat is reserved then make it red, disable clicking
-     *
-     * */
-    public void selectingReserveSeats(Event event) {
-        Button descriptionButton = (Button) event.getSource();
-        BorderPane root = (BorderPane) descriptionButton.getScene().getRoot();
-        VBox vBox = (VBox) descriptionButton.getParent();
-        vBox.lookup("filmoversigt_title");
-
-        DBHelper db = new DBHelper();
-        // find show by title, date and time
-        //db.findShowId();
-
-        // now I should get an arraylist of seats (reserved or not)
-        // db.seatFromDate()
-        ArrayList<Seat> seats = new ArrayList<>();
-
-        try {
-            // hypothetically there would be an if check here to see what room the show is in
-            Parent newRoot = FXMLLoader.load(getClass().getResource("../view/LilleSal.fxml"));
-            root.setCenter(newRoot);
-
-            //show.getLilleSalSeats();
-            int amountOfSeats = 240;
-
-            for (int i = 0; i < amountOfSeats; i++) {
-                if (seats.get(i).isReserved()) {
-                    String toggleButtonId = "#s" +i;
-                    newRoot.lookup(toggleButtonId);
-                    ToggleButton toggleButton = (ToggleButton) root.lookup(toggleButtonId);
-                    toggleButton.setStyle("-fx-graphic: url('../images/seat%20(red).png');");
-                    toggleButton.setSelected(true);
-                    toggleButton.setDisable(true);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
 
 
 

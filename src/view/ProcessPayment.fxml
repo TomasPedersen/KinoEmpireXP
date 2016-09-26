@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="804.0" prefWidth="1278.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LilleSalController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="562.0" prefWidth="1130.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <Pane prefHeight="87.0" prefWidth="1278.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="271.0" layoutY="4.0" text="Betal">
+            <Label layoutX="271.0" layoutY="4.0">
                <font>
                   <Font size="24.0" />
                </font></Label>
@@ -20,33 +20,33 @@
       </Pane>
    </top>
    <left>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="650.0" prefWidth="186.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="red_button" layoutX="54.0" layoutY="628.0" mnemonicParsing="false" onMouseClicked="#godkendBetaling" stylesheets="@../style.css" text="Godkend betaling" />
-            <Button id="blue_button" layoutX="83.0" layoutY="566.0" mnemonicParsing="false" onMouseClicked="#godkendBetaling" stylesheets="@../style.css" text="Reservér" />
+            <Button id="red_button" layoutX="22.0" layoutY="355.0" mnemonicParsing="false" onMouseClicked="#seatReserved" stylesheets="@../style.css" text="Godkend betaling" />
+            <Button id="blue_button" layoutX="44.0" layoutY="279.0" mnemonicParsing="false" onMouseClicked="#seatReserved" stylesheets="@../style.css" text="Reservér" />
             <HBox layoutX="27.0" prefHeight="100.0" prefWidth="173.0">
                <children>
                   <Label prefHeight="21.0" prefWidth="143.0" text="Antal valgte sæder: " />
-                  <Label fx:id="valgte_saeder" prefHeight="17.0" prefWidth="9.0" text="0" />
+                  <Label fx:id="valgte_saeder" prefHeight="17.0" prefWidth="59.0" text="0" />
                </children>
             </HBox>
             <HBox layoutX="29.0" layoutY="100.0" prefHeight="91.0" prefWidth="171.0">
                <children>
                   <Label prefHeight="17.0" prefWidth="42.0" text="Pris:" />
-                  <Label fx:id="total_pris" text="0" />
+                  <Label fx:id="total_pris" prefHeight="17.0" prefWidth="45.0" text="0" />
                </children>
             </HBox>
          </children></Pane>
    </left>
    <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="432.0" prefWidth="881.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="140.0" layoutY="101.0" text="Label" />
-            <Label layoutX="140.0" layoutY="247.0" text="Label" />
-            <Label layoutX="140.0" layoutY="395.0" text="Label" />
-            <TextField layoutX="243.0" layoutY="97.0" />
-            <TextField layoutX="243.0" layoutY="243.0" />
-            <TextField layoutX="243.0" layoutY="391.0" />
+            <Label layoutX="140.0" layoutY="101.0" text="Name" />
+            <Label layoutX="140.0" layoutY="191.0" text="Email" />
+            <Label layoutX="104.0" layoutY="296.0" text="Telephone Number" />
+            <TextField fx:id="process_payment_name" layoutX="243.0" layoutY="97.0" />
+            <TextField fx:id="process_payment_email" layoutX="243.0" layoutY="187.0" />
+            <TextField fx:id="process_payment_telephone_number" layoutX="243.0" layoutY="292.0" />
          </children>
       </Pane>
    </center>

@@ -215,6 +215,30 @@ Port number: 3306
         return resultSet;
     }
 
+
+    public ArrayList<Movie> selectAllDistinctMovies() {
+        ArrayList<Movie> movies = new ArrayList<>();
+        try {
+            connection = connect();
+            statement = connection.createStatement();
+
+            sqlString = "SELECT DISTINCT * FROM Movies;";
+            resultSet = statement.executeQuery(sqlString);
+
+
+            while (resultSet.next()) {
+                Movie movie = new Movie(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3), resultSet.getDouble(4), resultSet.getString(5), Util.convertSQLDateToLocalDate(resultSet.getDate(6)),
+                        resultSet.getDouble(7), resultSet.getString(8), resultSet.getInt(9), resultSet.getString(10));
+            }
+
+            connection.commit();
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return movies;
+    }
+
     public ResultSet selectFromShows(int show_id, String column) {
         try {
             connection = connect();
@@ -333,7 +357,7 @@ Port number: 3306
             resultSet = statement.executeQuery(sqlString);
             while (resultSet.next()) {
                 Movie movie = new Movie(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3), resultSet.getDouble(4), resultSet.getString(5), null,
-                        resultSet.getDouble(6), resultSet.getString(7), resultSet.getInt(8), resultSet.getString(9));
+                        resultSet.getDouble(6), resultSet.getString(7), resultSet.getInt(8), resultSet.getString(9)/*, resultSet.getString(10)*/);
                 CharSequence releaseDate = resultSet.getString(5);
                 movie.setReleaseDate(LocalDate.parse(releaseDate));
             }
