@@ -89,12 +89,12 @@ Port number: 3306
         try {
             if (newCell instanceof String) {
                 String newString = (String) newCell;
-                sqlString = "UPDATE Log SET '" + column + "' = '" + newString + "' WHERE Title = '" + SalesId + "'";
+                sqlString = "UPDATE Sales SET '" + column + "' = '" + newString + "' WHERE Title = '" + SalesId + "'";
                 statement = connection.createStatement();
                 statement.executeUpdate(sqlString);
             } else {
                 int newInt = (int) newCell;
-                sqlString = "UPDATE Log SET '" + column + "' = '" + newInt + "' WHERE Title = '" + SalesId + "'";
+                sqlString = "UPDATE Sales SET '" + column + "' = '" + newInt + "' WHERE Title = '" + SalesId + "'";
                 statement = connection.createStatement();
                 statement.executeUpdate(sqlString);
             }
@@ -106,7 +106,7 @@ Port number: 3306
     public void insertMovie(Movie movie) {
         try {
             connection = connect();
-            sqlString = "INSERT INTO Movies VALUES '"
+            sqlString = "INSERT INTO Movies VALUES ('"
                     + movie.getDanishTitle()
                     + "','" + movie.getOriginalTitle()
                     + "','" + movie.getGenre()
@@ -116,10 +116,9 @@ Port number: 3306
                     + "','" + movie.getPrice()
                     + "','" + movie.getDirector()
                     + "','" + movie.getAgeRestriction()
-                    + "','" + movie.getVersions() + "';";
+                    + "','" + movie.getVersions() + "');";
             statement = connection.createStatement();
             statement.executeUpdate(sqlString);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -129,11 +128,11 @@ Port number: 3306
     public void insertShow(Show show) {
         try {
             connection = connect();
-            sqlString = "INSERT INTO Shows VALUES '"
+            sqlString = "INSERT INTO Shows VALUES (default, '"
                     + show.getMovie().getDanishTitle()
                     + "','" + show.getDate()
                     + "','" + show.getTime()
-                    + "','" + show.getTheater() + "';";
+                    + "','" + show.getTheater() + "');";
             statement = connection.createStatement();
             statement.executeUpdate(sqlString);
         } catch (Exception e) {
@@ -143,11 +142,13 @@ Port number: 3306
 
     public void insertCustomer(Customer customer) {
         try {
-            sqlString = "INSERT INTO Customers VALUES '"
+            connection = connect();
+            sqlString = "INSERT INTO Customers VALUES ('"
                     + customer.getEmail()
                     + "','" + customer.getName()
                     + "','" + customer.getPhoneNumber()
-                    + "'";
+                    + "','" + customer.getPassword()
+                    + "');";
             statement = connection.createStatement();
             statement.executeUpdate(sqlString);
         } catch (Exception e) {
@@ -157,14 +158,15 @@ Port number: 3306
 
     public void insertSale(Sale sale) {
         try {
-            sqlString = "INSERT INTO Sales VALUES '"
+            connection = connect();
+            sqlString = "INSERT INTO Sales VALUES ('"
                     + findShowId(sale.getShow().getMovie().getDanishTitle(), sale.getShow().getDate(),
                     sale.getShow().getTime(), sale.getShow().getTheater())
                     + "','" + sale.getCustomer()
                     + "','" + sale.getSeatIndex()
                     + "','" + sale.getTimeOfSale()
                     + "','" + sale.getStatus()
-                    + "'";
+                    + "');";
             statement = connection.createStatement();
             statement.executeUpdate(sqlString);
         } catch (Exception e) {
@@ -176,12 +178,12 @@ Port number: 3306
         try {
             connection = connect();
             statement = connection.createStatement();
-            if (title.equals(null)) {
-                sqlString = "select " + column + "from Movies";
+            if (title == null) {
+                sqlString = "select '" + column + "' from Movies;";
                 resultSet = statement.executeQuery(sqlString);
 
             } else {
-                sqlString = "select " + column + " from Movies where Title =" + title;
+                sqlString = "select '" + column + "' from Movies where Danish_Title = '" + title+ "' ;";
                 resultSet = statement.executeQuery(sqlString);
             }
         } catch (Exception e) {
@@ -192,8 +194,9 @@ Port number: 3306
 
     public ResultSet selectFromShows(int show_id, String column) {
         try {
+            connection = connect();
             statement = connection.createStatement();
-            sqlString = "select " + column + "from Shows where Show_id = " + show_id;
+            sqlString = "select '" + column + "'from Shows where show_id = '" + show_id + "';";
             resultSet = statement.executeQuery(sqlString);
 
         } catch (Exception e) {
@@ -205,8 +208,9 @@ Port number: 3306
 
     public ResultSet selectColumnFromShows(String column) {
         try {
+            connection = connect();
             statement = connection.createStatement();
-            sqlString = "select" + column + "from Shows";
+            sqlString = "select '" + column + "' from Shows;";
             resultSet = statement.executeQuery(sqlString);
         } catch (Exception e) {
             e.printStackTrace();
@@ -216,12 +220,13 @@ Port number: 3306
 
     public ResultSet selectFromCustomers(String email, String column) {
         try {
+            connection = connect();
             statement = connection.createStatement();
-            if (email.equals(null)) {
-                sqlString = "select " + column + " from Customers";
+            if (email == null) {
+                sqlString = "select '" + column + "' from Customers;";
                 resultSet = statement.executeQuery(sqlString);
             } else {
-                sqlString = "select " + column + " from Customers where email = " + email;
+                sqlString = "select '" + column + "' from Customers where Email = '" + email+ "'; ";
                 resultSet = statement.executeQuery(sqlString);
             }
         } catch (Exception e) {
@@ -232,8 +237,9 @@ Port number: 3306
 
     public ResultSet selectFromSales(int sales_id, String column) {
         try {
+            connection = connect();
             statement = connection.createStatement();
-            sqlString = "select " + column + " from Sales where sales_id =" + sales_id;
+            sqlString = "select '" + column + "' from Sales where sales_id = '" + sales_id+ "'; ";
             resultSet = statement.executeQuery(sqlString);
         } catch (Exception e) {
             e.printStackTrace();
@@ -243,8 +249,9 @@ Port number: 3306
 
     public ResultSet selectColumnFromSales(String column) {
         try {
+            connection = connect();
             statement = connection.createStatement();
-            sqlString = "select " + column + " from Sales";
+            sqlString = "select '" + column + "' from Sales;";
             resultSet = statement.executeQuery(sqlString);
         } catch (Exception e) {
             e.printStackTrace();
@@ -254,13 +261,17 @@ Port number: 3306
 
     public int findShowId(String title, LocalDate localDate, int time, int theater){
         Date date = Date.valueOf(localDate);
+        resultSet = null;
         int result = 0;
         try {
-            sqlString = "select show_id from Shows where Danish_Title = " + title
-                    + " and Date = " + date + " and Time = " + time + "; ";
+            sqlString = "select show_id from Shows where Danish_Title = '" + title
+                    + "' and Date = '" + date + "' and Time = '" + time + "' and Theater = '" +theater+ "'; ";
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sqlString);
-            result = resultSet.getInt(1);
+            if(!resultSet.next()){
+                System.out.println("empty");
+            }
+            //result = resultSet.getInt(1);
         }catch(Exception e){
             e.printStackTrace();
         }
