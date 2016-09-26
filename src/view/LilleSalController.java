@@ -12,6 +12,7 @@ import javafx.scene.web.WebView;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class LilleSalController {
 
@@ -25,6 +26,12 @@ public class LilleSalController {
 
     private BorderPane root;  // can this be deleted?
 
+
+    private Map<String, Object> session;
+
+    public LilleSalController(Map<String, Object> session) {
+        this.session = session;
+    }
 
 
 

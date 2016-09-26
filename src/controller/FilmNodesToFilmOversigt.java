@@ -30,7 +30,7 @@ public class FilmNodesToFilmOversigt {
      * it uses createListOfFilmNodes() below to get a list of nodes that contain the movies of that date
      * */
     public GridPane gridPaneOfFilmNodes(LocalDate date, GridPane gridPane) {
-//        GridPane gridPane = new GridPane();
+
         ArrayList<Node> nodesToAdd = createListOfFilmNodes(date);
 
         int columnIndex = 0;
@@ -79,7 +79,7 @@ public class FilmNodesToFilmOversigt {
             TextField titleTF = new TextField(movies.get(i).getDanishTitle());
             titleTF.setId("filmoversigt_title");
             ImageView noPosterIW = new ImageView();
-            Image noPosterImage = new Image("NoPosterAvailable.png");
+            Image noPosterImage = new Image("../images/NoPosterAvailable.png");
 
             Button description = new Button("Beskrivelse");
             description.setId("filmoversigt_beskrivelse");
