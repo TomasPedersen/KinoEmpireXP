@@ -41,6 +41,7 @@ Port number: 3306
 
     public void updateMovies(String title, String column, Object newCell) {
         try {
+            connection = connect();
             if (newCell instanceof String) {
                 String newString = (String) newCell;
                 sqlString = "UPDATE Movies SET '" + column + "' = '" + newString + "' WHERE Title = '" + title + "'";
@@ -52,6 +53,8 @@ Port number: 3306
                 statement = connection.createStatement();
                 statement.executeUpdate(sqlString);
             }
+            connection.commit();
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -59,6 +62,7 @@ Port number: 3306
 
     public void updateShows(int showId, String column, Object newCell) {
         try {
+            connection = connect();
             if (newCell instanceof String) {
                 String newString = (String) newCell;
                 sqlString = "UPDATE Shows SET '" + column + "' = '" + newString + "' WHERE Title = '" + showId + "'";
@@ -70,6 +74,8 @@ Port number: 3306
                 statement = connection.createStatement();
                 statement.executeUpdate(sqlString);
             }
+            connection.commit();
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -77,9 +83,12 @@ Port number: 3306
 
     public void updateCustomers(String email, String column, String newCell) {
         try {
+            connection = connect();
             sqlString = "UPDATE Customers SET '" + column + "' = '" + newCell + "' WHERE Title = '" + email + "'";
             statement = connection.createStatement();
             statement.executeUpdate(sqlString);
+            connection.commit();
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -87,6 +96,7 @@ Port number: 3306
 
     public void updateSales(int SalesId, String column, Object newCell) {
         try {
+            connection = connect();
             if (newCell instanceof String) {
                 String newString = (String) newCell;
                 sqlString = "UPDATE Sales SET '" + column + "' = '" + newString + "' WHERE Title = '" + SalesId + "'";
@@ -98,10 +108,13 @@ Port number: 3306
                 statement = connection.createStatement();
                 statement.executeUpdate(sqlString);
             }
+            connection.commit();
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
     public void insertMovie(Movie movie) {
         try {
@@ -119,6 +132,8 @@ Port number: 3306
                     + "','" + movie.getVersions() + "');";
             statement = connection.createStatement();
             statement.executeUpdate(sqlString);
+            connection.commit();
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -135,6 +150,8 @@ Port number: 3306
                     + "','" + show.getTheater() + "');";
             statement = connection.createStatement();
             statement.executeUpdate(sqlString);
+            connection.commit();
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -151,6 +168,8 @@ Port number: 3306
                     + "');";
             statement = connection.createStatement();
             statement.executeUpdate(sqlString);
+            connection.commit();
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -159,16 +178,18 @@ Port number: 3306
     public void insertSale(Sale sale) {
         try {
             connection = connect();
-            sqlString = "INSERT INTO Sales VALUES ('"
+            sqlString = "INSERT INTO Sales VALUES ( default, '"
                     + findShowId(sale.getShow().getMovie().getDanishTitle(), sale.getShow().getDate(),
                     sale.getShow().getTime(), sale.getShow().getTheater())
-                    + "','" + sale.getCustomer()
+                    + "','" + sale.getCustomer().getEmail()
                     + "','" + sale.getSeatIndex()
                     + "','" + sale.getTimeOfSale()
                     + "','" + sale.getStatus()
                     + "');";
             statement = connection.createStatement();
             statement.executeUpdate(sqlString);
+            connection.commit();
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -186,6 +207,8 @@ Port number: 3306
                 sqlString = "select '" + column + "' from Movies where Danish_Title = '" + title+ "' ;";
                 resultSet = statement.executeQuery(sqlString);
             }
+            connection.commit();
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -198,7 +221,8 @@ Port number: 3306
             statement = connection.createStatement();
             sqlString = "select '" + column + "'from Shows where show_id = '" + show_id + "';";
             resultSet = statement.executeQuery(sqlString);
-
+            connection.commit();
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -212,6 +236,8 @@ Port number: 3306
             statement = connection.createStatement();
             sqlString = "select '" + column + "' from Shows;";
             resultSet = statement.executeQuery(sqlString);
+            connection.commit();
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -229,6 +255,8 @@ Port number: 3306
                 sqlString = "select '" + column + "' from Customers where Email = '" + email+ "'; ";
                 resultSet = statement.executeQuery(sqlString);
             }
+            connection.commit();
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -241,6 +269,8 @@ Port number: 3306
             statement = connection.createStatement();
             sqlString = "select '" + column + "' from Sales where sales_id = '" + sales_id+ "'; ";
             resultSet = statement.executeQuery(sqlString);
+            connection.commit();
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -253,6 +283,8 @@ Port number: 3306
             statement = connection.createStatement();
             sqlString = "select '" + column + "' from Sales;";
             resultSet = statement.executeQuery(sqlString);
+            connection.commit();
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -261,17 +293,16 @@ Port number: 3306
 
     public int findShowId(String title, LocalDate localDate, int time, int theater){
         Date date = Date.valueOf(localDate);
-        resultSet = null;
         int result = 0;
+        resultSet = null;
         try {
             sqlString = "select show_id from Shows where Danish_Title = '" + title
                     + "' and Date = '" + date + "' and Time = '" + time + "' and Theater = '" +theater+ "'; ";
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sqlString);
-            if(!resultSet.next()){
-                System.out.println("empty");
-            }
-            //result = resultSet.getInt(1);
+            connection.commit();
+            resultSet.next();
+            result = resultSet.getInt(1);
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -280,12 +311,14 @@ Port number: 3306
 
     public void delete(Object primaryKey, String table) {
         try {
+            connection = connect();
             sqlString = "delete from " + table + " where (SELECT `COLUMN_NAME`" +
                     "FROM `information_schema`.`COLUMNS`" +
                     "WHERE (`TABLE_NAME` = " + table +
                     " AND (`COLUMN_KEY` = 'PRI') = " + primaryKey;
             statement = connection.createStatement();
             statement.executeUpdate(sqlString);
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -303,8 +336,8 @@ Port number: 3306
                         resultSet.getDouble(6), resultSet.getString(7), resultSet.getInt(8), resultSet.getString(9));
                 CharSequence releaseDate = resultSet.getString(5);
                 movie.setReleaseDate(LocalDate.parse(releaseDate));
-
             }
+            connection.close();
         } catch (SQLException e) {
             connection.rollback(savepoint);
         }
@@ -320,6 +353,7 @@ Port number: 3306
             statement = connection.createStatement();
             sqlString = "SELECT " +"SeatIndex"+" FROM "+ "Sales" +" Where "+ "`Show` = 2" +";";
             resultSet = statement.executeQuery(sqlString);
+            connection.close();
         }catch (SQLException e){
             connection.rollback(savepoint);
         }
