@@ -7,7 +7,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.DBHelper;
 import model.Movie;
-import robot.Robot;
 import view.Controller;
 
 
