@@ -89,7 +89,7 @@ public class FilmNodesToFilmOversigt {
             Image noPosterImage = new Image("/images/NoPosterAvailable.png");
             ImageView noPosterIW = new ImageView(noPosterImage);
             noPosterIW.setPreserveRatio(true);
-            noPosterIW.fitHeightProperty().setValue(120);
+            noPosterIW.fitWidthProperty().setValue(140);
 
             StackPane stackPane = new StackPane();
             stackPane.getChildren().add(noPosterIW);
@@ -126,10 +126,10 @@ public class FilmNodesToFilmOversigt {
             titleTF.setId("filmoversigt_title");
             titleTF.setAlignment(Pos.CENTER);
 
-            Image noPosterImage = new Image("images/NoPosterAvailable.png");
+            Image noPosterImage = new Image("http://i.imgur.com/8WwLmKA.jpg");
             ImageView noPosterIW = new ImageView(noPosterImage);
             noPosterIW.setPreserveRatio(true);
-            noPosterIW.fitHeightProperty().setValue(120);
+            noPosterIW.fitWidthProperty().setValue(140);
 
             StackPane stackPane = new StackPane();
             stackPane.getChildren().add(noPosterIW);
