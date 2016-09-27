@@ -295,15 +295,18 @@ Port number: 3306
         ArrayList<Movie> dateMovies = new ArrayList<>();
         try {
             connection = connect();
-            sqlString = "SELECT * FROM " + "Shows" + " WHERE Date=" + Util.convertLocalDateToSQLDate(lD) + ";";
+            sqlString = "SELECT DISTINCT " + "Movies.Danish_Title, Movies.Original_Title, Movies.Genre, Movies.Filmlength, Movies.Filmdescription, " +
+                    "Movies.Release_Date, " + "Movies.Director, Movies.Age_Restriction, Movies.Versions" +
+                    " FROM " + " Movies " +" INNER JOIN " + " Shows" + " ON "+" Movies.Danish_Title = Shows.Danish_Title "+" WHERE Date = " + lD +"";
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sqlString);
+            connection.commit();
             while (resultSet.next()) {
-                Movie movie = new Movie(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3), resultSet.getDouble(4), resultSet.getString(5), null,
-                        resultSet.getDouble(6), resultSet.getString(7), resultSet.getInt(8), resultSet.getString(9));
-                CharSequence releaseDate = resultSet.getString(5);
+                Movie movie = new Movie(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3), resultSet.getDouble(4), resultSet.getString(5)
+                        , null, resultSet.getDouble(7), resultSet.getString(8), resultSet.getInt(9), resultSet.getString(9));
+                CharSequence releaseDate = resultSet.getString(6);
                 movie.setReleaseDate(LocalDate.parse(releaseDate));
-
+                dateMovies.add(movie);
             }
         } catch (SQLException e) {
             connection.rollback(savepoint);
@@ -326,7 +329,7 @@ Port number: 3306
         while (resultSet.next()) {
             reserved.add(resultSet.getInt(1));
         }
-        for (int i = 0; i <= 240; i++){
+        for (int i = 0; i < 239; i++){
             seats[i] = new Seat(false);
         }
         for (int a: reserved) {
