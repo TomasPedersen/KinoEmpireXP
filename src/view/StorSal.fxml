@@ -362,7 +362,7 @@
                   <Label fx:id="total_pris" prefHeight="17.0" prefWidth="79.0" text="0" />
                </children>
             </HBox>
-            <Label fx:id="accept_payment_seat_message" layoutX="2.0" layoutY="425.0" prefHeight="17.0" prefWidth="197.0" />
+            <Label fx:id="accept_payment_seat_message" layoutX="2.0" layoutY="572.0" prefHeight="17.0" prefWidth="197.0" />
          </children></Pane>
    </left>
 </BorderPane>

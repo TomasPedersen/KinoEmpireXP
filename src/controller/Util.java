@@ -13,7 +13,7 @@ public class Util {
         return java.sql.Date.valueOf(localDate);
     }
 
-    public LocalDate convertSQLDateToLocalDate(java.sql.Date SQLDate){
+    public static LocalDate convertSQLDateToLocalDate(java.sql.Date SQLDate){
         return SQLDate.toLocalDate();
     }
 

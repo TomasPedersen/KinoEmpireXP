@@ -16,36 +16,36 @@ public class MovieProgram {
         LocalDate date = LocalDate.now();
         DBHelper db = new DBHelper();
 
-        Movie movie1 = new Movie("Haha, you're dead!", "Haha, you're dead!", "Comedy", 123, "For the whole family.", LocalDate.now(), 80, "Mr. Movie Director", 0, "Normal");
+        Movie movie1 = new Movie("Haha, youre dead!", "Haha, youre dead!", "Comedy", 123, "For the whole family.", LocalDate.now(), 80, "Mr. Movie Director", 0, "Normal", "poster");
         Show show1 = new Show(movie1, date, 1000, 0);
         Show show2 = new Show(movie1, date, 1300, 0);
         Show show3 = new Show(movie1, date, 1600, 0);
         Show show4 = new Show(movie1, date, 2000, 0);
 
-        Movie movie2 = new Movie("Gotta save the world.", "Gotta save the world.", "Action", 123, "A retired man is asked by the president to save the world. And he does.", LocalDate.now(), 80, "Mr. Movie Director", 0, "Normal");
+        Movie movie2 = new Movie("Gotta save the world.", "Gotta save the world.", "Action", 123, "A retired man is asked by the president to save the world. And he does.", LocalDate.now(), 80, "Mr. Movie Director", 0, "Normal", "poster");
         Show show5 = new Show(movie2, date, 1000, 0);
         Show show6 = new Show(movie2, date, 1300, 0);
         Show show7 = new Show(movie2, date, 1600, 0);
         Show show8 = new Show(movie2, date, 2000, 0);
 
-        Movie movie3 = new Movie("Ghost Nuns 2", "Ghost Nuns 2", "Horror", 123, "Diapers will be provided.", LocalDate.now(), 80, "Mr. Movie Director", 16, "Normal");
+        Movie movie3 = new Movie("Ghost Nuns 2", "Ghost Nuns 2", "Horror", 123, "Diapers will be provided.", LocalDate.now(), 80, "Mr. Movie Director", 16, "Normal", "poster");
         Show show9 = new Show(movie3, date, 1900, 0);
         Show show10 = new Show(movie3, date, 2200, 0);
         Show show11 = new Show(movie3, date, 2300, 0);
 
 
+        db.insertMovie(movie1);
+        db.insertMovie(movie2);
+        db.insertMovie(movie3);
+
 
         LocalDate threeMonthsForward = date.plusMonths(3);
 
-        //while (date != threeMonthsForward){
+        while (date != threeMonthsForward) {
 
 
-
-            db.insertMovie(movie1);
-//            db.insertShow(show1);
-
-
-/*            db.insertShow(show2);
+            db.insertShow(show1);
+            db.insertShow(show2);
             db.insertShow(show3);
             db.insertShow(show4);
             db.insertShow(show5);
@@ -54,9 +54,9 @@ public class MovieProgram {
             db.insertShow(show8);
             db.insertShow(show9);
             db.insertShow(show10);
-            db.insertShow(show11);*/
+            db.insertShow(show11);
 
-/*            date.plusDays(1);
+            date.plusDays(1);
 
             show1.setDate(date);
             show2.setDate(date);
@@ -68,9 +68,9 @@ public class MovieProgram {
             show8.setDate(date);
             show9.setDate(date);
             show10.setDate(date);
-            show11.setDate(date);*/
+            show11.setDate(date);
 
-        //}
+        }
 
     }
 

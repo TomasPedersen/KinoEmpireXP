@@ -1,6 +1,7 @@
 package robot;
 
 import model.Customer;
+import model.DBHelper;
 import model.Sale;
 import model.Show;
 
@@ -15,8 +16,10 @@ public class Robot implements Runnable{
      * It takes random customers from the database and random shows and tries to purchase a seat */
     @Override
     public void run() {
-        ArrayList<Show> shows = new ArrayList<>(); // get all shows
-        ArrayList<Customer> customers = new ArrayList<>(); // get all customers from db
+        DBHelper db = new DBHelper();
+
+        ArrayList<Show> shows = new ArrayList<>(); // todo get all shows from db
+        ArrayList<Customer> customers = new ArrayList<>(); // todo get all customers from db
         ArrayList<String> status = new ArrayList<>();
         status.add("Reserved");
         status.add("Purchased");
@@ -24,10 +27,10 @@ public class Robot implements Runnable{
 
         while(true) {
             LocalDateTime timeOfSale = LocalDateTime.now();
-            Sale sale = new Sale(shows.get(ranNum(0, shows.size())), customers.get(ranNum(0, customers.size())),
-                    ranNum(0, amountOfSeats-1), timeOfSale, status.get(ranNum(0, status.size())) );
-            // if sale doesn't already exits... there should be a db method
-            // then sale.insertIntoDB();
+            Sale sale = new Sale(shows.get(ranNum(1, shows.size())), customers.get(ranNum(1, customers.size())),
+                    ranNum(1, amountOfSeats-1), timeOfSale, status.get(ranNum(1, status.size())) );
+            // have to check if sale does not already exist.. concurrency is being tested
+            db.insertSale(sale);
 
             try {
                 Thread.sleep(ranNum(0, 15000));

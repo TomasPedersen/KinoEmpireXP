@@ -9,9 +9,11 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.web.WebView;
+import model.Customer;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class LilleSalController {
 
@@ -25,6 +27,12 @@ public class LilleSalController {
 
     private BorderPane root;  // can this be deleted?
 
+
+    private Map<String, Object> session;
+
+    public LilleSalController(Map<String, Object> session) {
+        this.session = session;
+    }
 
 
 
@@ -51,6 +59,7 @@ public class LilleSalController {
             Label labelSeatAmount = (Label) root.lookup("#valgte_saeder");
             labelSeatAmount.setText(Integer.toString(amountOfSeatsChoosen));
             //price += film.getPrice();
+            price += 80;
             Label labelPriceTotal = (Label) root.lookup("#total_pris");
             labelPriceTotal.setText(Integer.toString(price));
 
@@ -68,6 +77,7 @@ public class LilleSalController {
             Label labelSeatAmount = (Label) root.lookup("#valgte_saeder");
             labelSeatAmount.setText(Integer.toString(amountOfSeatsChoosen));
             //price -= film.getPrice();
+            price -= 80;
             Label labelPriceTotal = (Label) root.lookup("#total_pris");
             labelPriceTotal.setText(Integer.toString(price));
         }
@@ -75,6 +85,11 @@ public class LilleSalController {
     }
 
 
+    /**
+     * this is for when the godkend button is clicked
+     * pass choosenSeats and save them in the db only AFTER the payment has been processed ?
+     * @param event
+     */
     @FXML
     public void godkendBetaling(MouseEvent event) {
 
@@ -83,8 +98,34 @@ public class LilleSalController {
 
         if (amountOfSeatsChoosen > 0) {
             try {
-                Parent filmOversigtNode = FXMLLoader.load(getClass().getResource("ProcessPayment.fxml"));
-                root.setCenter(filmOversigtNode);
+
+
+                FXMLLoader paymentLoader = new FXMLLoader(getClass().getResource("ProcessPayment.fxml"));
+                Controller controller = new Controller(session);  // Controller will act as a placeholder cause it needs to set a controller
+                paymentLoader.setController(controller);
+                BorderPane paymentBorderPane = paymentLoader.load();
+
+                root.setCenter(paymentBorderPane);
+
+
+                Label labelSeatAmount = (Label) root.lookup("#valgte_saeder");
+                labelSeatAmount.setText(Integer.toString(amountOfSeatsChoosen));
+
+                Label labelPriceTotal = (Label) root.lookup("#total_pris");
+                labelPriceTotal.setText(Integer.toString(price));
+
+
+/*                Customer customer = (Customer) session.get("customer_object");
+
+                Label nameLabel = (Label) root.lookup("#process_payment_name");
+                nameLabel.setText(customer.getName());
+                Label emailLabel = (Label) root.lookup("#process_payment_email");
+                emailLabel.setText(customer.getEmail());
+                Label telephoneLabel = (Label) root.lookup("#process_payment_telephone_number");
+                telephoneLabel.setText(customer.getPhoneNumber());
+*/
+
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -95,9 +136,6 @@ public class LilleSalController {
         }
 
 
-        // this is for when the godkend button is clicked
-        // next fxml node will be called here and put on root.setCenter();
-        // pass choosenSeats and save them in the db only AFTER the payment has been processed
 
     }
 

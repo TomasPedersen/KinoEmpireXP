@@ -14,6 +14,7 @@ public class Movie {
     private String director;
     private int ageRestriction;
     private String versions; // language, subtitles and 3d
+    private String poster;
 
     public Movie(String danishTitle, String originalTitle, String genre, double filmLength, String filmDescription, LocalDate releaseDate, double price, String director, int ageRestriction, String versions) {
         this.danishTitle = danishTitle;
@@ -26,6 +27,21 @@ public class Movie {
         this.director = director;
         this.ageRestriction = ageRestriction;
         this.versions = versions;
+
+    }
+
+    public Movie(String danishTitle, String originalTitle, String genre, double filmLength, String filmDescription, LocalDate releaseDate, double price, String director, int ageRestriction, String versions, String poster) {
+        this.danishTitle = danishTitle;
+        this.originalTitle = originalTitle;
+        this.Genre = genre;
+        this.filmLength = filmLength;
+        this.filmDescription = filmDescription;
+        this.releaseDate = releaseDate;
+        this.price = price;
+        this.director = director;
+        this.ageRestriction = ageRestriction;
+        this.versions = versions;
+        this.poster = poster;
     }
 
     public String getOriginalTitle() {

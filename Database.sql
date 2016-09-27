@@ -26,12 +26,13 @@ CREATE TABLE IF NOT EXISTS `kinoempire`.`Movies` (
   `Original_Title` VARCHAR(45) NULL,
   `Genre` VARCHAR(45) NULL,
   `Filmlength` INT NULL,
-  `Filmdescription` VARCHAR(45) NULL,
+  `Filmdescription` VARCHAR(2000) NULL,
   `Release_Date` DATE NULL,
   `Price` INT NULL,
   `Director` VARCHAR(45) NULL,
   `Age_Restriction` INT NULL,
   `Versions` VARCHAR(45),
+  `Poster` VARCHAR(150),
   PRIMARY KEY (`Danish_Title`));
 
 
