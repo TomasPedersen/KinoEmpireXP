@@ -350,11 +350,12 @@ Port number: 3306
 
     public ArrayList<Movie> moviesFromDatePicked(LocalDate lD) throws SQLException {
         ArrayList<Movie> dateMovies = new ArrayList<>();
+        Date date = Date.valueOf(lD);
         try {
             connection = connect();
             sqlString = "SELECT DISTINCT " + "Movies.Danish_Title, Movies.Original_Title, Movies.Genre, Movies.Filmlength, Movies.Filmdescription, " +
                     "Movies.Release_Date, " + "Movies.Director, Movies.Age_Restriction, Movies.Versions" +
-                    " FROM " + " Movies " +" INNER JOIN " + " Shows" + " ON "+" Movies.Danish_Title = Shows.Danish_Title "+" WHERE Date = " + lD +"";
+                    " FROM " + " Movies " +" INNER JOIN " + " Shows" + " ON "+" Movies.Danish_Title = Shows.Danish_Title "+" WHERE Date = " + date +"";
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sqlString);
             connection.commit();
@@ -370,6 +371,65 @@ Port number: 3306
             connection.rollback(savepoint);
         }
         return dateMovies;
+    }
+
+    public ArrayList<String> titlesFromDatePicked(LocalDate lD) throws SQLException {
+        ArrayList<String> titles = new ArrayList<>();
+        Date date = Date.valueOf(lD);
+        try {
+            connection = connect();
+            sqlString = "select distinct Danish_Title from Shows where Date = '" + date + "';";
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sqlString);
+            connection.commit();
+            if (!resultSet.isBeforeFirst()) {
+                System.out.println("No data");
+            } else {
+                while (resultSet.next()) {
+                    titles.add(resultSet.getString(1));
+                }
+            }
+            connection.close();
+        } catch (SQLException e) {
+            connection.rollback(savepoint);
+        }
+        return titles;
+    }
+
+    public ArrayList<Movie> fromTitlesToMovies(ArrayList<String> titles) throws SQLException {
+        ArrayList<Movie> movies = new ArrayList<>();
+        Movie movie = new Movie();
+        try {
+            connection = connect();
+            for (String s : titles) {
+                sqlString = "select Danish_Title, Original_Title, Genre, FilmLength, FilmDescription, Release_Date, Price, Director, Age_Restriction, Versions from Movies where Danish_Title = '" +s+ "';";
+                statement = connection.createStatement();
+                resultSet = statement.executeQuery(sqlString);
+                connection.commit();
+//                while(resultSet.next()){
+//                    System.out.println(resultSet.getObject(1));
+//                    System.out.println(resultSet.getObject(2));
+//                    System.out.println(resultSet.getObject(3));
+//                    System.out.println(resultSet.getObject(4));
+//                    System.out.println(resultSet.getObject(5));
+//                }
+                if (!resultSet.isBeforeFirst()) {
+                    System.out.println("No data");
+                } else {
+                    while (resultSet.next()) {
+                        movie = new Movie(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3), resultSet.getInt(4), resultSet.getString(5)
+                                , null, resultSet.getInt(7), resultSet.getString(8), resultSet.getInt(9), resultSet.getString(9));
+                        CharSequence releaseDate = resultSet.getString(6);
+                        movie.setReleaseDate(LocalDate.parse(releaseDate));
+                    }
+                    movies.add(movie);
+                }
+            }
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return movies;
     }
 
     public Seat[] seatFromDate() throws SQLException {

@@ -27,8 +27,9 @@ public class Movie {
         this.director = director;
         this.ageRestriction = ageRestriction;
         this.versions = versions;
-
     }
+
+    public Movie (){};
 
     public Movie(String danishTitle, String originalTitle, String genre, double filmLength, String filmDescription, LocalDate releaseDate, double price, String director, int ageRestriction, String versions, String poster) {
         this.danishTitle = danishTitle;

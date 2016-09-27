@@ -70,7 +70,7 @@ public class FilmNodesToFilmOversigt {
         ArrayList<Movie> movies = new ArrayList<>(); // have to instantiate it here
         DBHelper db = new DBHelper();
         try {
-            movies = db.moviesFromDatePicked(date);
+            movies = db.fromTitlesToMovies(db.titlesFromDatePicked(date));
         } catch(Exception e) {
             e.printStackTrace();
         }

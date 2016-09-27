@@ -10,6 +10,8 @@ import model.Movie;
 import view.Controller;
 
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +19,19 @@ public class Main extends Application{
 
 	public static void main(String[] args) {
 		launch(args);
+//		DBHelper d = new DBHelper();
+//		LocalDate ld = LocalDate.of(2026, 5, 20);
+//
+//		try {
+//			ArrayList<String> arm = d.titlesFromDatePicked(ld);
+//			System.out.println(arm);
+//			ArrayList<Movie> mov = d.fromTitlesToMovies(arm);
+//			for(Movie m: mov){
+//				System.out.println(m.getDanishTitle());
+//			}
+//		}catch(Exception e){
+//			e.printStackTrace();
+//		}
 	}
 
 
