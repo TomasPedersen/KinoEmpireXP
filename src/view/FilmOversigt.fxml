@@ -9,12 +9,12 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
-<BorderPane fx:id="filmoversigt_borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="626.0" prefWidth="994.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="filmoversigt_borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="626.0" prefWidth="994.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
    <left>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="626.0" prefWidth="235.0" BorderPane.alignment="CENTER">
          <children>
             <DatePicker fx:id="filmoversigt_date" layoutX="14.0" layoutY="163.0" onAction="#getDateFromFilmOversigt" />
-            <Label layoutX="49.0" layoutY="131.0" prefHeight="17.0" prefWidth="83.0" text="Vælg en dato:" />
+            <Label layoutX="49.0" layoutY="131.0" prefHeight="21.0" prefWidth="154.0" text="Vælg en dato:" />
          </children>
       </Pane>
    </left>
