@@ -7,8 +7,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.DBHelper;
 import model.Movie;
+import model.Seat;
 import view.Controller;
-
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -18,20 +18,17 @@ import java.util.Map;
 public class Main extends Application{
 
 	public static void main(String[] args) {
-		launch(args);
-//		DBHelper d = new DBHelper();
-//		LocalDate ld = LocalDate.of(2026, 5, 20);
-//
-//		try {
-//			ArrayList<String> arm = d.titlesFromDatePicked(ld);
-//			System.out.println(arm);
-//			ArrayList<Movie> mov = d.fromTitlesToMovies(arm);
-//			for(Movie m: mov){
-//				System.out.println(m.getDanishTitle());
-//			}
-//		}catch(Exception e){
-//			e.printStackTrace();
-//		}
+		//launch(args);
+		DBHelper d = new DBHelper();
+		LocalDate ld = LocalDate.of(2026, 5, 20);
+
+		try {
+			for(Seat s: d.seatFromDate(2)) {
+				System.out.println(s.isReserved());
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
 

@@ -406,13 +406,6 @@ Port number: 3306
                 statement = connection.createStatement();
                 resultSet = statement.executeQuery(sqlString);
                 connection.commit();
-//                while(resultSet.next()){
-//                    System.out.println(resultSet.getObject(1));
-//                    System.out.println(resultSet.getObject(2));
-//                    System.out.println(resultSet.getObject(3));
-//                    System.out.println(resultSet.getObject(4));
-//                    System.out.println(resultSet.getObject(5));
-//                }
                 if (!resultSet.isBeforeFirst()) {
                     System.out.println("No data");
                 } else {
@@ -426,27 +419,27 @@ Port number: 3306
                 }
             }
             connection.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            connection.rollback(savepoint);
         }
         return movies;
     }
 
-    public Seat[] seatFromDate() throws SQLException {
+    public Seat[] seatFromDate(int showId) throws SQLException {
         Seat[] seats = new Seat[240];
         ArrayList<Integer> reserved = new ArrayList<>();
         try{
             connection = connect();
             connection.setSavepoint();
             statement = connection.createStatement();
-            sqlString = "SELECT " +"SeatIndex"+" FROM "+ "Sales" +" Where "+ "`Show` = 2" +";";
+            sqlString = "SELECT " +"SeatIndex"+" FROM "+ "Sales" +" Where "+ "`Show` = '"+showId+"';";
             resultSet = statement.executeQuery(sqlString);
+            while (resultSet.next()) {
+                reserved.add(resultSet.getInt(1));
+            }
             connection.close();
         }catch (SQLException e){
             connection.rollback(savepoint);
-        }
-        while (resultSet.next()) {
-            reserved.add(resultSet.getInt(1));
         }
         for (int i = 0; i < 239; i++){
             seats[i] = new Seat(false);
