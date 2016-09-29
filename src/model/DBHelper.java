@@ -390,7 +390,6 @@ Port number: 3306
                 System.out.println("No data");
             }else{
                 while (resultShows.next()) {
-                    System.out.println(resultShows.getString(2));
                     for(Movie m: fromTitlesToMovies(titlesFromDatePicked(lD))){
                         if(m != null) {
                             if (m.getDanishTitle().equals(resultShows.getString(2))) {
@@ -408,8 +407,7 @@ Port number: 3306
             }
             connection.close();
         } catch (SQLException e) {
-//            connection.rollback(savepoint);
-            e.printStackTrace();
+            connection.rollback(savepoint);
         }
         return dateShows;
     }
@@ -419,7 +417,8 @@ Port number: 3306
         Date date = Date.valueOf(lD);
         ResultSet resultTitles;
         try {
-        //  internal method, no need to open connection            sqlString = "select distinct Danish_Title from Shows where Date = '" + date + "';";
+        //  internal method, no need to open connection
+            sqlString = "select distinct Danish_Title from Shows where Date = '" + date + "';";
             statement = connection.createStatement();
             resultTitles = statement.executeQuery(sqlString);
             connection.commit();
