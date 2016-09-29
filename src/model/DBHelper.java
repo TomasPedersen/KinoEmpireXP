@@ -318,7 +318,6 @@ Port number: 3306
     public int findShowId(String title, LocalDate localDate, int time, int theater){
         Date date = Date.valueOf(localDate);
         int result = 0;
-//        resultSet = null;
         try {
             connection = connect();
             sqlString = "select show_id from Shows where Danish_Title = '" + title
@@ -326,12 +325,8 @@ Port number: 3306
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sqlString);
             connection.commit();
-            if (!resultSet.isBeforeFirst()) {
-                System.out.println("No data");
-            }else {
-                resultSet.next();
-                result = resultSet.getInt(1);
-            }
+            resultSet.next();
+            result = resultSet.getInt(1);
             connection.close();
         }catch(Exception e){
             e.printStackTrace();
@@ -358,7 +353,8 @@ Port number: 3306
         ArrayList<Movie> dateMovies = new ArrayList<>();
         Date date = Date.valueOf(lD);
         try {
-//            connection = connect();
+            // for now we don't have to call connect()
+            // because this method is only called from inside DBHelper
             sqlString = "SELECT DISTINCT " + "Movies.Danish_Title, Movies.Original_Title, Movies.Genre, Movies.Filmlength, Movies.Filmdescription, " +
                     "Movies.Release_Date, " + "Movies.Director, Movies.Age_Restriction, Movies.Versions" +
                     " FROM " + " Movies " +" INNER JOIN " + " Shows" + " ON "+" Movies.Danish_Title = Shows.Danish_Title "+" WHERE Date = " + date +"";
@@ -372,7 +368,7 @@ Port number: 3306
                 movie.setReleaseDate(LocalDate.parse(releaseDate));
                 dateMovies.add(movie);
             }
-//            connection.close();
+// no need to close connection because it is closed in the method that calls this
         } catch (SQLException e) {
             connection.rollback(savepoint);
         }
@@ -423,8 +419,7 @@ Port number: 3306
         Date date = Date.valueOf(lD);
         ResultSet resultTitles;
         try {
-            connection = connect();
-            sqlString = "select distinct Danish_Title from Shows where Date = '" + date + "';";
+        //  internal method, no need to open connection            sqlString = "select distinct Danish_Title from Shows where Date = '" + date + "';";
             statement = connection.createStatement();
             resultTitles = statement.executeQuery(sqlString);
             connection.commit();
@@ -435,7 +430,7 @@ Port number: 3306
                     titles.add(resultTitles.getString(1));
                 }
             }
-//            connection.close();
+        // internal method, no need to close connection
         } catch (SQLException e) {
             connection.rollback(savepoint);
         }
@@ -453,9 +448,7 @@ Port number: 3306
                 statement = connection.createStatement();
                 resultMovies = statement.executeQuery(sqlString);
                 connection.commit();
-                if (!resultMovies.isBeforeFirst()) {
-                    System.out.println("No data");
-                } else {
+
                     while (resultMovies.next()) {
                         movie = new Movie(resultMovies.getString(1), resultMovies.getString(2), resultMovies.getString(3), resultMovies.getInt(4), resultMovies.getString(5)
                                 , null, resultMovies.getInt(7), resultMovies.getString(8), resultMovies.getInt(9), resultMovies.getString(9));
@@ -463,7 +456,6 @@ Port number: 3306
                         movie.setReleaseDate(LocalDate.parse(releaseDate));
                     }
                     movies.add(movie);
-                }
             }
 //            connection.close();
         } catch (SQLException e) {
@@ -471,7 +463,6 @@ Port number: 3306
         }
         return movies;
     }
-
 
     public Seat[] seatFromDate(int showId) throws SQLException {
         Seat[] seats = new Seat[240];
