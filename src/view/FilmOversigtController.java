@@ -77,7 +77,7 @@ public class FilmOversigtController {
 
             WebView webView = (WebView) root.lookup("#description_webview");
             webView.getEngine().load(
-                    "http://www.dailymotion.com/embed/video/x4v1xhy_battlefield-1-official-single-player-trailer_videogames"  //this will not work in recent javafx because format is not defined .. perhaps non-html5 video formatting is the reason
+                    "http://www.dailymotion.com/embed/video/x3wnlqy_findet-dory-trailer-2016-disney_shortfilms"  //this will not work in recent javafx because format is not defined .. perhaps non-html5 video formatting is the reason
 
             );
 
