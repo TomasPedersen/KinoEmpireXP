@@ -97,7 +97,7 @@ public class FilmNodesToFilmOversigt {
             stackPane.getChildren().add(noPosterIW);
 
 
-            Label showTime = new Label("I can't access the show time");
+            Label showTime = new Label("0900");
             showTime.setId("filmoversigt_show_time");
 
             Button description = new Button("Beskrivelse");
