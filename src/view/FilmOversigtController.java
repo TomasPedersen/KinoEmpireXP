@@ -77,7 +77,7 @@ public class FilmOversigtController {
 
             WebView webView = (WebView) root.lookup("#description_webview");
             webView.getEngine().load(
-                    "http://www.dailymotion.com/embed/video/x4v1xhy_battlefield-1-official-single-player-trailer_videogames"  //this will not work in recent javafx because format is not defined .. perhaps non-html5 video formatting is the reason
+                    "http://www.dailymotion.com/embed/video/x3wnlqy_findet-dory-trailer-2016-disney_shortfilms"  //this will not work in recent javafx because format is not defined .. perhaps non-html5 video formatting is the reason
 
             );
 
@@ -91,7 +91,7 @@ public class FilmOversigtController {
      * Then for each film node.. if a seat is reserved then make it red, disable clicking
      *
      * */
-    public void selectingReserveSeats(Event event, LocalDate date) {
+    public void selectingReserveSeats(Event event) {
         Button descriptionButton = (Button) event.getSource();
         BorderPane root = (BorderPane) descriptionButton.getScene().getRoot();
 
@@ -99,29 +99,25 @@ public class FilmOversigtController {
         Label titleLabel = (Label) vBox.lookup("#filmoversigt_title");
         String title = titleLabel.getText();
         Label showTimeLabel = (Label) vBox.lookup("#filmoversigt_show_time");
-        String showTime = showTimeLabel.getText();
+        //String showTime = showTimeLabel.getText();
 
-        int showId;
         DBHelper db = new DBHelper();
-        showId = db.findShowId(title, date, Integer.parseInt(showTime), 2);
+        // find show by title, date and time
+        //db.findShowId();
 
         // now I should get an arraylist of seats (reserved or not)
+        // db.seatFromDate()
         ArrayList<Seat> seats = new ArrayList<>();
 
-        try {
-            Seat[] seatArray = db.seatFromDate(showId);  // DOES NOT WORK
+/*            Seat[] seatArray = db.seatFromDate();  // DOES NOT WORK
             for (int i = 0; i < seatArray.length; i++) {
                 seats.add(seatArray[i]);
+            }*/
+
+            for (int i = 0; i < 240; i++) {
+                Seat seat = new Seat(false);
+                seats.add(seat);
             }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-
-
-//            for (int i = 0; i < 240; i++) {
-//                Seat seat = new Seat(false);
-//                seats.add(seat);
-//            }
 
 
 
@@ -144,40 +140,27 @@ public class FilmOversigtController {
 
         mainLayout.setCenter(lilleSalBorderPane);
 
-        int amountOfSeats = 240;
-
-        for (int i = 0; i < amountOfSeats; i++) {
-
-            if (seats.get(i).isReserved()) {
-                String toggleButtonId = "#s" + i;
-                mainLayout.lookup(toggleButtonId);
-                ToggleButton toggleButton = (ToggleButton) root.lookup(toggleButtonId);
-                toggleButton.setStyle("-fx-graphic: url('images/seat%20(red).png');");
-                toggleButton.setSelected(true);
-                toggleButton.setDisable(true);
-            }
-        }
 
 
             // hypothetically there would be an if check here to see what room the show is in
 
 
             //show.getLilleSalSeats();
-//            int amountOfSeats = 240;
-//
-//            for (int i = 0; i < amountOfSeats; i++) {
-//
-//                Random rand = new Random();
-//                int randomNumber = rand.nextInt((6 - 1) + 1) + 1;
-//                if (seats.get(i).isReserved() || i % randomNumber == 0) {
-//                    String toggleButtonId = "#s" + i;
-//                    mainLayout.lookup(toggleButtonId);
-//                    ToggleButton toggleButton = (ToggleButton) root.lookup(toggleButtonId);
-//                    toggleButton.setStyle("-fx-graphic: url('images/seat%20(red).png');");
-//                    toggleButton.setSelected(true);
-//                    toggleButton.setDisable(true);
-//                }
-//            }
+            int amountOfSeats = 240;
+
+            for (int i = 0; i < amountOfSeats; i++) {
+
+                Random rand = new Random();
+                int randomNumber = rand.nextInt((6 - 1) + 1) + 1;
+                if (seats.get(i).isReserved() || i % randomNumber == 0) {
+                    String toggleButtonId = "#s" + i;
+                    mainLayout.lookup(toggleButtonId);
+                    ToggleButton toggleButton = (ToggleButton) root.lookup(toggleButtonId);
+                    toggleButton.setStyle("-fx-graphic: url('images/seat%20(red).png');");
+                    toggleButton.setSelected(true);
+                    toggleButton.setDisable(true);
+                }
+            }
     }
 
 
