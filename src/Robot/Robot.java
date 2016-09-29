@@ -1,4 +1,4 @@
-package robot;
+package Robot;
 
 import model.Customer;
 import model.DBHelper;

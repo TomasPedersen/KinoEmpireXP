@@ -9,30 +9,30 @@ INSERT INTO `kinoempire`.`Customers` (`Email`, `Name`, `Phone_Number`, `Password
 ('Kurt@email.com', 'Kurt Kurtsen', '00110011', 'klsjdf'),
 ('Bo@email.com', 'Bo Bosen', '34343434', 'klsjdf');
 
-INSERT INTO `kinoempire`.`Movies` (`Danish_Title`, `Original_Title`, `Genre`, `Filmlength`, `Filmdescription`, `Release_Date`, `Price`, `Director` , `Age Restriction`, `Versions`) VALUES
-('En Mand Der Hedder Ove', 'En Mand Som Heter Ove', 'Drama, Romantik', '116', 'x', '2016-05-26', '4', 'Hannes Holm', '12',  '2D'),
-('Warcraft', 'Warcraft', 'Adventure', '123', 'x', '2016-05-26', '4', 'Duncan Jones', '12',  '3D, 2D, IMAX 3D'),
-('Mig Før Dig', 'Me Before You', 'Drama, Romantik', '110', 'x', '2016-06-02', '4', 'Thea Sharrock', '12',  '2D'),
-('Money Monster', 'Money Monster', 'Thriller, Drama', '98', 'x', '2016-06-02', '4',  'Jodie Foster', '12',  '2D');
+INSERT INTO `kinoempire`.`Movies` (`Danish_Title`, `Original_Title`, `Genre`, `Filmlength`, `Filmdescription`, `Release_Date`, `Price`, `Director` , `Age_Restriction`, `Versions`, `Poster`) VALUES
+('En Mand Der Hedder Ove', 'En Mand Som Heter Ove', 'Drama, Romantik', '116', 'x', '2016-05-26', '4', 'Hannes Holm', '12',  '2D', ''),
+('Warcraft', 'Warcraft', 'Adventure', '123', 'x', '2016-05-26', '4', 'Duncan Jones', '12',  '3D, 2D, IMAX 3D', ''),
+('Mig Før Dig', 'Me Before You', 'Drama, Romantik', '110', 'x', '2016-06-02', '4', 'Thea Sharrock', '12',  '2D', ''),
+('Money Monster', 'Money Monster', 'Thriller, Drama', '98', 'x', '2016-06-02', '4',  'Jodie Foster', '12',  '2D', '');
 
-INSERT INTO `kinoempire`.`Shows` (`Title`, `Date`, `Time`, `Theater`) VALUES 
-('En Mand Der Hedder Ove', '2016.05.26', '1200', '1'),
-('Warcraft', '2016.05.26', '1200', '2'),
-('En Mand Der Hedder Ove', '2016.05.26', '1800', '1'),
-('Warcraft', '2016.05.26', '1800', '2'),
-('En Mand Der Hedder Ove', '2016.05.27', '1200', '2'),
-('Warcraft', '2016.05.27', '1200', '1'),
-('En Mand Der Hedder Ove', '2016.05.27', '1800', '2'),
-('Warcraft', '2016.05.27', '1800', '1'),
+INSERT INTO `kinoempire`.`Shows` (`show_id`, `Danish_Title`, `Date`, `Time`, `Theater`) VALUES
+(DEFAULT , 'En Mand Der Hedder Ove', '2016.05.26', '1200', '1'),
+(DEFAULT ,'Warcraft', '2016.05.26', '1200', '2'),
+(DEFAULT ,'En Mand Der Hedder Ove', '2016.05.26', '1800', '1'),
+(DEFAULT ,'Warcraft', '2016.05.26', '1800', '2'),
+(DEFAULT ,'En Mand Der Hedder Ove', '2016.05.27', '1200', '2'),
+(DEFAULT ,'Warcraft', '2016.05.27', '1200', '1'),
+(DEFAULT ,'En Mand Der Hedder Ove', '2016.05.27', '1800', '2'),
+(DEFAULT ,'Warcraft', '2016.05.27', '1800', '1'),
 
-('Mig Før Dig', '2016.05.28', '1200', '1'),
-('Money Monster', '2016.05.28', '1200', '2'),
-('Mig Før Dig', '2016.05.28', '1800', '1'),
-('Money Monster', '2016.05.28', '1800', '2'),
-('Mig Før Dig', '2016.05.29', '1200', '2'),
-('Money Monster', '2016.05.29', '1200', '1'),
-('Mig Før Dig', '2016.05.29', '1800', '2'),
-('Money Monster', '2016.05.29', '1800', '1');
+(DEFAULT ,'Mig Før Dig', '2016.05.28', '1200', '1'),
+(DEFAULT ,'Money Monster', '2016.05.28', '1200', '2'),
+(DEFAULT ,'Mig Før Dig', '2016.05.28', '1800', '1'),
+(DEFAULT ,'Money Monster', '2016.05.28', '1800', '2'),
+(DEFAULT ,'Mig Før Dig', '2016.05.29', '1200', '2'),
+(DEFAULT ,'Money Monster', '2016.05.29', '1200', '1'),
+(DEFAULT ,'Mig Før Dig', '2016.05.29', '1800', '2'),
+(DEFAULT ,'Money Monster', '2016.05.29', '1800', '1');
 
 INSERT INTO `kinoempire`.`Sales` (`Show`, `Customer`, `SeatIndex`, `TimeOfSale`, `Status`) VALUES
   ('1', 'Hans@email.com', '1', now(), 'Sale'),

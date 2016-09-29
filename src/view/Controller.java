@@ -48,12 +48,12 @@ public class Controller {
         String usernameAsString = username.getText();
         String passwordAsString = password.getText();
 
-         if (usernameAsString.equals("AdminRoot") && passwordAsString.equals("root") ||
+         if (usernameAsString.equals("admin") && passwordAsString.equals("root") ||
                  usernameAsString.equals("") && passwordAsString.equals("")) { // todo make a check to see if the user exists in the database and create the user object
 
             String email = usernameAsString + "@gmail.com";
 
-            Customer customer = new Customer(email, "Admin Root", "80818103", passwordAsString);
+            Customer customer = new Customer(email, "Amin Jensen", "80818103", passwordAsString);
             session.put("username", usernameAsString);
             session.put("password", passwordAsString);
             session.put("customer_object", customer);
