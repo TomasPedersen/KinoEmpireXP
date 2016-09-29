@@ -44,7 +44,7 @@ DROP TABLE IF EXISTS `kinoempire`.`Shows` ;
 
 CREATE TABLE IF NOT EXISTS `kinoempire`.`Shows` (
   `show_id` INT NOT NULL AUTO_INCREMENT,
-  `Title` VARCHAR(45) NULL,
+  `Danish_Title` VARCHAR(45) NULL,
   `Date` DATE NULL,
   `Time` INT NULL,
   `Theater` INT NULL,
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `kinoempire`.`Customers` (
   `Email` VARCHAR(45) NOT NULL,
   `Name` VARCHAR(45) NULL,
   `Phone_Number` VARCHAR(11) NULL,
-  `Password` VARCHAR(30) NOT NULL
+  `Password` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Email`));
 
 
