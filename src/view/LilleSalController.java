@@ -10,6 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.web.WebView;
 import model.Customer;
+import model.Seat;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class LilleSalController {
 
     // get The film object
     // get the show object
-    ArrayList<Integer> reservedSeatList = new ArrayList<>(); // get the seating arrangement
+    Seat[] reservedSeatList; // get the seating arrangement
     ArrayList<Integer> choosenSeats = new ArrayList<>();
 
     private int amountOfSeatsChoosen = 0;
@@ -43,11 +44,12 @@ public class LilleSalController {
         String idString = toggleButton.getId();
         int id = Integer.parseInt(idString.substring(1,idString.length()));
 
-        for (int reservedId: reservedSeatList) {
-            if (id == reservedId) {
-                return;
-            }
-        }
+        //Hvorfor er det her?
+//        for (Seat seat: reservedSeatList) {
+//            if (seat.isReserved()) {
+//                return;
+//            }
+//        }
 
 
         if(toggleButton.isSelected()) {

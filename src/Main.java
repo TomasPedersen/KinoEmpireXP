@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import model.DBHelper;
 import model.Movie;
 import model.Seat;
+import model.Show;
 import view.Controller;
 
 import java.time.LocalDate;
@@ -18,17 +19,25 @@ import java.util.Map;
 public class Main extends Application{
 
 	public static void main(String[] args) {
-		//launch(args);
-		DBHelper d = new DBHelper();
-		LocalDate ld = LocalDate.of(2026, 5, 20);
+		launch(args);
+//		DBHelper d = new DBHelper();
+//		LocalDate ld = LocalDate.of(2016, 5, 26);
+////
+//		try {
+//			System.out.println(d.showsFromDatePicked(ld).toArray().toString());
+//			System.out.println(d.showsFromDatePicked(ld));
+//		}catch(Exception e){
+//			e.printStackTrace();
+//		}
+////
+//		try {
+//			System.out.println(d.findShowId("Warcraft", ld, 1800, 2));
+//
+//		}catch(Exception e){
+//			e.printStackTrace();
+//		}
 
-		try {
-			for(Seat s: d.seatFromDate(2)) {
-				System.out.println(s.isReserved());
-			}
-		}catch(Exception e){
-			e.printStackTrace();
-		}
+
 	}
 
 

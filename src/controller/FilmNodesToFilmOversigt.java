@@ -19,6 +19,7 @@ import javafx.scene.web.WebView;
 import model.DBHelper;
 import model.Movie;
 import model.Seat;
+import model.Show;
 import view.FilmOversigtController;
 
 import java.io.IOException;
@@ -67,21 +68,23 @@ public class FilmNodesToFilmOversigt {
     public ArrayList<Node> createListOfFilmNodes(LocalDate date){
 
         ArrayList<Node> listOfNodes = new ArrayList<>(); // we will fill it with node where each node will take up one space in
-        ArrayList<Movie> movies = new ArrayList<>(); // have to instantiate it here
+//        ArrayList<Movie> movies = new ArrayList<>(); // have to instantiate it here
+        ArrayList<Show> shows = new ArrayList<>();
         DBHelper db = new DBHelper();
         try {
-            movies = db.fromTitlesToMovies(db.titlesFromDatePicked(date));
+            //movies = db.fromTitlesToMovies(db.titlesFromDatePicked(date));
+            shows = db.showsFromDatePicked(date);
         } catch(Exception e) {
             e.printStackTrace();
         }
 
         FilmOversigtController filmOversigtController = new FilmOversigtController();
 
-        for(int i = 0; i< movies.size(); i++ ){
+        for(int i = 0; i< shows.size(); i++ ){
             //vbox holds the rest of the nodes
             VBox vbox = new VBox();
             //Nodes for vbox
-            Label titleLabel = new Label(movies.get(i).getDanishTitle());
+            Label titleLabel = new Label(shows.get(i).getMovie().getDanishTitle());
             titleLabel.setPrefWidth(Double.MAX_VALUE);
             titleLabel.setId("filmoversigt_title");
             titleLabel.setAlignment(Pos.CENTER);
@@ -94,7 +97,8 @@ public class FilmNodesToFilmOversigt {
             StackPane stackPane = new StackPane();
             stackPane.getChildren().add(noPosterIW);
 
-            Label showTime = new Label("I can't access the show time");
+            Integer time = shows.get(i).getTime();
+            Label showTime = new Label(time.toString());
             showTime.setId("filmoversigt_show_time");
 
 
@@ -109,53 +113,53 @@ public class FilmNodesToFilmOversigt {
             reserverFilm.setPrefWidth(Double.MAX_VALUE);
             reserverFilm.setId("filmoversigt_reserver");
             reserverFilm.setId("glass-red");
-            reserverFilm.setOnAction( e -> filmOversigtController.selectingReserveSeats(e));
+            reserverFilm.setOnAction( e -> filmOversigtController.selectingReserveSeats(e, date));
             reserverFilm.getStyleClass().add("red_button");
 
-            vbox.getChildren().addAll(titleLabel, stackPane, description, reserverFilm);
+            vbox.getChildren().addAll(titleLabel, stackPane, description, reserverFilm, showTime);
 
             listOfNodes.add(vbox);
         }
 
 
-        if(true){  // this will run once and will be overwritten if there is something to show
-            VBox vbox = new VBox();
-            //Nodes for vbox
-            Label titleTF = new Label("Find Dory");
-            titleTF.setPrefWidth(Double.MAX_VALUE);
-            titleTF.setId("filmoversigt_title");
-            titleTF.setAlignment(Pos.CENTER);
-
-            Image noPosterImage = new Image("http://i.imgur.com/8WwLmKA.jpg");
-            ImageView noPosterIW = new ImageView(noPosterImage);
-            noPosterIW.setPreserveRatio(true);
-            noPosterIW.fitWidthProperty().setValue(140);
-
-            StackPane stackPane = new StackPane();
-            stackPane.getChildren().add(noPosterIW);
-
-
-            Label showTime = new Label("I can't access the show time");
-            showTime.setId("filmoversigt_show_time");
-
-            Button description = new Button("Beskrivelse");
-            description.setPrefWidth(Double.MAX_VALUE);
-            description.setId("filmoversigt_beskrivelse");
-            description.setId("glass-red");
-            description.setOnAction( e -> filmOversigtController.selectingDescription(e));
-
-
-            Button reserverFilm = new Button("Reservér");
-            reserverFilm.setPrefWidth(Double.MAX_VALUE);
-            reserverFilm.setId("filmoversigt_reserver");
-            reserverFilm.setId("glass-red");
-            reserverFilm.setOnAction( e -> filmOversigtController.selectingReserveSeats(e));
-
-
-            vbox.getChildren().addAll(titleTF, stackPane, description, reserverFilm);
-
-            listOfNodes.add(vbox);
-        }
+//        if(true){  // this will run once and will be overwritten if there is something to show
+//            VBox vbox = new VBox();
+//            //Nodes for vbox
+//            Label titleTF = new Label("Find Dory");
+//            titleTF.setPrefWidth(Double.MAX_VALUE);
+//            titleTF.setId("filmoversigt_title");
+//            titleTF.setAlignment(Pos.CENTER);
+//
+//            Image noPosterImage = new Image("http://i.imgur.com/8WwLmKA.jpg");
+//            ImageView noPosterIW = new ImageView(noPosterImage);
+//            noPosterIW.setPreserveRatio(true);
+//            noPosterIW.fitWidthProperty().setValue(140);
+//
+//            StackPane stackPane = new StackPane();
+//            stackPane.getChildren().add(noPosterIW);
+//
+//
+//            Label showTime = new Label("I can't access the show time");
+//            showTime.setId("filmoversigt_show_time");
+//
+//            Button description = new Button("Beskrivelse");
+//            description.setPrefWidth(Double.MAX_VALUE);
+//            description.setId("filmoversigt_beskrivelse");
+//            description.setId("glass-red");
+//            description.setOnAction( e -> filmOversigtController.selectingDescription(e));
+//
+//
+//            Button reserverFilm = new Button("Reservér");
+//            reserverFilm.setPrefWidth(Double.MAX_VALUE);
+//            reserverFilm.setId("filmoversigt_reserver");
+//            reserverFilm.setId("glass-red");
+//            reserverFilm.setOnAction( e -> filmOversigtController.selectingReserveSeats(e, date));
+//
+//
+//            vbox.getChildren().addAll(titleTF, stackPane, description, reserverFilm);
+//
+//            listOfNodes.add(vbox);
+//        }
 
 
         return listOfNodes;
