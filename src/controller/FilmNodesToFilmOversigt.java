@@ -80,6 +80,45 @@ public class FilmNodesToFilmOversigt {
 
         FilmOversigtController filmOversigtController = new FilmOversigtController();
 
+        if(true){  // this will run once and will be overwritten if there is something to show
+            VBox vbox = new VBox();
+            //Nodes for vbox
+            Label titleTF = new Label("Find Dory");
+            titleTF.setPrefWidth(Double.MAX_VALUE);
+            titleTF.setId("filmoversigt_title");
+            titleTF.setAlignment(Pos.CENTER);
+
+            Image noPosterImage = new Image("http://i.imgur.com/8WwLmKA.jpg");
+            ImageView noPosterIW = new ImageView(noPosterImage);
+            noPosterIW.setPreserveRatio(true);
+            noPosterIW.fitWidthProperty().setValue(140);
+
+            StackPane stackPane = new StackPane();
+            stackPane.getChildren().add(noPosterIW);
+
+
+            Label showTime = new Label("0900");
+            showTime.setId("filmoversigt_show_time");
+
+            Button description = new Button("Beskrivelse");
+            description.setPrefWidth(Double.MAX_VALUE);
+            description.setId("filmoversigt_beskrivelse");
+            description.setId("glass-red");
+            description.setOnAction( e -> filmOversigtController.selectingDescription(e));
+
+
+            Button reserverFilm = new Button("Reservér");
+            reserverFilm.setPrefWidth(Double.MAX_VALUE);
+            reserverFilm.setId("filmoversigt_reserver");
+            reserverFilm.setId("glass-red");
+            reserverFilm.setOnAction( e -> filmOversigtController.selectingReserveSeats(e, date));
+
+
+            vbox.getChildren().addAll(titleTF, stackPane, description, reserverFilm);
+
+            listOfNodes.add(vbox);
+        }
+
         for(int i = 0; i< shows.size(); i++ ){
             //vbox holds the rest of the nodes
             VBox vbox = new VBox();
@@ -120,46 +159,6 @@ public class FilmNodesToFilmOversigt {
 
             listOfNodes.add(vbox);
         }
-
-
-//        if(true){  // this will run once and will be overwritten if there is something to show
-//            VBox vbox = new VBox();
-//            //Nodes for vbox
-//            Label titleTF = new Label("Find Dory");
-//            titleTF.setPrefWidth(Double.MAX_VALUE);
-//            titleTF.setId("filmoversigt_title");
-//            titleTF.setAlignment(Pos.CENTER);
-//
-//            Image noPosterImage = new Image("http://i.imgur.com/8WwLmKA.jpg");
-//            ImageView noPosterIW = new ImageView(noPosterImage);
-//            noPosterIW.setPreserveRatio(true);
-//            noPosterIW.fitWidthProperty().setValue(140);
-//
-//            StackPane stackPane = new StackPane();
-//            stackPane.getChildren().add(noPosterIW);
-//
-//
-//            Label showTime = new Label("I can't access the show time");
-//            showTime.setId("filmoversigt_show_time");
-//
-//            Button description = new Button("Beskrivelse");
-//            description.setPrefWidth(Double.MAX_VALUE);
-//            description.setId("filmoversigt_beskrivelse");
-//            description.setId("glass-red");
-//            description.setOnAction( e -> filmOversigtController.selectingDescription(e));
-//
-//
-//            Button reserverFilm = new Button("Reservér");
-//            reserverFilm.setPrefWidth(Double.MAX_VALUE);
-//            reserverFilm.setId("filmoversigt_reserver");
-//            reserverFilm.setId("glass-red");
-//            reserverFilm.setOnAction( e -> filmOversigtController.selectingReserveSeats(e, date));
-//
-//
-//            vbox.getChildren().addAll(titleTF, stackPane, description, reserverFilm);
-//
-//            listOfNodes.add(vbox);
-//        }
 
 
         return listOfNodes;

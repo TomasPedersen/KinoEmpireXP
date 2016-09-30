@@ -325,8 +325,12 @@ Port number: 3306
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sqlString);
             connection.commit();
-            resultSet.next();
-            result = resultSet.getInt(1);
+            if (!resultSet.isBeforeFirst()) {
+                System.out.println("No Id");
+            }else {
+                resultSet.next();
+                result = resultSet.getInt(1);
+            }
             connection.close();
         }catch(Exception e){
             e.printStackTrace();
@@ -349,31 +353,6 @@ Port number: 3306
         }
     }
 
-    public ArrayList<Movie> moviesFromDatePicked(LocalDate lD) throws SQLException {
-        ArrayList<Movie> dateMovies = new ArrayList<>();
-        Date date = Date.valueOf(lD);
-        try {
-            // for now we don't have to call connect()
-            // because this method is only called from inside DBHelper
-            sqlString = "SELECT DISTINCT " + "Movies.Danish_Title, Movies.Original_Title, Movies.Genre, Movies.Filmlength, Movies.Filmdescription, " +
-                    "Movies.Release_Date, " + "Movies.Director, Movies.Age_Restriction, Movies.Versions" +
-                    " FROM " + " Movies " +" INNER JOIN " + " Shows" + " ON "+" Movies.Danish_Title = Shows.Danish_Title "+" WHERE Date = " + date +"";
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery(sqlString);
-            connection.commit();
-            while (resultSet.next()) {
-                Movie movie = new Movie(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3), resultSet.getDouble(4), resultSet.getString(5)
-                        , null, resultSet.getDouble(7), resultSet.getString(8), resultSet.getInt(9), resultSet.getString(9));
-                CharSequence releaseDate = resultSet.getString(6);
-                movie.setReleaseDate(LocalDate.parse(releaseDate));
-                dateMovies.add(movie);
-            }
-// no need to close connection because it is closed in the method that calls this
-        } catch (SQLException e) {
-            connection.rollback(savepoint);
-        }
-        return dateMovies;
-    }
 
     public ArrayList<Show> showsFromDatePicked(LocalDate lD) throws SQLException{
         ArrayList<Show> dateShows = new ArrayList<>();

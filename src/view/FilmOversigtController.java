@@ -77,7 +77,7 @@ public class FilmOversigtController {
 
             WebView webView = (WebView) root.lookup("#description_webview");
             webView.getEngine().load(
-                    "http://www.dailymotion.com/embed/video/x4v1xhy_battlefield-1-official-single-player-trailer_videogames"  //this will not work in recent javafx because format is not defined .. perhaps non-html5 video formatting is the reason
+                    "http://www.dailymotion.com/embed/video/x3wnlqy_findet-dory-trailer-2016-disney_shortfilms"  //this will not work in recent javafx because format is not defined .. perhaps non-html5 video formatting is the reason
 
             );
 
@@ -104,12 +104,13 @@ public class FilmOversigtController {
         int showId;
         DBHelper db = new DBHelper();
         showId = db.findShowId(title, date, Integer.parseInt(showTime), 2);
+        //Note that that theater is set to 2. If you try to open a show in theater 1, it will not be able to find it.
 
         // now I should get an arraylist of seats (reserved or not)
         ArrayList<Seat> seats = new ArrayList<>();
 
         try {
-            Seat[] seatArray = db.seatFromDate(showId);  // DOES NOT WORK
+            Seat[] seatArray = db.seatFromDate(showId);
             for (int i = 0; i < seatArray.length; i++) {
                 seats.add(seatArray[i]);
             }
