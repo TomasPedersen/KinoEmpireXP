@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="688.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
@@ -31,13 +32,8 @@
       </HBox>
    </top>
    <center>
-      <Pane prefHeight="200.0" prefWidth="885.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="398.0" prefWidth="716.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="filmoversigt_welcome_name_field" layoutX="201.0" layoutY="152.0" prefHeight="35.0" prefWidth="268.0">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="62.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="182.0" fitWidth="129.0" layoutX="452.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -59,6 +55,15 @@
                   <Image url="@../Images/welcome-clipart-di86qp8ie.png" />
                </image>
             </ImageView>
+            <StackPane layoutX="262.0" layoutY="94.0" prefHeight="166.0" prefWidth="229.0">
+               <children>
+                  <Label fx:id="filmoversigt_welcome_name_field" prefHeight="35.0" prefWidth="268.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
          </children>
       </Pane>
    </center>
