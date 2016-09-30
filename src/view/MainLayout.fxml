@@ -31,9 +31,9 @@
       </HBox>
    </top>
    <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="200.0" prefWidth="885.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="filmoversigt_welcome_name_field" layoutX="361.0" layoutY="121.0" prefHeight="35.0" prefWidth="268.0">
+            <Label fx:id="filmoversigt_welcome_name_field" layoutX="201.0" layoutY="152.0" prefHeight="35.0" prefWidth="268.0">
                <font>
                   <Font size="24.0" />
                </font>
@@ -54,7 +54,7 @@
                   <Image url="@../Images/0b2f05be95eccf4fff10b419aa3f032b.gif" />
                </image>
             </ImageView>
-            <ImageView fitHeight="119.0" fitWidth="336.0" layoutX="167.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="119.0" fitWidth="336.0" layoutX="167.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/welcome-clipart-di86qp8ie.png" />
                </image>
