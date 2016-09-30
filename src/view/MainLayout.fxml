@@ -31,7 +31,7 @@
       </HBox>
    </top>
    <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="200.0" prefWidth="885.0" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="filmoversigt_welcome_name_field" layoutX="201.0" layoutY="152.0" prefHeight="35.0" prefWidth="268.0">
                <font>
