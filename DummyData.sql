@@ -10,10 +10,10 @@ INSERT INTO `kinoempire`.`Customers` (`Email`, `Name`, `Phone_Number`, `Password
 ('Bo@email.com', 'Bo Bosen', '34343434', 'klsjdf');
 
 INSERT INTO `kinoempire`.`Movies` (`Danish_Title`, `Original_Title`, `Genre`, `Filmlength`, `Filmdescription`, `Release_Date`, `Price`, `Director` , `Age_Restriction`, `Versions`, `Poster`) VALUES
-('En Mand Der Hedder Ove', 'En Mand Som Heter Ove', 'Drama, Romantik', '116', 'x', '2016-05-26', '4', 'Hannes Holm', '12',  '2D', 'http://imgur.com/a/GwFmF'),
-('Warcraft', 'Warcraft', 'Adventure', '123', 'x', '2016-05-26', '4', 'Duncan Jones', '12',  '3D, 2D, IMAX 3D', 'http://imgur.com/a/eIySz'),
-('Mig Før Dig', 'Me Before You', 'Drama, Romantik', '110', 'x', '2016-06-02', '4', 'Thea Sharrock', '12',  '2D', 'http://imgur.com/a/CJHuM'),
-('Money Monster', 'Money Monster', 'Thriller, Drama', '98', 'x', '2016-06-02', '4',  'Jodie Foster', '12',  '2D', 'http://imgur.com/a/w65zW');
+('En Mand Der Hedder Ove', 'En Mand Som Heter Ove', 'Drama, Romantik', '116', 'x', '2016-05-26', '4', 'Hannes Holm', '12',  '2D', 'http://i.imgur.com/Bgf4qLw.jpg'),
+('Warcraft', 'Warcraft', 'Adventure', '123', 'x', '2016-05-26', '4', 'Duncan Jones', '12',  '3D, 2D, IMAX 3D', 'http://i.imgur.com/GsI6WH2.jpg'),
+('Mig Før Dig', 'Me Before You', 'Drama, Romantik', '110', 'x', '2016-06-02', '4', 'Thea Sharrock', '12',  '2D', 'http://i.imgur.com/yLV2VMw.jpg'),
+('Money Monster', 'Money Monster', 'Thriller, Drama', '98', 'x', '2016-06-02', '4',  'Jodie Foster', '12',  '2D', 'http://i.imgur.com/Dbz7pIl.jpg');
 
 INSERT INTO `kinoempire`.`Shows` (`show_id`, `Danish_Title`, `Date`, `Time`, `Theater`) VALUES
   (DEFAULT , 'En Mand Der Hedder Ove', '2016.10.03', '1200', '2'),

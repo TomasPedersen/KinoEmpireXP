@@ -80,7 +80,7 @@ public class FilmNodesToFilmOversigt {
 
         FilmOversigtController filmOversigtController = new FilmOversigtController();
 
-        if(true){  // this will run once and will be overwritten if there is something to show
+        if(shows.size() == 0){  // this will run once and will be overwritten if there is something to show
             VBox vbox = new VBox();
             //Nodes for vbox
             Label titleTF = new Label("Find Dory");
@@ -128,7 +128,7 @@ public class FilmNodesToFilmOversigt {
             titleLabel.setId("filmoversigt_title");
             titleLabel.setAlignment(Pos.CENTER);
 
-            Image noPosterImage = new Image("/images/NoPosterAvailable.png");
+            Image noPosterImage = new Image(shows.get(i).getMovie().getPoster());
             ImageView noPosterIW = new ImageView(noPosterImage);
             noPosterIW.setPreserveRatio(true);
             noPosterIW.fitWidthProperty().setValue(140);

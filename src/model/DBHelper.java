@@ -422,14 +422,14 @@ Port number: 3306
         try {
 //            connection = connect();
             for (String s : titles) {
-                sqlString = "select Danish_Title, Original_Title, Genre, FilmLength, FilmDescription, Release_Date, Price, Director, Age_Restriction, Versions from Movies where Danish_Title = '" +s+ "';";
+                sqlString = "select Danish_Title, Original_Title, Genre, FilmLength, FilmDescription, Release_Date, Price, Director, Age_Restriction, Versions, Poster from Movies where Danish_Title = '" +s+ "';";
                 statement = connection.createStatement();
                 resultMovies = statement.executeQuery(sqlString);
                 connection.commit();
 
                     while (resultMovies.next()) {
                         movie = new Movie(resultMovies.getString(1), resultMovies.getString(2), resultMovies.getString(3), resultMovies.getInt(4), resultMovies.getString(5)
-                                , null, resultMovies.getInt(7), resultMovies.getString(8), resultMovies.getInt(9), resultMovies.getString(9));
+                                , null, resultMovies.getInt(7), resultMovies.getString(8), resultMovies.getInt(9), resultMovies.getString(9), resultMovies.getString(11));
                         CharSequence releaseDate = resultMovies.getString(6);
                         movie.setReleaseDate(LocalDate.parse(releaseDate));
                     }

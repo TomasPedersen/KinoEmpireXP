@@ -125,5 +125,14 @@ public class Movie {
         this.releaseDate = releaseDate;
     }
 
+
+    public String getPoster() {
+        return poster;
+    }
+
+    public void setPoster(String poster) {
+        this.poster = poster;
+    }
+
 }
 
