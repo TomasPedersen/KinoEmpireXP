@@ -366,7 +366,7 @@ Port number: 3306
             resultShows = statement.executeQuery(sqlString);
             connection.commit();
             if (!resultShows.isBeforeFirst()) {
-                System.out.println("No data");
+                System.out.println("No shows");
             }else{
                 while (resultShows.next()) {
                     for(Movie m: fromTitlesToMovies(titlesFromDatePicked(lD))){
@@ -402,7 +402,7 @@ Port number: 3306
             resultTitles = statement.executeQuery(sqlString);
             connection.commit();
             if (!resultTitles.isBeforeFirst()) {
-                System.out.println("No data");
+                System.out.println("No titles ");
             } else {
                 while (resultTitles.next()) {
                     titles.add(resultTitles.getString(1));
